@@ -189,7 +189,7 @@ class _CartBottomSheetState extends State<CartBottomSheet> {
                               borderRadius: BorderRadius.circular(5),
                               boxShadow: [BoxShadow(color: Colors.grey[Provider.of<ThemeProvider>(context).darkTheme ? 700 : 200]!, spreadRadius: 1, blurRadius: 5)],
                             ),
-                            child: details.variantIndex == index ? Icon(Icons.done_all, color: ColorResources.WHITE, size: 12) : ""
+                            child: details.variantIndex == index ? Icon(Icons.done_all, color: ColorResources.WHITE, size: 12) : null
                           ),
                         );
                       },
@@ -228,7 +228,7 @@ class _CartBottomSheetState extends State<CartBottomSheet> {
                               decoration: BoxDecoration(
                                 color: details.variationIndex[index] != i ? Theme.of(context).highlightColor : ColorResources.getPrimary(context),
                                 borderRadius: BorderRadius.circular(5),
-                                border: details.variationIndex[index] != i ? Border.all(color: Theme.of(context).hintColor, width: 2) : ""
+                                border: details.variationIndex[index] != i ? Border.all(color: Theme.of(context).hintColor, width: 2) : null
                               ),
                               child: Text(widget.product.choiceOptions[index].options[i], maxLines: 1, overflow: TextOverflow.ellipsis, style: titilliumRegular.copyWith(
                                 fontSize: Dimensions.FONT_SIZE_SMALL,

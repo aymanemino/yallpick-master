@@ -64,7 +64,7 @@ class _WishListScreenState extends State<WishListScreen> {
                                       Provider.of<LocalizationProvider>(context,
                                               listen: false)
                                           .locale
-                                          .countryCode,
+                                          .countryCode ?? "",
                                     );
                                   },
                                   child: ListView.builder(

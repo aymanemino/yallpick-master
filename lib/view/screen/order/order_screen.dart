@@ -76,7 +76,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
       context,
       Provider.of<LocalizationProvider>(context, listen: false)
           .locale
-          .countryCode,
+          .countryCode ?? "",
     );
   }
 

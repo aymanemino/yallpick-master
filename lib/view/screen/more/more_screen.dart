@@ -50,7 +50,7 @@ class _MoreScreenState extends State<MoreScreen> {
         context,
         Provider.of<LocalizationProvider>(context, listen: false)
             .locale
-            .countryCode,
+            .countryCode ?? "",
       );
       version = Provider.of<SplashProvider>(context, listen: false)
                   .configModel

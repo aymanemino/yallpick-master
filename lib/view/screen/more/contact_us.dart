@@ -242,7 +242,7 @@ class _ContactUsState extends State<ContactUs> {
                     SizedBox(height: Dimensions.MARGIN_SIZE_LARGE),
 
                     // Provider.of<SplashProvider>(context).configModel.faq != null &&
-                    //         Provider.of<SplashProvider>(context).configModel.faq.length >
+                    //         Provider.of<SplashProvider>(context).configModel.faq?.length ?? 0 >
                     //             0
                     //     ? Expanded(
                     //         child: ListView.builder(
@@ -262,7 +262,7 @@ class _ContactUsState extends State<ContactUs> {
                     //                               child: ExpansionTile(
                     //                             iconColor: Theme.of(context).primaryColor,
                     //                             title: Text(
-                    //                                 faq.configModel.faq[index].question,
+                    //                                 faq.configModel.faq?[index].question ?? "",
                     //                                 style: robotoBold.copyWith(
                     //                                     color:
                     //                                         ColorResources.getTextTitle(
@@ -275,7 +275,7 @@ class _ContactUsState extends State<ContactUs> {
                     //                               Padding(
                     //                                 padding: const EdgeInsets.all(8.0),
                     //                                 child: Text(
-                    //                                   faq.configModel.faq[index].answer,
+                    //                                   faq.configModel.faq?[index].answer ?? "",
                     //                                   style: robotoRegular,
                     //                                   textAlign: TextAlign.justify,
                     //                                 ),

@@ -110,7 +110,7 @@ class TopSellerChatScreen extends StatelessWidget {
                         controller: _controller,
                         style: titilliumRegular,
                         keyboardType: TextInputType.multiline,
-                        maxLines: ""
+                        maxLines: null
                         expands: true,
                         decoration: InputDecoration(
                           hintText: getTranslated('type_here', context),

@@ -76,7 +76,7 @@ class CurrencyDialog extends StatelessWidget {
                             .setLanguage(
                           Locale(
                             AppConstants.languages[index].languageCode,
-                            AppConstants.languages[index].countryCode,
+                            AppConstants.languages[index].countryCode ?? "",
                           ),
                         );
                       }
@@ -161,7 +161,7 @@ class CurrencyDialog extends StatelessWidget {
                           .setLanguage(
                         Locale(
                           AppConstants.languages[index].languageCode,
-                          AppConstants.languages[index].countryCode,
+                          AppConstants.languages[index].countryCode ?? "",
                         ),
                       );
                       Provider.of<CategoryProvider>(context, listen: false)
