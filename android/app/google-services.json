@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "811162013764",
+    "project_id": "yallapick-92c64",
+    "storage_bucket": "yallapick-92c64.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811162013764:android:ac6b42b1c3e2c0fa536c11",
+        "android_client_info": {
+          "package_name": "com.yalla.pick"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "811162013764-4ih2c1u3abf0s5p3pofmkm35s65c9lfb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yalla.pick",
+            "certificate_hash": "6151a0b9461360d54bb26ccca20e47ea0bbac250"
+          }
+        },
+        {
+          "client_id": "811162013764-auupinnmebji2l2eqen1gr8fhboqedf2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yalla.pick",
+            "certificate_hash": "86eb685f8927f10908a223e5fa50ffde859cdc73"
+          }
+        },
+        {
+          "client_id": "811162013764-adohmc3p3ntal32h7bgojihg7546le72.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtnQGpm4Bwy4UvMq0yyfF96770tE7vMK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "811162013764-adohmc3p3ntal32h7bgojihg7546le72.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "811162013764-62k7c6t5qlq4asa5oufh5d51mi8f02p0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yallapick.seller"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811162013764:android:d17f34518bfcb5a0536c11",
+        "android_client_info": {
+          "package_name": "com.yallapick.seller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "811162013764-adohmc3p3ntal32h7bgojihg7546le72.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtnQGpm4Bwy4UvMq0yyfF96770tE7vMK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "811162013764-adohmc3p3ntal32h7bgojihg7546le72.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "811162013764-62k7c6t5qlq4asa5oufh5d51mi8f02p0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yallapick.seller"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
