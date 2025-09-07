@@ -154,7 +154,7 @@ class CodePickerWidgetState extends State<CodePickerWidget> {
       );
     else {
       _widget = TextButton(
-        onPressed: widget.enabled ? showCountryCodePickerDialog : null,
+        onPressed: widget.enabled ? showCountryCodePickerDialog : ""
         child: Flex(
           direction: Axis.horizontal,
           mainAxisSize: MainAxisSize.min,

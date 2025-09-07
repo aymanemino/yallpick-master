@@ -36,7 +36,7 @@ class SavedBillingAddressListScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: ColorResources.getIconBg(context),
-                            border: index == Provider.of<OrderProvider>(context).billingAddressIndex ? Border.all(width: 2, color: Theme.of(context).primaryColor) : null,
+                            border: index == Provider.of<OrderProvider>(context).billingAddressIndex ? Border.all(width: 2, color: Theme.of(context).primaryColor) : ""
                           ),
                           child: AddressListPage(address: profile.billingAddressList[index]),
                         ),

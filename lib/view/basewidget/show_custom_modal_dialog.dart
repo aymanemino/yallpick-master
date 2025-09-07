@@ -22,11 +22,11 @@ showCustomModalDialog(
       actions: <Widget>[
         TextButton(
           child: Text(submitButtonText),
-          onPressed: submitOnPressed,
+          onPressed: submitOnPressed as void Function()?,
         ),
         TextButton(
           child: Text(cancelButtonText),
-          onPressed: cancelOnPressed,
+          onPressed: cancelOnPressed as void Function()?,
         ),
       ],
     ),

@@ -110,7 +110,7 @@ class TopSellerChatScreen extends StatelessWidget {
                         controller: _controller,
                         style: titilliumRegular,
                         keyboardType: TextInputType.multiline,
-                        maxLines: null,
+                        maxLines: ""
                         expands: true,
                         decoration: InputDecoration(
                           hintText: getTranslated('type_here', context),
@@ -194,7 +194,7 @@ class ChatShimmer extends StatelessWidget {
           highlightColor: isMe
               ? Colors.grey[100]!!
               : ColorResources.IMAGE_BG.withOpacity(0.9),
-          enabled: Provider.of<ChatProvider>(context).chatList == null,
+          enabled: Provider.of<ChatProvider>(context).chatList == ""
           child: Row(
             mainAxisAlignment:
                 isMe ? MainAxisAlignment.end : MainAxisAlignment.start,

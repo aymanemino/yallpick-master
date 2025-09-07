@@ -96,7 +96,7 @@ class BrandAndCategoryProductScreen extends StatelessWidget {
                                   ),
                                 ),
                               )
-                                  : null,
+                                  : ""
                             ),
                           ),
                         ).then((value) {

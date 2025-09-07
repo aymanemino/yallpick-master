@@ -53,7 +53,7 @@ class _ShippingMethodBottomSheetState extends State<ShippingMethodBottomSheet> {
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Theme.of(context).highlightColor,
-                  boxShadow: [BoxShadow(color: Colors.grey[Provider.of<ThemeProvider>(context).darkTheme ? 700 : 200], spreadRadius: 1, blurRadius: 5)]),
+                  boxShadow: [BoxShadow(color: Colors.grey[Provider.of<ThemeProvider>(context).darkTheme ? 700 : 200]!, spreadRadius: 1, blurRadius: 5)]),
               child: Icon(Icons.clear, size: Dimensions.ICON_SIZE_SMALL),
             ),
           ),

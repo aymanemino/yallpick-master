@@ -76,10 +76,10 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
       _updateAddress = false;
       Provider.of<LocationProvider>(context, listen: false).updatePosition(
           CameraPosition(
-              target: LatLng(double.parse(widget.address.latitude),
-                  double.parse(widget.address.longitude))),
+              target: LatLng(double.parse(widget.address.latitude ?? "0"),
+                  double.parse(widget.address.longitude ?? "0"))),
           true,
-          widget.address.address,
+          widget.address.address ?? "",
           context);
       _contactPersonNameController.text = '${widget.address.contactPersonName}';
       _contactPersonNumberController.text = '${widget.address.phone}';
@@ -178,11 +178,11 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                           ? LatLng(
                                                               double.parse(widget
                                                                       .address
-                                                                      .latitude) ??
+                                                                      .latitude ?? "0") ??
                                                                   0.0,
                                                               double.parse(widget
                                                                       .address
-                                                                      .longitude) ??
+                                                                      .longitude ?? "0") ??
                                                                   0.0)
                                                           : LatLng(
                                                               locationProvider
@@ -214,7 +214,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                             .updatePosition(
                                                                 _cameraPosition,
                                                                 true,
-                                                                null,
+                                                                ""
                                                                 context);
                                                       } else {
                                                         _updateAddress = true;
@@ -683,7 +683,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                   .toList(),
                                               onChanged: (v) {
                                                 setState(() {
-                                                  selectedCity = v;
+                                                  selectedCity = v.toString();
                                                 });
                                               },
                                             ),

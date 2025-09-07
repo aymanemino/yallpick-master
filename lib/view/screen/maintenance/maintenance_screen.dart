@@ -17,7 +17,7 @@ class MaintenanceScreen extends StatelessWidget {
 
             Text(getTranslated('maintenance_mode', context), style: titilliumBold.copyWith(
               fontSize: 30,
-              color: Theme.of(context).textTheme.bodyText1.color,
+              color: Theme.of(context).textTheme.bodyText1?.color ?? Colors.black,
             )),
             SizedBox(height: Dimensions.PADDING_SIZE_EXTRA_SMALL),
 

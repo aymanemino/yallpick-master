@@ -75,7 +75,7 @@ class _AddAddressBottomSheetState extends State<AddAddressBottomSheet> {
                     items: profileProvider.addressTypeList.map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
-                        child: Text(value, style: titilliumRegular.copyWith(color: Theme.of(context).textTheme.bodyText1.color)),
+                        child: Text(value, style: titilliumRegular.copyWith(color: Theme.of(context).textTheme.bodyText1?.color ?? Colors.black)),
                       );
                     }).toList(),
                   ),

@@ -40,7 +40,7 @@ class FeaturedDealsView extends StatelessWidget {
               },
               child: Container(
                 margin: EdgeInsets.all(5),
-                width: isHomePage ? 300 : null,
+                width: isHomePage ? 300 : ""
                 height: 180, // Adjusted the height to accommodate new labels
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),

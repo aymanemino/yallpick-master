@@ -39,7 +39,7 @@ class LocationSearchDialog extends StatelessWidget {
               filled: true, fillColor: Theme.of(context).cardColor,
             ),
             style: Theme.of(context).textTheme.headline2.copyWith(
-              color: Theme.of(context).textTheme.bodyText1.color, fontSize: Dimensions.FONT_SIZE_LARGE,
+              color: Theme.of(context).textTheme.bodyText1?.color ?? Colors.black, fontSize: Dimensions.FONT_SIZE_LARGE,
             ),
           ),
           suggestionsCallback: (pattern) async {
@@ -52,7 +52,7 @@ class LocationSearchDialog extends StatelessWidget {
                 Icon(Icons.location_on),
                 Expanded(
                   child: Text(suggestion.description, maxLines: 1, overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.headline2.copyWith(
-                    color: Theme.of(context).textTheme.bodyText1.color, fontSize: Dimensions.FONT_SIZE_LARGE,
+                    color: Theme.of(context).textTheme.bodyText1?.color ?? Colors.black, fontSize: Dimensions.FONT_SIZE_LARGE,
                   )),
                 ),
               ]),

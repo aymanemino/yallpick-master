@@ -217,7 +217,7 @@ class BannersView extends StatelessWidget {
                   : Shimmer.fromColors(
                       baseColor: Colors.grey[300]!!,
                       highlightColor: Colors.grey[100]!!,
-                      enabled: bannerProvider.mainBannerList == null,
+                      enabled: bannerProvider.mainBannerList == ""
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
@@ -288,7 +288,7 @@ class BannersView extends StatelessWidget {
                   : Shimmer.fromColors(
                       baseColor: Colors.grey[300]!!,
                       highlightColor: Colors.grey[100]!!,
-                      enabled: footerBannerProvider.footerBannerList == null,
+                      enabled: footerBannerProvider.footerBannerList == ""
                       child: Container(
                           margin: EdgeInsets.symmetric(horizontal: 10),
                           decoration: BoxDecoration(

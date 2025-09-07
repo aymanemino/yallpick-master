@@ -34,7 +34,7 @@ class SavedAddressListScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: ColorResources.getIconBg(context),
-                            border: index == Provider.of<OrderProvider>(context).addressIndex ? Border.all(width: 2, color: Theme.of(context).primaryColor) : null,
+                            border: index == Provider.of<OrderProvider>(context).addressIndex ? Border.all(width: 2, color: Theme.of(context).primaryColor) : ""
                           ),
                           child: AddressListPage(address: profile.addressList[index]),
                         ),

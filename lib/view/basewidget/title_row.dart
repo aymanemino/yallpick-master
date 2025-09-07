@@ -94,7 +94,7 @@ class TimerBox extends StatelessWidget {
       padding: EdgeInsets.all(isBorder ? 0 : 2),
       decoration: BoxDecoration(
         color: isBorder ? null : ColorResources.getPrimary(context),
-        border: isBorder ? Border.all(width: 2, color: ColorResources.getPrimary(context)) : null,
+        border: isBorder ? Border.all(width: 2, color: ColorResources.getPrimary(context)) : ""
         borderRadius: BorderRadius.circular(3),
       ),
       child: Center(

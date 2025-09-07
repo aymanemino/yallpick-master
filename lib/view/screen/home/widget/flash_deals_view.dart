@@ -39,7 +39,7 @@ class FlashDealsView extends StatelessWidget {
               },
               child: Container(
                 margin: EdgeInsets.all(5),
-                width: isHomeScreen ? 300 : null,
+                width: isHomeScreen ? 300 : ""
                 height: 180, // Adjusted height for the new labels
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),

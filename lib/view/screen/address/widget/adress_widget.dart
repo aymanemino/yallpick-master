@@ -32,7 +32,7 @@ class AddressWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(7),
               color: ColorResources.getChatIcon(context),
               boxShadow: [
-                BoxShadow(color: Colors.grey[Provider.of<ThemeProvider>(context).darkTheme ? 700 : 200], spreadRadius: 0.5, blurRadius: 0.5)
+                BoxShadow(color: Colors.grey[Provider.of<ThemeProvider>(context).darkTheme ? 700 : 200]!, spreadRadius: 0.5, blurRadius: 0.5)
               ],
             ),
             child: Column(

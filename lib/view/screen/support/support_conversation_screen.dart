@@ -217,7 +217,7 @@ class SupportConversationScreen extends StatelessWidget {
                     controller: _controller,
                     style: titilliumRegular,
                     keyboardType: TextInputType.multiline,
-                    maxLines: null,
+                    maxLines: ""
                     expands: true,
                     decoration: InputDecoration(
                       hintText: getTranslated('type_here', context),

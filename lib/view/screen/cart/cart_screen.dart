@@ -747,7 +747,7 @@ class _CartScreenState extends State<CartScreen> {
             ),
           ),
         )
-            : null,
+            : ""
       );
     });
   }

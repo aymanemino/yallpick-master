@@ -99,7 +99,7 @@ class _CartBottomSheetState extends State<CartBottomSheet> {
                     width: 25,
                     height: 25,
                     decoration: BoxDecoration(shape: BoxShape.circle, color: Theme.of(context).highlightColor, boxShadow: [BoxShadow(
-                      color: Colors.grey[Provider.of<ThemeProvider>(context).darkTheme ? 700 : 200],
+                      color: Colors.grey[Provider.of<ThemeProvider>(context).darkTheme ? 700 : 200]!,
                       spreadRadius: 1,
                       blurRadius: 5,
                     )]),
@@ -187,9 +187,9 @@ class _CartBottomSheetState extends State<CartBottomSheet> {
                             decoration: BoxDecoration(
                               color: Color(int.parse(colorString)),
                               borderRadius: BorderRadius.circular(5),
-                              boxShadow: [BoxShadow(color: Colors.grey[Provider.of<ThemeProvider>(context).darkTheme ? 700 : 200], spreadRadius: 1, blurRadius: 5)],
+                              boxShadow: [BoxShadow(color: Colors.grey[Provider.of<ThemeProvider>(context).darkTheme ? 700 : 200]!, spreadRadius: 1, blurRadius: 5)],
                             ),
-                            child: details.variantIndex == index ? Icon(Icons.done_all, color: ColorResources.WHITE, size: 12) : null,
+                            child: details.variantIndex == index ? Icon(Icons.done_all, color: ColorResources.WHITE, size: 12) : ""
                           ),
                         );
                       },
@@ -228,7 +228,7 @@ class _CartBottomSheetState extends State<CartBottomSheet> {
                               decoration: BoxDecoration(
                                 color: details.variationIndex[index] != i ? Theme.of(context).highlightColor : ColorResources.getPrimary(context),
                                 borderRadius: BorderRadius.circular(5),
-                                border: details.variationIndex[index] != i ? Border.all(color: Theme.of(context).hintColor, width: 2) : null,
+                                border: details.variationIndex[index] != i ? Border.all(color: Theme.of(context).hintColor, width: 2) : ""
                               ),
                               child: Text(widget.product.choiceOptions[index].options[i], maxLines: 1, overflow: TextOverflow.ellipsis, style: titilliumRegular.copyWith(
                                 fontSize: Dimensions.FONT_SIZE_SMALL,

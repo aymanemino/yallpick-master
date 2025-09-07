@@ -327,7 +327,7 @@ class _HomePageState extends State<HomePage> {
                                         eventDuration:
                                         flashDeal.flashDeal != null
                                             ? flashDeal.duration
-                                            : null,
+                                            : ""
                                         onTap: () {
                                           Navigator.push(
                                               context,
@@ -358,7 +358,7 @@ class _HomePageState extends State<HomePage> {
                                         flashDeal.flashDeal !=
                                             null
                                             ? flashDeal.duration
-                                            : null,
+                                            : ""
                                         onTap: () {
                                           Navigator.push(
                                               context,

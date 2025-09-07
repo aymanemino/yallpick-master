@@ -64,7 +64,7 @@ class CartRepo {
     }
     Map<String, dynamic> _data = {
       'id': cart.id,
-      'variant': cart.variation != null ? cart.variation.type : null,
+      'variant': cart.variation != null ? cart.variation.type : ""
       'quantity': cart.quantity
     };
     _data.addAll(_choice);

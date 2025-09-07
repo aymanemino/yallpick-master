@@ -18,7 +18,7 @@ class TrackingResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Provider.of<OrderProvider>(context, listen: false).initTrackingInfo(orderID, null, false, context);
+    Provider.of<OrderProvider>(context, listen: false).initTrackingInfo(orderID, "" false, context);
     List<String> _statusList = ['pending', 'confirmed', 'processing', 'out_for_delivery', 'delivered'];
 
 

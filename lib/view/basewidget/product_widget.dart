@@ -83,7 +83,7 @@ class _ProductWidgetState extends State<ProductWidget>
         product.minQty ?? 1, // maxQuantity
         '', // variant
         '', // color
-        null, // variation
+        "" // variation
         product.discount,
         product.discountType,
         product.tax,

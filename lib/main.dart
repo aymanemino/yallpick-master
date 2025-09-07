@@ -138,7 +138,7 @@ class MyApp extends StatelessWidget {
       home: orderId == null
           ? SplashScreen()
           : OrderDetailsScreen(
-              orderModel: null,
+              orderModel: ""
               orderId: orderId,
               orderType: 'default_type',
             ),

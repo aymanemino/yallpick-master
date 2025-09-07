@@ -28,7 +28,7 @@ class _MapWidgetState extends State<MapWidget> {
   void initState() {
     super.initState();
 
-    _latLng = LatLng(double.parse(widget.address.latitude), double.parse(widget.address.longitude));
+    _latLng = LatLng(double.parse(widget.address.latitude ?? "0"), double.parse(widget.address.longitude ?? "0"));
     _setMarker();
   }
 
@@ -75,7 +75,7 @@ class _MapWidgetState extends State<MapWidget> {
                         fontSize: Dimensions.FONT_SIZE_SMALL, color: ColorResources.getGrey(context),
                       )),
 
-                      Text(widget.address.address, style: robotoRegular),
+                      Text(widget.address.address ?? "", style: robotoRegular),
 
                     ]),
                   ),

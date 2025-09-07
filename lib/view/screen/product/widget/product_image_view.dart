@@ -131,7 +131,7 @@ class ProductImageView extends StatelessWidget {
                             index
                         ? Border.all(
                             color: ColorResources.getPrimary(context), width: 2)
-                        : null,
+                        : ""
                   ),
                   child: Padding(
                     padding: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),

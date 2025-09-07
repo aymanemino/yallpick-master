@@ -44,7 +44,7 @@ class InboxScreen extends StatelessWidget {
             borderRadius: BorderRadius.only(bottomLeft: Radius.circular(5), bottomRight: Radius.circular(5)),
             child: Image.asset(
               Images.toolbar_background, fit: BoxFit.fill, height: 90, width: double.infinity,
-              color: Provider.of<ThemeProvider>(context).darkTheme ? Colors.black : null,
+              color: Provider.of<ThemeProvider>(context).darkTheme ? Colors.black : ""
             ),
           ),
           Container(
@@ -168,7 +168,7 @@ class InboxShimmer extends StatelessWidget {
         return Shimmer.fromColors(
           baseColor: Colors.grey[300]!!,
           highlightColor: Colors.grey[100]!!,
-          enabled: Provider.of<ChatProvider>(context).uniqueShopList == null,
+          enabled: Provider.of<ChatProvider>(context).uniqueShopList == ""
           child: Padding(
             padding: EdgeInsets.only(bottom: Dimensions.PADDING_SIZE_SMALL),
             child: Row(children: [

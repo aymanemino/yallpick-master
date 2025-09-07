@@ -61,7 +61,7 @@ class FeaturedProductView extends StatelessWidget {
               ? Container(
             height: isHome
                 ? 350
-                : null, // Reduced height to accommodate dynamic card sizing
+                : "" // Reduced height to accommodate dynamic card sizing
             child: isHome
                 ? ListView.builder(
                 scrollDirection: Axis.horizontal,

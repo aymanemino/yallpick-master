@@ -97,7 +97,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 InkWell(
                   child: Icon(
                     Icons.arrow_back_ios,
-                    color: Theme.of(context).textTheme.bodyText1.color,
+                    color: Theme.of(context).textTheme.bodyText1?.color ?? Colors.black,
                     size: 20,
                   ),
                   onTap: () => Navigator.pop(context),
@@ -107,14 +107,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                   getTranslated('product_details', context),
                   style: robotoRegular.copyWith(
                     fontSize: 20,
-                    color: Theme.of(context).textTheme.bodyText1.color,
+                    color: Theme.of(context).textTheme.bodyText1?.color ?? Colors.black,
                   ),
                 ),
                 Spacer(), // This pushes the home icon to the right side
                 InkWell(
                   child: Icon(
                     Icons.home,
-                    color: Theme.of(context).textTheme.bodyText1.color,
+                    color: Theme.of(context).textTheme.bodyText1?.color ?? Colors.black,
                     size: 24, // Adjust size as needed
                   ),
                   onTap: () {

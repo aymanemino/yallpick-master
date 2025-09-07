@@ -74,7 +74,7 @@ class OfferShimmer extends StatelessWidget {
         return Shimmer.fromColors(
           baseColor: Colors.grey[300]!!,
           highlightColor: Colors.grey[100]!!,
-          enabled: Provider.of<BannerProvider>(context).footerBannerList == null,
+          enabled: Provider.of<BannerProvider>(context).footerBannerList == ""
           child: Container(
             height: 100,
             margin: EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_LARGE, vertical: Dimensions.PADDING_SIZE_SMALL),

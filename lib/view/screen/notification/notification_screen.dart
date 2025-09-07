@@ -86,7 +86,7 @@ class NotificationShimmer extends StatelessWidget {
           child: Shimmer.fromColors(
             baseColor: Colors.grey[300]!!,
             highlightColor: Colors.grey[100]!!,
-            enabled: Provider.of<NotificationProvider>(context).notificationList == null,
+            enabled: Provider.of<NotificationProvider>(context).notificationList == ""
             child: ListTile(
               leading: CircleAvatar(child: Icon(Icons.notifications)),
               title: Container(height: 20, color: ColorResources.WHITE),

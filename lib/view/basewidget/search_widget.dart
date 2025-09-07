@@ -232,7 +232,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                           constraints: BoxConstraints(),
                         ),
                       )
-                          : null,
+                          : ""
                     ),
                   ),
                 ),

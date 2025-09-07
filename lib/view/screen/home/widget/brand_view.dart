@@ -91,7 +91,7 @@ class BrandView extends StatelessWidget {
                               child: CircularProgressIndicator(
                                 value: loadingProgress.expectedTotalBytes != null
                                     ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes
-                                    : null,
+                                    : ""
                               ),
                             );
                           },
@@ -144,7 +144,7 @@ class BrandShimmer extends StatelessWidget {
       ),
       itemCount: isHomePage ? 8 : 30,
       shrinkWrap: true,
-      physics: isHomePage ? NeverScrollableScrollPhysics() : null,
+      physics: isHomePage ? NeverScrollableScrollPhysics() : ""
       itemBuilder: (BuildContext context, int index) {
         return Shimmer.fromColors(
           baseColor: Colors.grey[300]!!,
