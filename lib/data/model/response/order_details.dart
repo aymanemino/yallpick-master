@@ -1,56 +1,56 @@
 import 'package:flutter_sixvalley_ecommerce/data/model/response/product_model.dart';
 
 class OrderDetailsModel {
-  int _id;
-  int _orderId;
-  int _productId;
-  int _sellerId;
-  Product _productDetails;
-  int _qty;
-  double _price;
-  double _tax;
-  double _discount;
-  String _deliveryStatus;
-  String _paymentStatus;
-  String _createdAt;
-  String _updatedAt;
-  int _shippingMethodId;
-  String _variant;
+  int _id = 0;
+  int _orderId = 0;
+  int _productId = 0;
+  int _sellerId = 0;
+  Product _productDetails = Product();
+  int _qty = 0;
+  double _price = 0.0;
+  double _tax = 0.0;
+  double _discount = 0.0;
+  String _deliveryStatus = '';
+  String _paymentStatus = '';
+  String _createdAt = '';
+  String _updatedAt = '';
+  int _shippingMethodId = 0;
+  String _variant = '';
   //List<Variation> _variation;
 
-  OrderDetailsModel(
-      {int? id,
-        int? orderId,
-        int? productId,
-        int? sellerId,
-        Product? productDetails,
-        int? qty,
-        double? price,
-        double? tax,
-        double? discount,
-        String? deliveryStatus,
-        String? paymentStatus,
-        String? createdAt,
-        String? updatedAt,
-        int? shippingMethodId,
-        String? variant,
-        //List<Variation> variation
-      }) {
-    this._id = id;
-    this._orderId = orderId;
-    this._productId = productId;
-    this._sellerId = sellerId;
-    this._productDetails = productDetails;
-    this._qty = qty;
-    this._price = price;
-    this._tax = tax;
-    this._discount = discount;
-    this._deliveryStatus = deliveryStatus;
-    this._paymentStatus = paymentStatus;
-    this._createdAt = createdAt;
-    this._updatedAt = updatedAt;
-    this._shippingMethodId = shippingMethodId;
-    this._variant = variant;
+  OrderDetailsModel({
+    int? id,
+    int? orderId,
+    int? productId,
+    int? sellerId,
+    Product? productDetails,
+    int? qty,
+    double? price,
+    double? tax,
+    double? discount,
+    String? deliveryStatus,
+    String? paymentStatus,
+    String? createdAt,
+    String? updatedAt,
+    int? shippingMethodId,
+    String? variant,
+    //List<Variation> variation
+  }) {
+    this._id = id ?? 0;
+    this._orderId = orderId ?? 0;
+    this._productId = productId ?? 0;
+    this._sellerId = sellerId ?? 0;
+    this._productDetails = productDetails ?? Product();
+    this._qty = qty ?? 0;
+    this._price = price ?? 0.0;
+    this._tax = tax ?? 0.0;
+    this._discount = discount ?? 0.0;
+    this._deliveryStatus = deliveryStatus ?? '';
+    this._paymentStatus = paymentStatus ?? '';
+    this._createdAt = createdAt ?? '';
+    this._updatedAt = updatedAt ?? '';
+    this._shippingMethodId = shippingMethodId ?? 0;
+    this._variant = variant ?? '';
     //this._variation = variation;
   }
 
@@ -71,23 +71,25 @@ class OrderDetailsModel {
   String get variant => _variant;
 
   OrderDetailsModel.fromJson(Map<String, dynamic> json) {
-    _id = json['id'];
-    _orderId = json['order_id'];
-    _productId = json['product_id'];
-    _sellerId = json['seller_id'];
-    if(json['product_details'] != null) {
+    _id = json['id'] ?? 0;
+    _orderId = json['order_id'] ?? 0;
+    _productId = json['product_id'] ?? 0;
+    _sellerId = json['seller_id'] ?? 0;
+    if (json['product_details'] != null) {
       _productDetails = Product.fromJson(json['product_details']);
+    } else {
+      _productDetails = Product();
     }
-    _qty = json['qty'];
-    _price = json['price'].toDouble();
-    _tax = json['tax'].toDouble();
-    _discount = json['discount'].toDouble();
-    _deliveryStatus = json['delivery_status'];
-    _paymentStatus = json['payment_status'];
-    _createdAt = json['created_at'];
-    _updatedAt = json['updated_at'];
-    _shippingMethodId = json['shipping_method_id'];
-    _variant = json['variant'];
+    _qty = json['qty'] ?? 0;
+    _price = (json['price'] ?? 0.0).toDouble();
+    _tax = (json['tax'] ?? 0.0).toDouble();
+    _discount = (json['discount'] ?? 0.0).toDouble();
+    _deliveryStatus = json['delivery_status'] ?? '';
+    _paymentStatus = json['payment_status'] ?? '';
+    _createdAt = json['created_at'] ?? '';
+    _updatedAt = json['updated_at'] ?? '';
+    _shippingMethodId = json['shipping_method_id'] ?? 0;
+    _variant = json['variant'] ?? '';
     /*if (json['variation'] != null) {
       _variation = [];
       json['variation'].forEach((v) {
@@ -102,7 +104,7 @@ class OrderDetailsModel {
     data['order_id'] = this._orderId;
     data['product_id'] = this._productId;
     data['seller_id'] = this._sellerId;
-    if(this._productDetails != null) {
+    if (this._productDetails != null) {
       data['product_details'] = this._productDetails.toJson();
     }
     data['qty'] = this._qty;

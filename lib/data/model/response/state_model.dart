@@ -1,8 +1,8 @@
 class StateModel {
-  List<States> _states;
+  List<States> _states = [];
 
   StateModel({List<States>? states}) {
-    this._states = states;
+    this._states = states ?? [];
   }
 
   List<States> get countries => _states;
@@ -13,6 +13,8 @@ class StateModel {
       json['states'].forEach((v) {
         _states.add(new States.fromJson(v));
       });
+    } else {
+      _states = [];
     }
   }
 
@@ -26,21 +28,21 @@ class StateModel {
 }
 
 class States {
-  int _id;
-  String _countryId;
-  String _name;
-  String _status;
+  int _id = 0;
+  String _countryId = '';
+  String _name = '';
+  String _status = '';
 
   States({
-    int id,
-    String countryId,
-    String name,
-    String status,
+    int? id,
+    String? countryId,
+    String? name,
+    String? status,
   }) {
-    this._id = id;
-    this._countryId = countryId;
-    this._name = name;
-    this._status = status;
+    this._id = id ?? 0;
+    this._countryId = countryId ?? '';
+    this._name = name ?? '';
+    this._status = status ?? '';
   }
 
   int get id => _id;
@@ -49,10 +51,10 @@ class States {
   String get status => _status;
 
   States.fromJson(Map<String, dynamic> json) {
-    _id = json['id'];
-    _countryId = json['country_id'];
-    _name = json['name'];
-    _status = json['status'];
+    _id = json['id'] ?? 0;
+    _countryId = json['country_id'] ?? '';
+    _name = json['name'] ?? '';
+    _status = json['status'] ?? '';
   }
 
   Map<String, dynamic> toJson() {

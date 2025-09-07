@@ -29,13 +29,13 @@ class ProductProvider extends ChangeNotifier {
   bool get isFeaturedLoading => _isFeaturedLoading;
   bool _firstFeaturedLoading = true;
   bool _firstLoading = true;
-  int _latestPageSize;
+  int _latestPageSize = 0;
   int _lOffset = 1;
   int _sellerOffset = 1;
-  int _lPageSize;
+  int _lPageSize = 0;
 
   int get lPageSize => _lPageSize;
-  int _featuredPageSize;
+  int _featuredPageSize = 0;
 
   // int _status;
 
@@ -74,32 +74,35 @@ class ProductProvider extends ChangeNotifier {
   // int get getStatus => _status;
 
   //latest product
-  Future<void> getLatestProductList(int offset, BuildContext context, {bool reload = false}) async {
+  Future<void> getLatestProductList(int offset, BuildContext context,
+      {bool reload = false}) async {
     // If reload is true, reset the lists to fetch fresh data
     if (reload) {
-      _offsetList.clear();  // Clear the offset list
-      _latestProductList.clear();  // Clear the product list
+      _offsetList.clear(); // Clear the offset list
+      _latestProductList.clear(); // Clear the product list
     }
 
     _lOffset = offset; // Update the current offset
 
     // Check if the offset has already been requested
     if (!_offsetList.contains(offset)) {
-      _offsetList.add(offset);  // Add the new offset to the list
+      _offsetList.add(offset); // Add the new offset to the list
 
       // Fetch the product list from the repository
       ApiResponse apiResponse = await productRepo.getLatestProductList(
           context,
           offset.toString(), // Convert offset to string for API call
           productType,
-          title
-      );
+          title);
 
       // Check if the API response is successful
-      if (apiResponse.response != null && apiResponse.response.statusCode == 200) {
+      if (apiResponse.response != null &&
+          apiResponse.response.statusCode == 200) {
         // Parse the response and add products to the list
-        _latestProductList.addAll(ProductModel.fromJson(apiResponse.response.data).products);
-        _latestPageSize = ProductModel.fromJson(apiResponse.response.data).totalSize; // Update total page size
+        _latestProductList
+            .addAll(ProductModel.fromJson(apiResponse.response.data).products);
+        _latestPageSize = ProductModel.fromJson(apiResponse.response.data)
+            .totalSize; // Update total page size
         _filterFirstLoading = false; // Indicate loading is complete
         _filterIsLoading = false; // Indicate that fetching is done
       } else {
@@ -117,7 +120,6 @@ class ProductProvider extends ChangeNotifier {
     }
   }
 
-
   //latest product
   Future<void> getLProductList(String offset, BuildContext context,
       {bool reload = false}) async {
@@ -131,12 +133,8 @@ class ProductProvider extends ChangeNotifier {
       if (apiResponse.response != null &&
           apiResponse.response.statusCode == 200) {
         _lProductList
-            .addAll(ProductModel
-            .fromJson(apiResponse.response.data)
-            .products);
-        _lPageSize = ProductModel
-            .fromJson(apiResponse.response.data)
-            .totalSize;
+            .addAll(ProductModel.fromJson(apiResponse.response.data).products);
+        _lPageSize = ProductModel.fromJson(apiResponse.response.data).totalSize;
         _firstLoading = false;
         _isLoading = false;
       } else {
@@ -154,9 +152,7 @@ class ProductProvider extends ChangeNotifier {
   Future<int> getLatestOffset(BuildContext context) async {
     ApiResponse apiResponse = await productRepo.getLatestProductList(
         context, '1', productType, title);
-    return ProductModel
-        .fromJson(apiResponse.response.data)
-        .totalSize;
+    return ProductModel.fromJson(apiResponse.response.data).totalSize;
   }
 
   void changeTypeOfProduct(ProductType type, String title) {
@@ -184,7 +180,7 @@ class ProductProvider extends ChangeNotifier {
   // Seller products
   List<Product> _sellerAllProductList = [];
   List<Product> _sellerProductList = [];
-  int _sellerPageSize;
+  int _sellerPageSize = 0;
 
   List<Product> get sellerProductList => _sellerProductList;
 
@@ -204,17 +200,11 @@ class ProductProvider extends ChangeNotifier {
     if (apiResponse.response != null &&
         apiResponse.response.statusCode == 200) {
       _sellerProductList
-          .addAll(ProductModel
-          .fromJson(apiResponse.response.data)
-          .products);
+          .addAll(ProductModel.fromJson(apiResponse.response.data).products);
       _sellerAllProductList
-          .addAll(ProductModel
-          .fromJson(apiResponse.response.data)
-          .products);
+          .addAll(ProductModel.fromJson(apiResponse.response.data).products);
       _sellerPageSize =
-          ProductModel
-              .fromJson(apiResponse.response.data)
-              .totalSize;
+          ProductModel.fromJson(apiResponse.response.data).totalSize;
       _firstLoading = false;
       _filterIsLoading = false;
       _isLoading = false;
@@ -249,18 +239,18 @@ class ProductProvider extends ChangeNotifier {
   // Brand and category products
   List<Product> _brandOrCategoryProductList = [];
   List<Product> _brandOrCategoryAllProductList = [];
-  bool _hasData;
+  bool _hasData = false;
 
   List<Product> get brandOrCategoryProductList => _brandOrCategoryProductList;
 
   bool get hasData => _hasData;
 
-  void initBrandOrCategoryProductList(bool isBrand, String id,
-      BuildContext context) async {
+  void initBrandOrCategoryProductList(
+      bool isBrand, String id, BuildContext context) async {
     _brandOrCategoryProductList.clear();
     _hasData = true;
     ApiResponse apiResponse =
-    await productRepo.getBrandOrCategoryProductList(isBrand, id);
+        await productRepo.getBrandOrCategoryProductList(isBrand, id);
     if (apiResponse.response != null &&
         apiResponse.response.statusCode == 200) {
       apiResponse.response.data.forEach((product) =>
@@ -274,7 +264,8 @@ class ProductProvider extends ChangeNotifier {
       _brandOrCategoryProductList
           .addAll(_products.where((element) => element.status == 1));
       _brandOrCategoryAllProductList.clear();
-      _brandOrCategoryAllProductList.addAll(_products.where((element) => element.status == 1));
+      _brandOrCategoryAllProductList
+          .addAll(_products.where((element) => element.status == 1));
       print('API RESPONSE =========:::: ${_brandOrCategoryProductList.length}');
       notifyListeners();
     } else {
@@ -284,15 +275,14 @@ class ProductProvider extends ChangeNotifier {
   }
 
   void brandFilterData(String newText) {
-    if(newText.isNotEmpty){
+    if (newText.isNotEmpty) {
       final searchProduct = _brandOrCategoryAllProductList.where((element) =>
-        (element.name ?? '').toLowerCase().contains(newText.toLowerCase()));
-    _brandOrCategoryProductList.clear();
-    _brandOrCategoryProductList.addAll(searchProduct);
+          (element.name ?? '').toLowerCase().contains(newText.toLowerCase()));
+      _brandOrCategoryProductList.clear();
+      _brandOrCategoryProductList.addAll(searchProduct);
       print('BRAN PRODUCE LIST ::::: ${_brandOrCategoryProductList.length}');
       print('BRAN PRODUCE LIST ::::: $newText');
-    }
-    else{
+    } else {
       _brandOrCategoryProductList.clear();
       _brandOrCategoryProductList.addAll(_brandOrCategoryAllProductList);
     }
@@ -300,7 +290,7 @@ class ProductProvider extends ChangeNotifier {
   }
 
   // Related products
-  List<Product> _relatedProductList;
+  List<Product> _relatedProductList = [];
 
   List<Product> get relatedProductList => _relatedProductList;
 
@@ -310,7 +300,7 @@ class ProductProvider extends ChangeNotifier {
         apiResponse.response.statusCode == 200) {
       _relatedProductList = [];
       apiResponse.response.data.forEach(
-              (product) => _relatedProductList.add(Product.fromJson(product)));
+          (product) => _relatedProductList.add(Product.fromJson(product)));
     } else {
       ApiChecker.checkApi(context, apiResponse);
     }
@@ -331,17 +321,13 @@ class ProductProvider extends ChangeNotifier {
     if (!_featuredOffsetList.contains(offset)) {
       _featuredOffsetList.add(offset);
       ApiResponse apiResponse =
-      await productRepo.getFeaturedProductList(offset);
+          await productRepo.getFeaturedProductList(offset);
       if (apiResponse.response != null &&
           apiResponse.response.statusCode == 200) {
         _featuredProductList
-            .addAll(ProductModel
-            .fromJson(apiResponse.response.data)
-            .products);
+            .addAll(ProductModel.fromJson(apiResponse.response.data).products);
         _featuredPageSize =
-            ProductModel
-                .fromJson(apiResponse.response.data)
-                .totalSize;
+            ProductModel.fromJson(apiResponse.response.data).totalSize;
         _firstFeaturedLoading = false;
         _isFeaturedLoading = false;
       } else {

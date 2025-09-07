@@ -16,18 +16,18 @@ class ProductDetailsProvider extends ChangeNotifier {
   final ProductDetailsRepo productDetailsRepo;
   ProductDetailsProvider({required this.productDetailsRepo});
 
-  List<ReviewModel> _reviewList;
-  int _imageSliderIndex;
+  List<ReviewModel> _reviewList = [];
+  int _imageSliderIndex = 0;
   bool _wish = false;
   int _quantity = 0;
-  int _variantIndex;
-  List<int> _variationIndex;
+  int _variantIndex = 0;
+  List<int> _variationIndex = [];
   int _rating = 0;
   bool _isLoading = false;
-  int _orderCount;
-  int _wishCount;
-  String _sharableLink;
-  String _errorText;
+  int _orderCount = 0;
+  int _wishCount = 0;
+  String _sharableLink = '';
+  String _errorText = '';
   bool _hasConnection = true;
 
   List<ReviewModel> get reviewList => _reviewList;
@@ -88,7 +88,6 @@ class ProductDetailsProvider extends ChangeNotifier {
       _orderCount = apiResponse.response.data['order_count'];
       _wishCount = apiResponse.response.data['wishlist_count'];
     } else {
-
       ApiChecker.checkApi(context, apiResponse);
     }
     notifyListeners();

@@ -13,7 +13,7 @@ class AppLocalization {
     return Localizations.of<AppLocalization>(context, AppLocalization);
   }
 
-  Map<String, String> _localizedValues;
+  Map<String, String> _localizedValues = {};
 
   Future<void> load() async {
     String jsonStringValues = await rootBundle
@@ -24,7 +24,7 @@ class AppLocalization {
   }
 
   String translate(String key) {
-    return _localizedValues[key];
+    return _localizedValues[key] ?? key;
   }
 
   static const LocalizationsDelegate<AppLocalization> delegate =

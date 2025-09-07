@@ -1,8 +1,8 @@
 class CountryModel {
-  List<Countries> _countries;
+  List<Countries> _countries = [];
 
   CountryModel({List<Countries>? countries}) {
-    this._countries = countries;
+    this._countries = countries ?? [];
   }
 
   List<Countries> get countries => _countries;
@@ -13,6 +13,8 @@ class CountryModel {
       json['countries'].forEach((v) {
         _countries.add(new Countries.fromJson(v));
       });
+    } else {
+      _countries = [];
     }
   }
 
@@ -26,18 +28,18 @@ class CountryModel {
 }
 
 class Countries {
-  int _id;
-  String _name;
-  String _status;
+  int _id = 0;
+  String _name = '';
+  String _status = '';
 
   Countries({
-    int id,
-    String name,
-    String status,
+    int? id,
+    String? name,
+    String? status,
   }) {
-    this._id = id;
-    this._name = name;
-    this._status = status;
+    this._id = id ?? 0;
+    this._name = name ?? '';
+    this._status = status ?? '';
   }
 
   int get id => _id;
@@ -45,9 +47,9 @@ class Countries {
   String get status => _status;
 
   Countries.fromJson(Map<String, dynamic> json) {
-    _id = json['id'];
-    _name = json['name'];
-    _status = json['status'];
+    _id = json['id'] ?? 0;
+    _name = json['name'] ?? '';
+    _status = json['status'] ?? '';
   }
 
   Map<String, dynamic> toJson() {

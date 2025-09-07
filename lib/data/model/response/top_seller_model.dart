@@ -1,18 +1,18 @@
 class TopSellerModel {
-  int _id;
-  String _sellerId;
-  String _name;
-  String _address;
-  String _contact;
-  String _image;
-  String _createdAt;
-  String _updatedAt;
-  String _banner;
-  String _latitude;
-  String _longitude;
-  Seller _seller;
-  String _metaverseLink;
-  String _showMetaverseLink;
+  int _id = 0;
+  String _sellerId = '';
+  String _name = '';
+  String _address = '';
+  String _contact = '';
+  String _image = '';
+  String _createdAt = '';
+  String _updatedAt = '';
+  String _banner = '';
+  String _latitude = '';
+  String _longitude = '';
+  Seller _seller = Seller();
+  String _metaverseLink = '';
+  String _showMetaverseLink = '';
 
   TopSellerModel({
     int? id,
@@ -30,20 +30,20 @@ class TopSellerModel {
     String? metaverseLink,
     String? showMetaverseLink,
   }) {
-    this._id = id;
-    this._sellerId = sellerId;
-    this._name = name;
-    this._address = address;
-    this._contact = contact;
-    this._image = image;
-    this._createdAt = createdAt;
-    this._updatedAt = updatedAt;
-    this._banner = banner;
-    this._latitude = latitude;
-    this._longitude = longitude;
-    this._seller = seller;
-    this._showMetaverseLink = showMetaverseLink;
-    this._metaverseLink = metaverseLink;
+    this._id = id ?? 0;
+    this._sellerId = sellerId ?? '';
+    this._name = name ?? '';
+    this._address = address ?? '';
+    this._contact = contact ?? '';
+    this._image = image ?? '';
+    this._createdAt = createdAt ?? '';
+    this._updatedAt = updatedAt ?? '';
+    this._banner = banner ?? '';
+    this._latitude = latitude ?? '';
+    this._longitude = longitude ?? '';
+    this._seller = seller ?? Seller();
+    this._showMetaverseLink = showMetaverseLink ?? '';
+    this._metaverseLink = metaverseLink ?? '';
   }
 
   int get id => _id;
@@ -62,22 +62,22 @@ class TopSellerModel {
   String get metaverseLink => _metaverseLink;
 
   TopSellerModel.fromJson(Map<String, dynamic> json) {
-    _id = json['id'];
-    _sellerId = json['seller_id'].toString();
-    _name = json['name'];
-    _address = json['address'];
-    _contact = json['contact'];
-    _image = json['image'];
-    _createdAt = json['created_at'];
-    _updatedAt = json['updated_at'];
-    _banner = json['banner'];
-    _latitude = json['latitude'];
-    _longitude = json['longitude'];
-    _showMetaverseLink = json['show_metaverse_link'].toString();
-    _metaverseLink = json['metaverse_link'];
+    _id = json['id'] ?? 0;
+    _sellerId = json['seller_id']?.toString() ?? '';
+    _name = json['name'] ?? '';
+    _address = json['address'] ?? '';
+    _contact = json['contact'] ?? '';
+    _image = json['image'] ?? '';
+    _createdAt = json['created_at'] ?? '';
+    _updatedAt = json['updated_at'] ?? '';
+    _banner = json['banner'] ?? '';
+    _latitude = json['latitude'] ?? '';
+    _longitude = json['longitude'] ?? '';
+    _showMetaverseLink = json['show_metaverse_link']?.toString() ?? '';
+    _metaverseLink = json['metaverse_link'] ?? '';
 
     _seller =
-        json['seller'] != null ? new Seller.fromJson(json['seller']) : null;
+        json['seller'] != null ? new Seller.fromJson(json['seller']) : Seller();
   }
 
   Map<String, dynamic> toJson() {
@@ -104,23 +104,23 @@ class TopSellerModel {
 }
 
 class Seller {
-  int _id;
-  String _location;
+  int _id = 0;
+  String _location = '';
 
   Seller({
     int? id,
     String? location,
   }) {
-    this._id = id;
-    this._location = location;
+    this._id = id ?? 0;
+    this._location = location ?? '';
   }
 
   int get id => _id;
   String get location => _location;
 
   Seller.fromJson(Map<String, dynamic> json) {
-    _id = json['id'];
-    _location = json['location'];
+    _id = json['id'] ?? 0;
+    _location = json['location'] ?? '';
   }
 
   Map<String, dynamic> toJson() {

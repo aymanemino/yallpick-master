@@ -62,54 +62,54 @@ class SellerModel {
 }
 
 class Shop {
-  int _id;
-  String _name;
-  String _address;
-  String _contact;
-  String _image;
-  String _createdAt;
-  String _updatedAt;
-  String _latitude;
-  String _longitude;
-  String _country;
-  String _state;
-  String _city;
-  String _sellerId;
-  String _metaverseLink;
-  String _showMetaverseLink;
+  int _id = 0;
+  String _name = '';
+  String _address = '';
+  String _contact = '';
+  String _image = '';
+  String _createdAt = '';
+  String _updatedAt = '';
+  String _latitude = '';
+  String _longitude = '';
+  String _country = '';
+  String _state = '';
+  String _city = '';
+  String _sellerId = '';
+  String _metaverseLink = '';
+  String _showMetaverseLink = '';
 
   Shop({
-    int id,
-    String name,
-    String address,
-    String contact,
-    String image,
-    String createdAt,
-    String updatedAt,
-    String latitude,
-    String longitude,
-    String country,
-    String state,
-    String city,
-    String sellerId,
-    String metaverseLink,
-    String showMetaverseLink,
+    int? id,
+    String? name,
+    String? address,
+    String? contact,
+    String? image,
+    String? createdAt,
+    String? updatedAt,
+    String? latitude,
+    String? longitude,
+    String? country,
+    String? state,
+    String? city,
+    String? sellerId,
+    String? metaverseLink,
+    String? showMetaverseLink,
   }) {
-    this._id = id;
-    this._name = name;
-    this._address = address;
-    this._contact = contact;
-    this._image = image;
-    this._createdAt = createdAt;
-    this._updatedAt = updatedAt;
-    this._latitude = latitude;
-    this._longitude = longitude;
-    this._country = country;
-    this._state = state;
-    this._city = city;
-    this._sellerId = sellerId;
-    this._showMetaverseLink = showMetaverseLink;
-    this._metaverseLink = metaverseLink;
+    this._id = id ?? 0;
+    this._name = name ?? '';
+    this._address = address ?? '';
+    this._contact = contact ?? '';
+    this._image = image ?? '';
+    this._createdAt = createdAt ?? '';
+    this._updatedAt = updatedAt ?? '';
+    this._latitude = latitude ?? '';
+    this._longitude = longitude ?? '';
+    this._country = country ?? '';
+    this._state = state ?? '';
+    this._city = city ?? '';
+    this._sellerId = sellerId ?? '';
+    this._showMetaverseLink = showMetaverseLink ?? '';
+    this._metaverseLink = metaverseLink ?? '';
   }
 
   int get id => _id;

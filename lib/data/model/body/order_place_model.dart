@@ -2,20 +2,17 @@ import 'package:flutter_sixvalley_ecommerce/data/model/response/cart_model.dart'
 import 'package:flutter_sixvalley_ecommerce/data/model/response/product_model.dart';
 
 class OrderPlaceModel {
-  CustomerInfo _customerInfo;
-  List<CartModel> _cart;
-  String _paymentMethod;
-  double _discount;
+  CustomerInfo _customerInfo = CustomerInfo();
+  List<CartModel> _cart = [];
+  String _paymentMethod = '';
+  double _discount = 0.0;
 
-  OrderPlaceModel(
-      CustomerInfo customerInfo,
-        List<CartModel> cart,
-        String paymentMethod,
-        double discount) {
-    this._customerInfo = customerInfo;
-    this._cart = cart;
-    this._paymentMethod = paymentMethod;
-    this._discount = discount;
+  OrderPlaceModel(CustomerInfo? customerInfo, List<CartModel>? cart,
+      String? paymentMethod, double? discount) {
+    this._customerInfo = customerInfo ?? CustomerInfo();
+    this._cart = cart ?? [];
+    this._paymentMethod = paymentMethod ?? '';
+    this._discount = discount ?? 0.0;
   }
 
   CustomerInfo get customerInfo => _customerInfo;
@@ -26,7 +23,7 @@ class OrderPlaceModel {
   OrderPlaceModel.fromJson(Map<String, dynamic> json) {
     _customerInfo = json['customer_info'] != null
         ? new CustomerInfo.fromJson(json['customer_info'])
-        : null;
+        : CustomerInfo();
     if (json['cart'] != null) {
       _cart = [];
       json['cart'].forEach((v) {
@@ -52,18 +49,19 @@ class OrderPlaceModel {
 }
 
 class CustomerInfo {
-  String _addressId;
-  String _shippingAddress;
-  String _billingId;
-  String _billingAddress;
-  String _orderNote;
+  String _addressId = '';
+  String _shippingAddress = '';
+  String _billingId = '';
+  String _billingAddress = '';
+  String _orderNote = '';
 
-  CustomerInfo(String addressId, String shippingAddress, String billingId, String billingAddress, String orderNote) {
-    this._addressId = addressId;
-    this._shippingAddress = shippingAddress;
-    this._addressId = billingId;
-    this._billingAddress = billingAddress;
-    this._orderNote = orderNote;
+  CustomerInfo(String? addressId, String? shippingAddress, String? billingId,
+      String? billingAddress, String? orderNote) {
+    this._addressId = addressId ?? '';
+    this._shippingAddress = shippingAddress ?? '';
+    this._billingId = billingId ?? '';
+    this._billingAddress = billingAddress ?? '';
+    this._orderNote = orderNote ?? '';
   }
 
   String get addressId => _addressId;
@@ -73,12 +71,11 @@ class CustomerInfo {
   String get orderNote => _orderNote;
 
   CustomerInfo.fromJson(Map<String, dynamic> json) {
-    _addressId = json['address_id'];
-    _shippingAddress = json['shipping_address'];
-    _billingId = json['billing_address_id'];
-    _billingAddress = json['billing_address_data'];
-    _orderNote = json['order_note'];
-
+    _addressId = json['address_id'] ?? '';
+    _shippingAddress = json['shipping_address'] ?? '';
+    _billingId = json['billing_address_id'] ?? '';
+    _billingAddress = json['billing_address_data'] ?? '';
+    _orderNote = json['order_note'] ?? '';
   }
 
   Map<String, dynamic> toJson() {
@@ -93,38 +90,38 @@ class CustomerInfo {
 }
 
 class Cart {
-  String _id;
-  double _tax;
-  int _quantity;
-  double _price;
-  double _discount;
-  String _discountType;
-  int _shippingMethodId;
-  String _variant;
-  List<Variation> _variation;
-  double _shippingCost;
+  String _id = '';
+  double _tax = 0.0;
+  int _quantity = 0;
+  double _price = 0.0;
+  double _discount = 0.0;
+  String _discountType = '';
+  int _shippingMethodId = 0;
+  String _variant = '';
+  List<Variation> _variation = [];
+  double _shippingCost = 0.0;
 
   Cart(
-      String id,
-      double tax,
-        int quantity,
-        double price,
-        double discount,
-        String discountType,
-        int shippingMethodId,
-        String variant,
-        List<Variation> variation,
-        double shippingCost) {
-    this._id = id;
-    this._tax = tax;
-    this._quantity = quantity;
-    this._price = price;
-    this._discount = discount;
-    this._discountType = discountType;
-    this._shippingMethodId = shippingMethodId;
-    this._variant = variant;
-    this._variation = variation;
-    this._shippingCost = shippingCost;
+      String? id,
+      double? tax,
+      int? quantity,
+      double? price,
+      double? discount,
+      String? discountType,
+      int? shippingMethodId,
+      String? variant,
+      List<Variation>? variation,
+      double? shippingCost) {
+    this._id = id ?? '';
+    this._tax = tax ?? 0.0;
+    this._quantity = quantity ?? 0;
+    this._price = price ?? 0.0;
+    this._discount = discount ?? 0.0;
+    this._discountType = discountType ?? '';
+    this._shippingMethodId = shippingMethodId ?? 0;
+    this._variant = variant ?? '';
+    this._variation = variation ?? [];
+    this._shippingCost = shippingCost ?? 0.0;
   }
 
   String get id => _id;

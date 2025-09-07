@@ -28,21 +28,21 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
   GlobalKey<ScaffoldMessengerState> _globalKey = GlobalKey();
-  StreamSubscription<ConnectivityResult> _onConnectivityChanged;
+  late StreamSubscription<ConnectivityResult> _onConnectivityChanged;
 
   // Animation controllers
-  AnimationController _logoController;
-  AnimationController _backgroundController;
-  AnimationController _particleController;
-  AnimationController _floatingController;
+  late AnimationController _logoController;
+  late AnimationController _backgroundController;
+  late AnimationController _particleController;
+  late AnimationController _floatingController;
 
   // Animations
-  Animation<double> _logoScale;
-  Animation<double> _logoOpacity;
-  Animation<double> _logoRotation;
-  Animation<double> _backgroundOpacity;
-  Animation<double> _particleOpacity;
-  Animation<double> _floatingRotation;
+  late Animation<double> _logoScale;
+  late Animation<double> _logoOpacity;
+  late Animation<double> _logoRotation;
+  late Animation<double> _backgroundOpacity;
+  late Animation<double> _particleOpacity;
+  late Animation<double> _floatingRotation;
 
   // Animation state
   bool _animationsComplete = false;
@@ -128,7 +128,7 @@ class _SplashScreenState extends State<SplashScreen>
     });
 
     if (Provider.of<SplashProvider>(context, listen: false).showIntro() ==
-        null ||
+            null ||
         Provider.of<SplashProvider>(context, listen: false).showIntro() ==
             true) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -217,7 +217,8 @@ class _SplashScreenState extends State<SplashScreen>
         } else {
           // Check for blocking updates before proceeding
           print('🔒 SPLASH: Checking for blocking updates...');
-          final canProceed = await AppUpdateService.checkForUpdateBlocking(context);
+          final canProceed =
+              await AppUpdateService.checkForUpdateBlocking(context);
 
           if (canProceed) {
             print('✅ SPLASH: Update check passed, proceeding to app...');
@@ -232,21 +233,17 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   void _navigateToApp() {
-    if (Provider.of<AuthProvider>(context, listen: false)
-        .isLoggedIn()) {
-      Provider.of<AuthProvider>(context, listen: false)
-          .updateToken(context);
+    if (Provider.of<AuthProvider>(context, listen: false).isLoggedIn()) {
+      Provider.of<AuthProvider>(context, listen: false).updateToken(context);
       Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (BuildContext context) => DashBoardScreen()));
     } else {
-      if (Provider.of<SplashProvider>(context, listen: false)
-          .showIntro()) {
+      if (Provider.of<SplashProvider>(context, listen: false).showIntro()) {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: (BuildContext context) => OnBoardingScreen(
-              indicatorColor: ColorResources.GREY,
-              selectedIndicatorColor:
-              Theme.of(context).primaryColor,
-            )));
+                  indicatorColor: ColorResources.GREY,
+                  selectedIndicatorColor: Theme.of(context).primaryColor,
+                )));
       } else {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: (BuildContext context) => DashBoardScreen()));
@@ -261,203 +258,28 @@ class _SplashScreenState extends State<SplashScreen>
       backgroundColor: Colors.white,
       body: Provider.of<SplashProvider>(context).hasConnection
           ? Stack(
-        clipBehavior: Clip.none,
-        children: [
-          // Beautiful gradient background
-          AnimatedBuilder(
-            animation: _backgroundController,
-            builder: (context, child) {
-              return Opacity(
-                opacity: _backgroundOpacity.value,
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Colors.white,
-                        ColorResources.LIGHT_SKY_BLUE.withOpacity(0.08),
-                        ColorResources.YELLOW.withOpacity(0.05),
-                        Colors.white,
-                      ],
-                      stops: [0.0, 0.3, 0.7, 1.0],
-                    ),
-                  ),
-                ),
-              );
-            },
-          ),
-
-          // Floating geometric shapes
-          AnimatedBuilder(
-            animation: _floatingController,
-            builder: (context, child) {
-              return Transform.rotate(
-                angle: _floatingRotation.value,
-                child: Stack(
-                  children: [
-                    // Top left triangle
-                    Positioned(
-                      top: 50,
-                      left: 30,
-                      child: Container(
-                        width: 60,
-                        height: 60,
-                        child: CustomPaint(
-                          painter: TrianglePainter(
-                            color: ColorResources.LIGHT_SKY_BLUE
-                                .withOpacity(0.3),
-                          ),
-                        ),
-                      ),
-                    ),
-                    // Top right circle
-                    Positioned(
-                      top: 80,
-                      right: 40,
-                      child: Container(
-                        width: 80,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          gradient: RadialGradient(
-                            colors: [
-                              ColorResources.YELLOW.withOpacity(0.4),
-                              ColorResources.YELLOW.withOpacity(0.1),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    // Bottom left square
-                    Positioned(
-                      bottom: 100,
-                      left: 50,
-                      child: Transform.rotate(
-                        angle: math.pi / 4,
-                        child: Container(
-                          width: 70,
-                          height: 70,
-                          decoration: BoxDecoration(
-                            color: ColorResources.SELLER_TXT
-                                .withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                      ),
-                    ),
-                    // Bottom right hexagon
-                    Positioned(
-                      bottom: 80,
-                      right: 60,
-                      child: Container(
-                        width: 90,
-                        height: 90,
-                        child: CustomPaint(
-                          painter: HexagonPainter(
-                            color: ColorResources.LIGHT_SKY_BLUE
-                                .withOpacity(0.25),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-
-          // Subtle background patterns
-          AnimatedBuilder(
-            animation: _particleController,
-            builder: (context, child) {
-              return Opacity(
-                opacity: _particleOpacity.value * 0.4,
-                child: CustomPaint(
-                  painter: SplashPainter(),
-                ),
-              );
-            },
-          ),
-
-          // Main content
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              clipBehavior: Clip.none,
               children: [
-                // Spacer to push logo down more (less space at top)
-                SizedBox(height: 200),
-
-                // Animated logo with circle container
+                // Beautiful gradient background
                 AnimatedBuilder(
-                  animation: _logoController,
+                  animation: _backgroundController,
                   builder: (context, child) {
-                    return Transform.scale(
-                      scale: _logoScale.value,
-                      child: Transform.rotate(
-                        angle: _logoRotation.value,
-                        child: Opacity(
-                          opacity: _logoOpacity.value,
-                          child: Container(
-                            width: 240,
-                            height: 240,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
-                                  ColorResources.LIGHT_SKY_BLUE
-                                      .withOpacity(0.15),
-                                  ColorResources.SELLER_TXT
-                                      .withOpacity(0.1),
-                                  ColorResources.YELLOW.withOpacity(0.08),
-                                  Colors.white,
-                                ],
-                                stops: [0.0, 0.3, 0.7, 1.0],
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: ColorResources.LIGHT_SKY_BLUE
-                                      .withOpacity(0.3),
-                                  blurRadius: 40,
-                                  spreadRadius: 5,
-                                  offset: Offset(0, 15),
-                                ),
-                                BoxShadow(
-                                  color: ColorResources.YELLOW
-                                      .withOpacity(0.2),
-                                  blurRadius: 30,
-                                  spreadRadius: 3,
-                                  offset: Offset(0, -10),
-                                ),
-                              ],
-                            ),
-                            child: Center(
-                              child: Container(
-                                padding: EdgeInsets.all(20),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(25),
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color:
-                                      Colors.black.withOpacity(0.08),
-                                      blurRadius: 20,
-                                      spreadRadius: 2,
-                                    ),
-                                  ],
-                                ),
-                                child: Image.asset(
-                                  Images.splash_logo,
-                                  height: 160.0,
-                                  width: 160.0,
-                                  fit: BoxFit.scaleDown,
-                                ),
-                              ),
-                            ),
+                    return Opacity(
+                      opacity: _backgroundOpacity.value,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Colors.white,
+                              ColorResources.LIGHT_SKY_BLUE.withOpacity(0.08),
+                              ColorResources.YELLOW.withOpacity(0.05),
+                              Colors.white,
+                            ],
+                            stops: [0.0, 0.3, 0.7, 1.0],
                           ),
                         ),
                       ),
@@ -465,29 +287,204 @@ class _SplashScreenState extends State<SplashScreen>
                   },
                 ),
 
-                // Spacer to push loading to bottom
-                Expanded(
-                  child: SizedBox(),
+                // Floating geometric shapes
+                AnimatedBuilder(
+                  animation: _floatingController,
+                  builder: (context, child) {
+                    return Transform.rotate(
+                      angle: _floatingRotation.value,
+                      child: Stack(
+                        children: [
+                          // Top left triangle
+                          Positioned(
+                            top: 50,
+                            left: 30,
+                            child: Container(
+                              width: 60,
+                              height: 60,
+                              child: CustomPaint(
+                                painter: TrianglePainter(
+                                  color: ColorResources.LIGHT_SKY_BLUE
+                                      .withOpacity(0.3),
+                                ),
+                              ),
+                            ),
+                          ),
+                          // Top right circle
+                          Positioned(
+                            top: 80,
+                            right: 40,
+                            child: Container(
+                              width: 80,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                gradient: RadialGradient(
+                                  colors: [
+                                    ColorResources.YELLOW.withOpacity(0.4),
+                                    ColorResources.YELLOW.withOpacity(0.1),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          // Bottom left square
+                          Positioned(
+                            bottom: 100,
+                            left: 50,
+                            child: Transform.rotate(
+                              angle: math.pi / 4,
+                              child: Container(
+                                width: 70,
+                                height: 70,
+                                decoration: BoxDecoration(
+                                  color: ColorResources.SELLER_TXT
+                                      .withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                            ),
+                          ),
+                          // Bottom right hexagon
+                          Positioned(
+                            bottom: 80,
+                            right: 60,
+                            child: Container(
+                              width: 90,
+                              height: 90,
+                              child: CustomPaint(
+                                painter: HexagonPainter(
+                                  color: ColorResources.LIGHT_SKY_BLUE
+                                      .withOpacity(0.25),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
                 ),
 
-                // Loading indicator at bottom
-                Container(
-                  margin: EdgeInsets.only(bottom: 100),
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                        ColorResources.SELLER_TXT),
-                    strokeWidth: 5,
-                    backgroundColor:
-                    ColorResources.YELLOW.withOpacity(0.15),
+                // Subtle background patterns
+                AnimatedBuilder(
+                  animation: _particleController,
+                  builder: (context, child) {
+                    return Opacity(
+                      opacity: _particleOpacity.value * 0.4,
+                      child: CustomPaint(
+                        painter: SplashPainter(),
+                      ),
+                    );
+                  },
+                ),
+
+                // Main content
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Spacer to push logo down more (less space at top)
+                      SizedBox(height: 200),
+
+                      // Animated logo with circle container
+                      AnimatedBuilder(
+                        animation: _logoController,
+                        builder: (context, child) {
+                          return Transform.scale(
+                            scale: _logoScale.value,
+                            child: Transform.rotate(
+                              angle: _logoRotation.value,
+                              child: Opacity(
+                                opacity: _logoOpacity.value,
+                                child: Container(
+                                  width: 240,
+                                  height: 240,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    gradient: LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                      colors: [
+                                        ColorResources.LIGHT_SKY_BLUE
+                                            .withOpacity(0.15),
+                                        ColorResources.SELLER_TXT
+                                            .withOpacity(0.1),
+                                        ColorResources.YELLOW.withOpacity(0.08),
+                                        Colors.white,
+                                      ],
+                                      stops: [0.0, 0.3, 0.7, 1.0],
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: ColorResources.LIGHT_SKY_BLUE
+                                            .withOpacity(0.3),
+                                        blurRadius: 40,
+                                        spreadRadius: 5,
+                                        offset: Offset(0, 15),
+                                      ),
+                                      BoxShadow(
+                                        color: ColorResources.YELLOW
+                                            .withOpacity(0.2),
+                                        blurRadius: 30,
+                                        spreadRadius: 3,
+                                        offset: Offset(0, -10),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Center(
+                                    child: Container(
+                                      padding: EdgeInsets.all(20),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(25),
+                                        color: Colors.white,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.08),
+                                            blurRadius: 20,
+                                            spreadRadius: 2,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Image.asset(
+                                        Images.splash_logo,
+                                        height: 160.0,
+                                        width: 160.0,
+                                        fit: BoxFit.scaleDown,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+
+                      // Spacer to push loading to bottom
+                      Expanded(
+                        child: SizedBox(),
+                      ),
+
+                      // Loading indicator at bottom
+                      Container(
+                        margin: EdgeInsets.only(bottom: 100),
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                              ColorResources.SELLER_TXT),
+                          strokeWidth: 5,
+                          backgroundColor:
+                              ColorResources.YELLOW.withOpacity(0.15),
+                        ),
+                      ),
+
+                      SizedBox(height: 50),
+                    ],
                   ),
                 ),
-
-                SizedBox(height: 50),
               ],
-            ),
-          ),
-        ],
-      )
+            )
           : NoInternetOrDataScreen(isNoInternet: true, child: SplashScreen()),
     );
   }

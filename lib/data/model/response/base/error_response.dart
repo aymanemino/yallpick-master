@@ -1,14 +1,13 @@
 /// errors : [{"code":"l_name","message":"The last name field is required."},{"code":"password","message":"The password field is required."}]
 
 class ErrorResponse {
-  List<Errors> _errors;
+  List<Errors> _errors = [];
 
   List<Errors> get errors => _errors;
 
-  ErrorResponse({
-      List<Errors>? errors}){
-    _errors = errors;
-}
+  ErrorResponse({List<Errors>? errors}) {
+    _errors = errors ?? [];
+  }
 
   ErrorResponse.fromJson(dynamic json) {
     if (json["errors"] != null) {
@@ -16,6 +15,8 @@ class ErrorResponse {
       json["errors"].forEach((v) {
         _errors.add(Errors.fromJson(v));
       });
+    } else {
+      _errors = [];
     }
   }
 
@@ -26,29 +27,26 @@ class ErrorResponse {
     }
     return map;
   }
-
 }
 
 /// code : "l_name"
 /// message : "The last name field is required."
 
 class Errors {
-  String _code;
-  String _message;
+  String _code = '';
+  String _message = '';
 
   String get code => _code;
   String get message => _message;
 
-  Errors({
-      String? code, 
-      String? message}){
-    _code = code;
-    _message = message;
-}
+  Errors({String? code, String? message}) {
+    _code = code ?? '';
+    _message = message ?? '';
+  }
 
   Errors.fromJson(dynamic json) {
-    _code = json["code"].toString();
-    _message = json["message"].toString();
+    _code = json["code"]?.toString() ?? '';
+    _message = json["message"]?.toString() ?? '';
   }
 
   Map<String, dynamic> toJson() {
@@ -57,5 +55,4 @@ class Errors {
     map["message"] = _message;
     return map;
   }
-
 }

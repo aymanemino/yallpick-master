@@ -239,17 +239,17 @@ class BillingAddressData {
 }
 
 class ShippingAddressData {
-  int _id;
-  int _customerId;
-  String _contactPersonName;
-  String _addressType;
-  String _address;
-  String _city;
-  String _zip;
-  String _phone;
-  String _createdAt;
-  String _updatedAt;
-  String _country;
+  int _id = 0;
+  int _customerId = 0;
+  String _contactPersonName = '';
+  String _addressType = '';
+  String _address = '';
+  String _city = '';
+  String _zip = '';
+  String _phone = '';
+  String _createdAt = '';
+  String _updatedAt = '';
+  String _country = '';
 
   ShippingAddressData(
       {int? id,
@@ -264,40 +264,17 @@ class ShippingAddressData {
       String? updatedAt,
       Null state,
       String? country}) {
-    if (id != null) {
-      this._id = id;
-    }
-    if (customerId != null) {
-      this._customerId = customerId;
-    }
-    if (contactPersonName != null) {
-      this._contactPersonName = contactPersonName;
-    }
-    if (addressType != null) {
-      this._addressType = addressType;
-    }
-    if (address != null) {
-      this._address = address;
-    }
-    if (city != null) {
-      this._city = city;
-    }
-    if (zip != null) {
-      this._zip = zip;
-    }
-    if (phone != null) {
-      this._phone = phone;
-    }
-    if (createdAt != null) {
-      this._createdAt = createdAt;
-    }
-    if (updatedAt != null) {
-      this._updatedAt = updatedAt;
-    }
-
-    if (country != null) {
-      this._country = country;
-    }
+    this._id = id ?? 0;
+    this._customerId = customerId ?? 0;
+    this._contactPersonName = contactPersonName ?? '';
+    this._addressType = addressType ?? '';
+    this._address = address ?? '';
+    this._city = city ?? '';
+    this._zip = zip ?? '';
+    this._phone = phone ?? '';
+    this._createdAt = createdAt ?? '';
+    this._updatedAt = updatedAt ?? '';
+    this._country = country ?? '';
   }
 
   int get id => _id;
@@ -313,17 +290,17 @@ class ShippingAddressData {
   String get country => _country;
 
   ShippingAddressData.fromJson(Map<String, dynamic> json) {
-    _id = json['id'];
-    _customerId = json['customer_id'];
-    _contactPersonName = json['contact_person_name'];
-    _addressType = json['address_type'];
-    _address = json['address'];
-    _city = json['city'];
-    _zip = json['zip'];
-    _phone = json['phone'];
-    _createdAt = json['created_at'];
-    _updatedAt = json['updated_at'];
-    _country = json['country'];
+    _id = json['id'] ?? 0;
+    _customerId = json['customer_id'] ?? 0;
+    _contactPersonName = json['contact_person_name'] ?? '';
+    _addressType = json['address_type'] ?? '';
+    _address = json['address'] ?? '';
+    _city = json['city'] ?? '';
+    _zip = json['zip'] ?? '';
+    _phone = json['phone'] ?? '';
+    _createdAt = json['created_at'] ?? '';
+    _updatedAt = json['updated_at'] ?? '';
+    _country = json['country'] ?? '';
   }
 
   Map<String, dynamic> toJson() {

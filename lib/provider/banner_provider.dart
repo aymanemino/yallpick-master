@@ -11,10 +11,10 @@ class BannerProvider extends ChangeNotifier {
 
   BannerProvider({required this.bannerRepo});
 
-  List<BannerModel> _mainBannerList;
-  List<BannerModel> _footerBannerList;
-  Product _product;
-  int _currentIndex;
+  List<BannerModel> _mainBannerList = [];
+  List<BannerModel> _footerBannerList = [];
+  Product _product = Product();
+  int _currentIndex = 0;
 
   List<BannerModel> get mainBannerList => _mainBannerList;
 
