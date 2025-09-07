@@ -28,7 +28,7 @@ class AppUpdateService {
       print('📱 Checking for updates...');
       final updateInfo = await _checkForUpdates();
 
-      if (updateInfo != null && updateInfo.canUpdate) {
+      if (updateInfo.canUpdate) {
         print(
             '✅ Update available: ${updateInfo.localVersion} -> ${updateInfo.storeVersion}');
         // Check if user has dismissed this update
@@ -59,7 +59,7 @@ class AppUpdateService {
 
       final updateInfo = await _checkForUpdates();
 
-      if (updateInfo != null && updateInfo.canUpdate) {
+      if (updateInfo.canUpdate) {
         print(
             '🚨 BLOCKING UPDATE REQUIRED: ${updateInfo.localVersion} -> ${updateInfo.storeVersion}');
 
@@ -128,8 +128,7 @@ class AppUpdateService {
   static Future<UpdateInfo> _checkIOSUpdate(String currentVersion) async {
     try {
       final latestVersion = await _getLatestVersionFromServer();
-      if (latestVersion != null &&
-          _compareVersions(currentVersion, latestVersion) < 0) {
+      if (_compareVersions(currentVersion, latestVersion) < 0) {
         return UpdateInfo(
           localVersion: currentVersion,
           storeVersion: latestVersion,
@@ -508,8 +507,8 @@ class AppUpdateService {
       print('🔍 Manual update check started');
       final updateInfo = await _checkForUpdates();
       print(
-          '🔍 UpdateInfo: ${updateInfo?.localVersion} -> ${updateInfo?.storeVersion}');
-      if (updateInfo != null && updateInfo.canUpdate) {
+          '🔍 UpdateInfo: ${updateInfo.localVersion} -> ${updateInfo.storeVersion}');
+      if (updateInfo.canUpdate) {
         print(
             '🎯 Showing update dialog with: ${updateInfo.localVersion} -> ${updateInfo.storeVersion}');
         _showUpdateDialog(context, updateInfo);

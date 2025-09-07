@@ -12,7 +12,6 @@ import 'package:flutter_sixvalley_ecommerce/view/screen/search/widget/search_pro
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
 
-import '../../../provider/brand_provider.dart';
 
 class SearchScreen extends StatelessWidget {
   @override

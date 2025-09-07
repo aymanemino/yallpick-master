@@ -8,7 +8,6 @@ import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
 import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
 import 'package:provider/provider.dart';
 
-import '../../provider/brand_provider.dart';
 
 class SearchWidget extends StatefulWidget {
   final String hintText;

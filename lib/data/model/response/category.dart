@@ -69,9 +69,7 @@ class Category {
     data['position'] = this._position;
     data['created_at'] = this._createdAt;
     data['updated_at'] = this._updatedAt;
-    if (this._subCategories != null) {
-      data['childes'] = this._subCategories.map((v) => v.toJson()).toList();
-    }
+    data['childes'] = this._subCategories.map((v) => v.toJson()).toList();
     return data;
   }
 }
@@ -147,9 +145,7 @@ class SubCategory {
     data['position'] = this._position;
     data['created_at'] = this._createdAt;
     data['updated_at'] = this._updatedAt;
-    if (this._subSubCategories != null) {
-      data['childes'] = this._subSubCategories.map((v) => v.toJson()).toList();
-    }
+    data['childes'] = this._subSubCategories.map((v) => v.toJson()).toList();
     return data;
   }
 }

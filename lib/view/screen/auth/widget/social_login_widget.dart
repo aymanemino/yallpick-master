@@ -28,7 +28,7 @@ class _SocialLoginWidgetState extends State<SocialLoginWidget> {
             context,
             MaterialPageRoute(builder: (_) => DashBoardScreen()),
             (route) => false);
-      } else if (temporaryToken != null && temporaryToken.isNotEmpty) {
+      } else if (temporaryToken.isNotEmpty) {
         if (Provider.of<SplashProvider>(context, listen: false)
             .configModel
             .emailVerification) {

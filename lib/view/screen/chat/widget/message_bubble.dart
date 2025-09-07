@@ -32,7 +32,7 @@ class MessageBubble extends StatelessWidget {
             child: ClipOval(
                 child: Container(
                   color: Theme.of(context).highlightColor,
-                  child: sellerImage != null && sellerImage.isNotEmpty
+                  child: sellerImage.isNotEmpty
                       ? FadeInImage.assetNetwork(
                     placeholder: Images.placeholder,
                     height: 40,

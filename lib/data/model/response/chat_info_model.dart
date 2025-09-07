@@ -43,15 +43,9 @@ class ChatInfoModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this._lastChat != null) {
-      data['last_chat'] = this._lastChat.toJson();
-    }
-    if (this._chatList != null) {
-      data['chat_list'] = this._chatList.map((v) => v.toJson()).toList();
-    }
-    if (this._uniqueShops != null) {
-      data['unique_shops'] = this._uniqueShops.map((v) => v.toJson()).toList();
-    }
+    data['last_chat'] = this._lastChat.toJson();
+    data['chat_list'] = this._chatList.map((v) => v.toJson()).toList();
+    data['unique_shops'] = this._uniqueShops.map((v) => v.toJson()).toList();
     return data;
   }
 }

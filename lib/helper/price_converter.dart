@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sixvalley_ecommerce/provider/splash_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../localization/language_constrants.dart';
 
 class PriceConverter {
   static String convertPrice(BuildContext context, double price, {double? discount, String? discountType}) {

@@ -20,9 +20,7 @@ class CityModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this._cities != null) {
-      data['products'] = this._cities.map((v) => v.toJson()).toList();
-    }
+    data['products'] = this._cities.map((v) => v.toJson()).toList();
     return data;
   }
 }

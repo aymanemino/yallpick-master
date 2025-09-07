@@ -36,12 +36,8 @@ class OrderPlaceModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this._customerInfo != null) {
-      data['customer_info'] = this._customerInfo.toJson();
-    }
-    if (this._cart != null) {
-      data['cart'] = this._cart.map((v) => v.toJson()).toList();
-    }
+    data['customer_info'] = this._customerInfo.toJson();
+    data['cart'] = this._cart.map((v) => v.toJson()).toList();
     data['payment_method'] = this._paymentMethod;
     data['discount'] = this._discount;
     return data;
@@ -163,9 +159,7 @@ class Cart {
     data['discount_type'] = this._discountType;
     data['shipping_method_id'] = this._shippingMethodId;
     data['variant'] = this._variant;
-    if (this._variation != null) {
-      data['variations'] = this._variation.map((v) => v.toJson()).toList();
-    }
+    data['variations'] = this._variation.map((v) => v.toJson()).toList();
     data['shipping_cost'] = this._shippingCost;
     return data;
   }

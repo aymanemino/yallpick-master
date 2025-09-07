@@ -96,9 +96,7 @@ class TopSellerModel {
     data['show_metaverse_link'] = this._showMetaverseLink;
     data['metaverse_link'] = this._metaverseLink;
 
-    if (this._seller != null) {
-      data['seller'] = this._seller.toJson();
-    }
+    data['seller'] = this._seller.toJson();
     return data;
   }
 }

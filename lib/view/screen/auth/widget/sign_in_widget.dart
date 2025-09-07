@@ -94,7 +94,7 @@ class _SignInWidgetState extends State<SignInWidget> {
   route(bool isRoute, String token, String temporaryToken,
       String errorMessage) async {
     if (isRoute) {
-      if (token == null || token.isEmpty) {
+      if (token.isEmpty) {
         if (Provider.of<SplashProvider>(context, listen: false)
             .configModel
             .emailVerification) {

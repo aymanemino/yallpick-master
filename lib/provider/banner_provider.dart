@@ -25,7 +25,7 @@ class BannerProvider extends ChangeNotifier {
   int get currentIndex => _currentIndex;
 
   Future<void> getBannerList(bool reload, BuildContext context) async {
-    if (_mainBannerList == null || reload) {
+    if (reload) {
       ApiResponse apiResponse = await bannerRepo.getBannerList();
       if (apiResponse.response != null &&
           apiResponse.response.statusCode == 200) {

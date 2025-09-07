@@ -10,7 +10,6 @@ import 'package:flutter_sixvalley_ecommerce/data/model/response/social_login_mod
 import 'package:flutter_sixvalley_ecommerce/data/repository/auth_repo.dart';
 import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
 
-import '../data/datasource/remote/exception/api_error_handler.dart';
 
 class AuthProvider with ChangeNotifier {
   final AuthRepo authRepo;
@@ -64,10 +63,8 @@ class AuthProvider with ChangeNotifier {
 
       }
 
-      if(token != null){
-        authRepo.saveUserToken(token);
-        await authRepo.updateToken();
-      }
+      authRepo.saveUserToken(token);
+      await authRepo.updateToken();
       callback(true, token,temporaryToken,message );
       notifyListeners();
     } else {
@@ -114,7 +111,7 @@ class AuthProvider with ChangeNotifier {
       }catch(e){
 
       }
-      if(token != null && token.isNotEmpty){
+      if(token.isNotEmpty){
         authRepo.saveUserToken(token);
         await authRepo.updateToken();
       }
@@ -171,7 +168,7 @@ class AuthProvider with ChangeNotifier {
 
       }
 
-      if(token != null && token.isNotEmpty){
+      if(token.isNotEmpty){
         authRepo.saveUserToken(token);
         await authRepo.updateToken();
       }

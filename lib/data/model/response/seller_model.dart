@@ -54,9 +54,7 @@ class SellerModel {
     data['phone'] = this._phone;
     data['image'] = this._image;
     data['location'] = this._location;
-    if (this._shop != null) {
-      data['shop'] = this._shop.toJson();
-    }
+    data['shop'] = this._shop.toJson();
     return data;
   }
 }

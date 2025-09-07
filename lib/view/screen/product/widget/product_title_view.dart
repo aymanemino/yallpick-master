@@ -23,7 +23,7 @@ class ProductTitleView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double _startingPrice = 0;
-    double _endingPrice;
+    double _endingPrice = 0.0;
     if (productModel.variation != null && productModel.variation.length != 0) {
       List<double> _priceList = [];
       productModel.variation
@@ -113,7 +113,7 @@ class ProductTitleView extends StatelessWidget {
                             color: Colors.grey[
                             Provider.of<ThemeProvider>(context).darkTheme
                                 ? 700
-                                : 200],
+                                : 200]!,
                             spreadRadius: 1,
                             blurRadius: 5,
                           )

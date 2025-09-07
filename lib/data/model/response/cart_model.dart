@@ -161,10 +161,8 @@ class CartModel {
     data['seller_id'] = this._sellerId;
     data['seller_is'] = this._sellerIs;
     data['shop_info'] = this._shopInfo;
-    if (this._choiceOptions != null) {
-      data['choice_options'] =
-          this._choiceOptions.map((v) => v.toJson()).toList();
-    }
+    data['choice_options'] =
+        this._choiceOptions.map((v) => v.toJson()).toList();
     data['variation_indexes'] = this._variationIndexes;
     return data;
   }

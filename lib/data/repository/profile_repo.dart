@@ -82,9 +82,7 @@ class ProfileRepo {
   Future<http.StreamedResponse> updateProfile(UserInfoModel userInfoModel, String pass, File file, String token) async {
     http.MultipartRequest request = http.MultipartRequest('POST', Uri.parse('${AppConstants.BASE_URL}${AppConstants.UPDATE_PROFILE_URI}'));
     request.headers.addAll(<String,String>{'Authorization': 'Bearer $token'});
-    if(file != null){
-      request.files.add(http.MultipartFile('image', file.readAsBytes().asStream(), file.lengthSync(), filename: file.path.split('/').last));
-    }
+    request.files.add(http.MultipartFile('image', file.readAsBytes().asStream(), file.lengthSync(), filename: file.path.split('/').last));
      Map<String, String> _fields = Map();
     if(pass.isEmpty) {
       _fields.addAll(<String, String>{

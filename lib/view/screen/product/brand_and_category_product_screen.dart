@@ -55,7 +55,7 @@ class BrandAndCategoryProductScreen extends StatelessWidget {
                 productProvider.initBrandOrCategoryProductList(isBrand, id, context);
               },
             ),
-            !isBrand && subcategory != null && subcategory.length != 0
+            !isBrand && subcategory.length != 0
                 ? SizedBox(
               height: 100, // Adjust height to fit one row of categories
               child: Padding(

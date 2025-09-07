@@ -427,8 +427,7 @@ class CartProvider extends ChangeNotifier {
   }
 
   void setSelectedShippingMethod(int index, int sellerIndex) {
-    if (_shippingList != null &&
-        sellerIndex >= 0 &&
+    if (sellerIndex >= 0 &&
         sellerIndex < _shippingList.length &&
         _shippingList[sellerIndex] != null) {
       _shippingList[sellerIndex].shippingIndex = index;

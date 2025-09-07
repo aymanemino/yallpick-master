@@ -146,13 +146,9 @@ class OrderModel {
     data['transaction_ref'] = this._transactionRef;
     data['order_amount'] = this._orderAmount;
     data['shipping_address'] = this._shippingAddress;
-    if (this._shippingAddressData != null) {
-      data['shipping_address_data'] = this._shippingAddressData.toJson();
-    }
+    data['shipping_address_data'] = this._shippingAddressData.toJson();
     data['billing_address'] = this._billingAddress;
-    if (this.billingAddressData != null) {
-      data['billing_address_data'] = this.billingAddressData.toJson();
-    }
+    data['billing_address_data'] = this.billingAddressData.toJson();
     data['shipping_method_id'] = this._shippingMethodId;
     data['seller_id'] = this._sellerId;
     data['shipping_cost'] = this._shippingCost;

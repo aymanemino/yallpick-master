@@ -22,7 +22,7 @@ class MyNotification {
       try {
         print('payload000');
         print(payload);
-        if (payload != null && payload.isNotEmpty) {
+        if (payload.isNotEmpty) {
           MyApp.navigatorKey.currentState.push(MaterialPageRoute(
               builder: (context) => OrderDetailsScreen(
                     orderModel: null,
@@ -93,7 +93,7 @@ class MyNotification {
       }
     }
 
-    if (_image != null && _image.isNotEmpty) {
+    if (_image.isNotEmpty) {
       try {
         await showBigPictureNotificationHiddenLargeIcon(
             _title, _body, _orderID, _image, fln);

@@ -43,9 +43,7 @@ class ProductModel {
     data['total_size'] = this._totalSize;
     data['limit'] = this._limit;
     data['offset'] = this._offset;
-    if (this._products != null) {
-      data['products'] = this._products.map((v) => v.toJson()).toList();
-    }
+    data['products'] = this._products.map((v) => v.toJson()).toList();
     return data;
   }
 }
@@ -319,17 +317,11 @@ class Product {
     data['min_qty'] = this._minQty;
     data['images'] = this._images;
     data['thumbnail'] = this._thumbnail;
-    if (this._colors != null) {
-      data['colors'] = this._colors.map((v) => v.toJson()).toList();
-    }
+    data['colors'] = this._colors.map((v) => v.toJson()).toList();
     data['attributes'] = this._attributes;
-    if (this._choiceOptions != null) {
-      data['choice_options'] =
-          this._choiceOptions.map((v) => v.toJson()).toList();
-    }
-    if (this._variation != null) {
-      data['variation'] = this._variation.map((v) => v.toJson()).toList();
-    }
+    data['choice_options'] =
+        this._choiceOptions.map((v) => v.toJson()).toList();
+    data['variation'] = this._variation.map((v) => v.toJson()).toList();
     data['unit_price'] = this._unitPrice;
     data['purchase_price'] = this._purchasePrice;
     data['tax'] = this._tax;
@@ -343,9 +335,7 @@ class Product {
     data['country_id'] = this._countryId;
     data['state_id'] = this._stateId;
     data['city_id'] = this._cityId;
-    if (this._rating != null) {
-      data['rating'] = this._rating.map((v) => v.toJson()).toList();
-    }
+    data['rating'] = this._rating.map((v) => v.toJson()).toList();
 
     if (this._shop != null) {
       data['shop'] = this._shop.toJson();

@@ -65,16 +65,12 @@ class ReviewModel {
     data['product_id'] = this._productId;
     data['customer_id'] = this._customerId;
     data['comment'] = this._comment;
-    if (this._customer != null) {
-      data['customer'] = this._customer.toJson();
-    }
+    data['customer'] = this._customer.toJson();
     data['rating'] = this._rating;
     data['status'] = this._status;
     data['created_at'] = this._createdAt;
     data['updated_at'] = this._updatedAt;
-    if (this._customer != null) {
-      data['customer'] = this._customer.toJson();
-    }
+    data['customer'] = this._customer.toJson();
     return data;
   }
 }

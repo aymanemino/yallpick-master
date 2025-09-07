@@ -462,7 +462,7 @@ class LocationProvider with ChangeNotifier {
 
   Future<List<Prediction>> searchLocation(
       BuildContext context, String text) async {
-    if (text != null && text.isNotEmpty) {
+    if (text.isNotEmpty) {
       ApiResponse response = await locationRepo.searchLocation(text);
       if (response.response.statusCode == 200 &&
           response.response.data['status'] == 'OK') {

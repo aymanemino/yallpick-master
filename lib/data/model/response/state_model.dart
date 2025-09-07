@@ -20,9 +20,7 @@ class StateModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this._states != null) {
-      data['states'] = this._states.map((v) => v.toJson()).toList();
-    }
+    data['states'] = this._states.map((v) => v.toJson()).toList();
     return data;
   }
 }
