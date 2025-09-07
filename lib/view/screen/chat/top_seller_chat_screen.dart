@@ -96,7 +96,7 @@ class TopSellerChatScreen extends StatelessWidget {
               height: 70,
               child: Card(
                 color: Theme.of(context).highlightColor,
-                shadowColor: Colors.grey[200],
+                shadowColor: Colors.grey[200]!!,
                 elevation: 2,
                 margin: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
                 shape: RoundedRectangleBorder(
@@ -190,9 +190,9 @@ class ChatShimmer extends StatelessWidget {
       itemBuilder: (context, index) {
         bool isMe = index % 2 == 0;
         return Shimmer.fromColors(
-          baseColor: isMe ? Colors.grey[300] : ColorResources.IMAGE_BG,
+          baseColor: isMe ? Colors.grey[300]!! : ColorResources.IMAGE_BG,
           highlightColor: isMe
-              ? Colors.grey[100]
+              ? Colors.grey[100]!!
               : ColorResources.IMAGE_BG.withOpacity(0.9),
           enabled: Provider.of<ChatProvider>(context).chatList == null,
           child: Row(

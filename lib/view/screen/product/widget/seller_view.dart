@@ -39,7 +39,7 @@ class SellerView extends StatelessWidget {
               Expanded(
                 child: InkWell(
                   onTap: () {
-                    return Navigator.push(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (_) =>

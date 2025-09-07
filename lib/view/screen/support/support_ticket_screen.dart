@@ -209,7 +209,7 @@ class SupportTicketScreen extends StatelessWidget {
                         'Created: ${DateConverter.localDateToIsoStringAMPM(DateTime.parse(ticket.createdAt))}',
                         style: titilliumRegular.copyWith(
                           fontSize: Dimensions.FONT_SIZE_SMALL,
-                          color: Colors.grey[600],
+                          color: Colors.grey[600]!!,
                         ),
                       ),
                       SizedBox(height: Dimensions.PADDING_SIZE_EXTRA_SMALL),
@@ -258,7 +258,7 @@ class SupportTicketScreen extends StatelessWidget {
                   ticket.type,
                   style: titilliumRegular.copyWith(
                     fontSize: Dimensions.FONT_SIZE_SMALL,
-                    color: Colors.grey[600],
+                    color: Colors.grey[600]!!,
                   ),
                 ),
                 SizedBox(width: Dimensions.PADDING_SIZE_SMALL),
@@ -272,7 +272,7 @@ class SupportTicketScreen extends StatelessWidget {
                   ticket.priority,
                   style: titilliumRegular.copyWith(
                     fontSize: Dimensions.FONT_SIZE_SMALL,
-                    color: Colors.grey[600],
+                    color: Colors.grey[600]!!,
                   ),
                 ),
               ],
@@ -282,7 +282,7 @@ class SupportTicketScreen extends StatelessWidget {
               ticket.description,
               style: titilliumRegular.copyWith(
                 fontSize: Dimensions.FONT_SIZE_SMALL,
-                color: Colors.grey[700],
+                color: Colors.grey[700]!!,
               ),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
@@ -320,14 +320,14 @@ class SupportTicketScreen extends StatelessWidget {
           Icon(
             Icons.support_agent,
             size: 80,
-            color: Colors.grey[400],
+            color: Colors.grey[400]!!,
           ),
           SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
           Text(
             'No Support Tickets',
             style: titilliumBold.copyWith(
               fontSize: Dimensions.FONT_SIZE_LARGE,
-              color: Colors.grey[600],
+              color: Colors.grey[600]!!,
             ),
           ),
           SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
@@ -335,7 +335,7 @@ class SupportTicketScreen extends StatelessWidget {
             'You haven\'t created any support tickets yet.',
             style: titilliumRegular.copyWith(
               fontSize: Dimensions.FONT_SIZE_DEFAULT,
-              color: Colors.grey[500],
+              color: Colors.grey[500]!!,
             ),
             textAlign: TextAlign.center,
           ),
@@ -361,8 +361,8 @@ class SupportTicketShimmer extends StatelessWidget {
             border: Border.all(color: ColorResources.SELLER_TXT, width: 2),
           ),
           child: Shimmer.fromColors(
-            baseColor: Colors.grey[300],
-            highlightColor: Colors.grey[100],
+            baseColor: Colors.grey[300]!!,
+            highlightColor: Colors.grey[100]!!,
             enabled:
             Provider.of<SupportTicketProvider>(context).supportTicketList ==
                 null,

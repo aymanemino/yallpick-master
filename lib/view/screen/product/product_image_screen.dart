@@ -63,7 +63,7 @@ class _ProductImageScreenState extends State<ProductImageScreen> {
                       value: event == null
                           ? 0
                           : event.cumulativeBytesLoaded /
-                              event.expectedTotalBytes,
+                              (event.expectedTotalBytes ?? 0),
                       valueColor: AlwaysStoppedAnimation<Color>(
                           Theme.of(context).primaryColor),
                     ),

@@ -96,8 +96,8 @@ class WishListShimmer extends StatelessWidget {
       padding: EdgeInsets.all(0),
       itemBuilder: (context, index) {
         return Shimmer.fromColors(
-          baseColor: Colors.grey[300],
-          highlightColor: Colors.grey[100],
+          baseColor: Colors.grey[300]!!,
+          highlightColor: Colors.grey[100]!!,
           enabled: Provider.of<WishListProvider>(context).wishList == null,
           child: ListTile(
             leading:

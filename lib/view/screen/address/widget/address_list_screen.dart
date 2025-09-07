@@ -15,7 +15,7 @@ class AddressListPage extends StatelessWidget {
             : address.addressType == 'Ofice' ? Images.bag : Images.more_image,
         color: ColorResources.getSellerTxt(context), height: 30, width: 30,
       ),
-      title: Text(address.address, style: titilliumRegular),
+      title: Text(address.address ?? "", style: titilliumRegular),
     );
 
 

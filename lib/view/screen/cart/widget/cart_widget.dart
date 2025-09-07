@@ -255,7 +255,7 @@ class CartWidget extends StatelessWidget {
                       Text(
                         '6-8 Days Delivery',
                         style: TextStyle(
-                          color: Colors.grey[600],
+                          color: Colors.grey[600]!!,
                           fontSize: 10,
                           fontWeight: FontWeight.w500,
                         ),

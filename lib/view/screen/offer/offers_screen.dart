@@ -72,8 +72,8 @@ class OfferShimmer extends StatelessWidget {
       physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) {
         return Shimmer.fromColors(
-          baseColor: Colors.grey[300],
-          highlightColor: Colors.grey[100],
+          baseColor: Colors.grey[300]!!,
+          highlightColor: Colors.grey[100]!!,
           enabled: Provider.of<BannerProvider>(context).footerBannerList == null,
           child: Container(
             height: 100,

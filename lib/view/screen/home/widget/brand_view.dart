@@ -147,8 +147,8 @@ class BrandShimmer extends StatelessWidget {
       physics: isHomePage ? NeverScrollableScrollPhysics() : null,
       itemBuilder: (BuildContext context, int index) {
         return Shimmer.fromColors(
-          baseColor: Colors.grey[300],
-          highlightColor: Colors.grey[100],
+          baseColor: Colors.grey[300]!!,
+          highlightColor: Colors.grey[100]!!,
           enabled: Provider.of<BrandProvider>(context).brandList.length == 0,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

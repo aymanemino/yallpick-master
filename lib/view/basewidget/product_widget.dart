@@ -279,7 +279,7 @@ class _ProductWidgetState extends State<ProductWidget>
                     style: robotoRegular.copyWith(
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
-                      color: Colors.grey[900],
+                      color: Colors.grey[900]!!,
                       height: 1.3,
                     ),
                     maxLines: 2, // Allow 2 lines for better readability

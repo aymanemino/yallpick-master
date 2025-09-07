@@ -203,8 +203,8 @@ class MegaDealShimmer extends StatelessWidget {
               color: ColorResources.WHITE,
               boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.3), spreadRadius: 1, blurRadius: 5)]),
           child: Shimmer.fromColors(
-            baseColor: Colors.grey[300],
-            highlightColor: Colors.grey[100],
+            baseColor: Colors.grey[300]!!,
+            highlightColor: Colors.grey[100]!!,
             enabled: Provider.of<FeaturedDealProvider>(context).featuredDealList.length == 0,
             child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
 

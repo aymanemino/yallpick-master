@@ -56,8 +56,8 @@ class _CartBottomSheetState extends State<CartBottomSheet> {
           ),
           child: Consumer<ProductDetailsProvider>(
             builder: (context, details, child) {
-              Variation _variation;
-              String _variantName = widget.product.colors.length != 0 ? widget.product.colors[details.variantIndex].name : null;
+              Variation _variation = Variation();
+              String _variantName = widget.product.colors.length != 0 ? widget.product.colors[details.variantIndex].name ?? "" : "";
               List<String> _variationList = [];
               for(int index=0; index < widget.product.choiceOptions.length; index++) {
                 _variationList.add(widget.product.choiceOptions[index].options[details.variationIndex[index]].trim());

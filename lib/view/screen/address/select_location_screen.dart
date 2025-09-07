@@ -62,7 +62,7 @@ class _SelectLocationScreenState extends State<SelectLocationScreen> {
                           mapToolbarEnabled: true,
                           onCameraIdle: () {
                             locationProvider.updatePosition(
-                                _cameraPosition, false, null, context);
+                                _cameraPosition, false, "", context);
                           },
                           onCameraMove: ((_position) =>
                               _cameraPosition = _position),

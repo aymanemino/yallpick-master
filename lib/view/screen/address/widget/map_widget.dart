@@ -53,7 +53,7 @@ class _MapWidgetState extends State<MapWidget> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               color: Theme.of(context).cardColor,
-              boxShadow: [BoxShadow(color: Colors.grey[300], spreadRadius: 3, blurRadius: 10)],
+              boxShadow: [BoxShadow(color: Colors.grey[300]!!, spreadRadius: 3, blurRadius: 10)],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -189,8 +189,8 @@ class HomeBannersView extends StatelessWidget {
               )
                   : Center(child: Text('No banner available'))
                   : Shimmer.fromColors(
-                baseColor: Colors.grey[300],
-                highlightColor: Colors.grey[100],
+                baseColor: Colors.grey[300]!!,
+                highlightColor: Colors.grey[100]!!,
                 enabled: bannerProvider.mainBannerList == null,
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 10),
@@ -265,8 +265,8 @@ class HomeBannersView extends StatelessWidget {
                       },
                     )
                   : Shimmer.fromColors(
-                      baseColor: Colors.grey[300],
-                      highlightColor: Colors.grey[100],
+                      baseColor: Colors.grey[300]!!,
+                      highlightColor: Colors.grey[100]!!,
                       enabled: footerBannerProvider.footerBannerList == null,
                       child: Container(
                           margin: EdgeInsets.symmetric(horizontal: 10),

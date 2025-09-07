@@ -65,7 +65,7 @@ class _YoutubeViewState extends State<YoutubeView> {
                   javascriptMode: JavascriptMode.unrestricted,
                 )
               : Container(
-                  color: Colors.grey[300],
+                  color: Colors.grey[300]!!,
                   child: Center(
                     child: Text('Video not available'),
                   ),

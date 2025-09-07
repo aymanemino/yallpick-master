@@ -268,7 +268,7 @@ class MyCheckBox extends StatelessWidget {
       activeColor: Colors.transparent,
       value: Provider.of<SearchProvider>(context).filterIndex == index,
       onChanged: (isChecked) {
-        if (isChecked) {
+        if (isChecked ?? false) {
           Provider.of<SearchProvider>(context, listen: false)
               .setFilterIndex(index);
         }

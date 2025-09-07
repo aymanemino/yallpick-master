@@ -983,7 +983,7 @@ class ModernTitleButton extends StatelessWidget {
                         style: TextStyle(
                           fontSize: Dimensions.FONT_SIZE_SMALL,
                           fontWeight: FontWeight.w400,
-                          color: Colors.grey[600],
+                          color: Colors.grey[600]!!,
                           letterSpacing: 0.1,
                         ),
                       ),

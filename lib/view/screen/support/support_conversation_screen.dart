@@ -89,7 +89,7 @@ class SupportConversationScreen extends StatelessWidget {
                     'Created: ${DateConverter.localDateToIsoStringAMPM(DateTime.parse(supportTicketModel.createdAt))}',
                     style: titilliumRegular.copyWith(
                       fontSize: Dimensions.FONT_SIZE_SMALL,
-                      color: Colors.grey[600],
+                      color: Colors.grey[600]!!,
                     ),
                   ),
                 ],
@@ -107,7 +107,7 @@ class SupportConversationScreen extends StatelessWidget {
                     'Type: ${supportTicketModel.type}',
                     style: titilliumRegular.copyWith(
                       fontSize: Dimensions.FONT_SIZE_SMALL,
-                      color: Colors.grey[600],
+                      color: Colors.grey[600]!!,
                     ),
                   ),
                   SizedBox(width: Dimensions.PADDING_SIZE_SMALL),
@@ -121,7 +121,7 @@ class SupportConversationScreen extends StatelessWidget {
                     'Priority: ${supportTicketModel.priority}',
                     style: titilliumRegular.copyWith(
                       fontSize: Dimensions.FONT_SIZE_SMALL,
-                      color: Colors.grey[600],
+                      color: Colors.grey[600]!!,
                     ),
                   ),
                 ],
@@ -131,7 +131,7 @@ class SupportConversationScreen extends StatelessWidget {
                 'Description: ${supportTicketModel.description}',
                 style: titilliumRegular.copyWith(
                   fontSize: Dimensions.FONT_SIZE_SMALL,
-                  color: Colors.grey[700],
+                  color: Colors.grey[700]!!,
                 ),
               ),
             ],
@@ -203,7 +203,7 @@ class SupportConversationScreen extends StatelessWidget {
           height: 70,
           child: Card(
             color: Theme.of(context).highlightColor,
-            shadowColor: Colors.grey[200],
+            shadowColor: Colors.grey[200]!!,
             elevation: 2,
             margin: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
             shape: RoundedRectangleBorder(
@@ -251,15 +251,15 @@ class SupportConversationScreen extends StatelessWidget {
           margin: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
           padding: EdgeInsets.all(Dimensions.PADDING_SIZE_DEFAULT),
           decoration: BoxDecoration(
-            color: Colors.grey[100],
+            color: Colors.grey[100]!!,
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.grey[300]),
+            border: Border.all(color: Colors.grey[300]!!),
           ),
           child: Row(
             children: [
               Icon(
                 Icons.lock,
-                color: Colors.grey[600],
+                color: Colors.grey[600]!!,
                 size: 20,
               ),
               SizedBox(width: Dimensions.PADDING_SIZE_SMALL),
@@ -267,7 +267,7 @@ class SupportConversationScreen extends StatelessWidget {
                 child: Text(
                   'This ticket is closed. You cannot add new replies.',
                   style: titilliumRegular.copyWith(
-                    color: Colors.grey[600],
+                    color: Colors.grey[600]!!,
                     fontSize: Dimensions.FONT_SIZE_SMALL,
                   ),
                 ),

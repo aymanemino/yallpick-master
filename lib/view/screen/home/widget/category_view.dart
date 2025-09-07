@@ -150,8 +150,8 @@ class CategoryShimmer extends StatelessWidget {
             Expanded(
               flex: 7,
               child: Shimmer.fromColors(
-                baseColor: Colors.grey[300],
-                highlightColor: Colors.grey[100],
+                baseColor: Colors.grey[300]!!,
+                highlightColor: Colors.grey[100]!!,
                 enabled: true,
                 child: Container(
                   decoration: BoxDecoration(
@@ -176,8 +176,8 @@ class CategoryShimmer extends StatelessWidget {
                   ),
                 ),
                 child: Shimmer.fromColors(
-                  baseColor: Colors.grey[300],
-                  highlightColor: Colors.grey[100],
+                  baseColor: Colors.grey[300]!!,
+                  highlightColor: Colors.grey[100]!!,
                   enabled: true,
                   child: Container(
                     height: 10,
