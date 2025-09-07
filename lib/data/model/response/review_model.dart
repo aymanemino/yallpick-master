@@ -12,15 +12,15 @@ class ReviewModel {
 
   ReviewModel(
       {int? id,
-        int? productId,
-        int? customerId,
-        String? comment,
-        List<String>? attachment,
-        int? rating,
-        int? status,
-        String? createdAt,
-        String? updatedAt,
-        Customer? customer}) {
+      int? productId,
+      int? customerId,
+      String? comment,
+      List<String>? attachment,
+      int? rating,
+      int? status,
+      String? createdAt,
+      String? updatedAt,
+      Customer? customer}) {
     this._id = id ?? 0;
     this._productId = productId ?? 0;
     this._customerId = customerId ?? 0;
@@ -99,21 +99,21 @@ class Customer {
 
   Customer(
       {int? id,
-        String? name,
-        String? fName,
-        String? lName,
-        String? phone,
-        String? image,
-        String? email,
-        String? emailVerifiedAt,
-        String? createdAt,
-        String? updatedAt,
-        String? streetAddress,
-        String? country,
-        String? city,
-        String? zip,
-        String? houseNo,
-        String? apartmentNo}) {
+      String? name,
+      String? fName,
+      String? lName,
+      String? phone,
+      String? image,
+      String? email,
+      String? emailVerifiedAt,
+      String? createdAt,
+      String? updatedAt,
+      String? streetAddress,
+      String? country,
+      String? city,
+      String? zip,
+      String? houseNo,
+      String? apartmentNo}) {
     this._id = id ?? 0;
     this._name = name ?? '';
     this._fName = fName ?? '';
