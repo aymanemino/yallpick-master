@@ -75,15 +75,19 @@ class TopSellerView extends StatelessWidget {
                                                     context,
                                                     listen: false)
                                                 .baseUrls
-                                                .shopImageUrl ?? "" +
-                                            '/' +
-                                            topSellerProvider
-                                                .topSellerList[index].image,
+                                                .shopImageUrl ??
+                                            "" +
+                                                '/' +
+                                                topSellerProvider
+                                                    .topSellerList[index].image,
                                         imageErrorBuilder: (c, o, s) =>
                                             Image.asset(Images.placeholder),
                                       ),
                                     ),
-                                  ),SizedBox(height: 16,),
+                                  ),
+                                  SizedBox(
+                                    height: 16,
+                                  ),
                                   Text(
                                     topSellerProvider.topSellerList[index].name,
                                     maxLines: 1,
@@ -145,10 +149,11 @@ class TopSellerView extends StatelessWidget {
                                     image: Provider.of<SplashProvider>(context,
                                                 listen: false)
                                             .baseUrls
-                                            .shopImageUrl ?? "" +
-                                        '/' +
-                                        topSellerProvider
-                                            .topSellerList[index].image,
+                                            .shopImageUrl ??
+                                        "" +
+                                            '/' +
+                                            topSellerProvider
+                                                .topSellerList[index].image,
                                     imageErrorBuilder: (c, o, s) =>
                                         Image.asset(Images.placeholder),
                                   ),
@@ -195,7 +200,7 @@ class TopSellerShimmer extends StatelessWidget {
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
                 color: Colors.grey[
-                    Provider.of<ThemeProvider>(context).darkTheme ? 700 : 200],
+                    Provider.of<ThemeProvider>(context).darkTheme ? 700 : 200]!,
                 spreadRadius: 2,
                 blurRadius: 5)
           ]),
