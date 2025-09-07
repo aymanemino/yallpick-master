@@ -14,15 +14,15 @@ class OrderProvider with ChangeNotifier {
   final OrderRepo orderRepo;
   OrderProvider({required this.orderRepo});
 
-  List<OrderModel> _pendingList;
-  List<OrderModel> _deliveredList;
-  List<OrderModel> _canceledList;
-  int _addressIndex;
-  int _billingAddressIndex;
+  List<OrderModel> _pendingList = [];
+  List<OrderModel> _deliveredList = [];
+  List<OrderModel> _canceledList = [];
+  int _addressIndex = 0;
+  int _billingAddressIndex = 0;
   int get billingAddressIndex => _billingAddressIndex;
-  int _shippingIndex;
+  int _shippingIndex = 0;
   bool _isLoading = false;
-  List<ShippingMethodModel> _shippingList;
+  List<ShippingMethodModel> _shippingList = [];
   int _paymentMethodIndex = 1;
 
   List<OrderModel> get pendingList =>
@@ -75,7 +75,7 @@ class OrderProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<OrderDetailsModel> _orderDetails;
+  List<OrderDetailsModel> _orderDetails = [];
   List<OrderDetailsModel> get orderDetails => _orderDetails;
 
   void getOrderDetails(
@@ -180,7 +180,7 @@ class OrderProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  OrderModel _trackingModel;
+  OrderModel _trackingModel = OrderModel();
   OrderModel get trackingModel => _trackingModel;
 
   Future<void> initTrackingInfo(String orderID, OrderModel orderModel,

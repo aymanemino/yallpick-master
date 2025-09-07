@@ -13,12 +13,12 @@ class ChatProvider extends ChangeNotifier {
   final ChatRepo chatRepo;
   ChatProvider({required this.chatRepo});
 
-  ChatInfoModel _chatInfoModel;
-  List<ChatModel> _chatList;
-  File _imageFile;
+  ChatInfoModel _chatInfoModel = ChatInfoModel();
+  List<ChatModel> _chatList = [];
+  late File _imageFile;
   bool _isSendButtonActive = false;
-  List<UniqueShops> _uniqueShopList;
-  List<UniqueShops> _uniqueShopAllList;
+  List<UniqueShops> _uniqueShopList = [];
+  List<UniqueShops> _uniqueShopAllList = [];
   bool _isSearching = false;
 
   List<ChatModel> get chatList => _chatList;
@@ -30,16 +30,17 @@ class ChatProvider extends ChangeNotifier {
 
   Future<void> initChatInfo(BuildContext context) async {
     ApiResponse apiResponse = await chatRepo.getChatInfo();
-    if (apiResponse.response != null && apiResponse.response.statusCode == 200) {
+    if (apiResponse.response != null &&
+        apiResponse.response.statusCode == 200) {
       _chatInfoModel = ChatInfoModel.fromJson(apiResponse.response.data);
       _uniqueShopList = [];
       _uniqueShopAllList = [];
-      if(_chatInfoModel.uniqueShops != null) {
+      if (_chatInfoModel.uniqueShops != null) {
         _chatInfoModel.uniqueShops.forEach((uniqueShop) {
           _uniqueShopList.add(uniqueShop);
           _uniqueShopAllList.add(uniqueShop);
         });
-      }else {
+      } else {
         _chatInfoModel = ChatInfoModel(uniqueShops: []);
       }
     } else {
@@ -47,13 +48,16 @@ class ChatProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
+
   Future<void> initChatList(int sellerID, BuildContext context) async {
     _chatList = null;
     notifyListeners();
     ApiResponse apiResponse = await chatRepo.getChatList(sellerID.toString());
-    if (apiResponse.response != null && apiResponse.response.statusCode == 200) {
+    if (apiResponse.response != null &&
+        apiResponse.response.statusCode == 200) {
       _chatList = [];
-      apiResponse.response.data.forEach((chat) => _chatList.add(ChatModel.fromJson(chat)));
+      apiResponse.response.data
+          .forEach((chat) => _chatList.add(ChatModel.fromJson(chat)));
     } else {
       ApiChecker.checkApi(context, apiResponse);
     }
@@ -62,9 +66,17 @@ class ChatProvider extends ChangeNotifier {
 
   void sendMessage(MessageBody messageBody, BuildContext context) async {
     ApiResponse apiResponse = await chatRepo.sendMessage(messageBody);
-    if (apiResponse.response != null && apiResponse.response.statusCode == 200) {
-      _chatList.add(ChatModel(sellerId: int.parse(messageBody.shopId), message: messageBody.message, sentByCustomer: 1, sentBySeller: 0,
-          seenByCustomer: 0, seenBySeller:1, shopId: int.parse(messageBody.shopId), createdAt: DateConverter.localDateToIsoString(DateTime.now())));
+    if (apiResponse.response != null &&
+        apiResponse.response.statusCode == 200) {
+      _chatList.add(ChatModel(
+          sellerId: int.parse(messageBody.shopId),
+          message: messageBody.message,
+          sentByCustomer: 1,
+          sentBySeller: 0,
+          seenByCustomer: 0,
+          seenBySeller: 1,
+          shopId: int.parse(messageBody.shopId),
+          createdAt: DateConverter.localDateToIsoString(DateTime.now())));
       notifyListeners();
     } else {
       ApiChecker.checkApi(context, apiResponse);
@@ -98,13 +110,15 @@ class ChatProvider extends ChangeNotifier {
 
   void filterList(String query) {
     _uniqueShopList.clear();
-    if(query.isNotEmpty) {
+    if (query.isNotEmpty) {
       _uniqueShopAllList.forEach((uniqueShop) {
-        if ((uniqueShop.sellerInfo.fName + ' ' + uniqueShop.sellerInfo.lName).toLowerCase().contains(query.toLowerCase())) {
+        if ((uniqueShop.sellerInfo.fName + ' ' + uniqueShop.sellerInfo.lName)
+            .toLowerCase()
+            .contains(query.toLowerCase())) {
           _uniqueShopList.add(uniqueShop);
         }
       });
-    }else {
+    } else {
       _uniqueShopList.addAll(_uniqueShopAllList);
     }
     notifyListeners();

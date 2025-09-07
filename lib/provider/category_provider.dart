@@ -10,7 +10,7 @@ class CategoryProvider extends ChangeNotifier {
   CategoryProvider({required this.categoryRepo});
 
   List<Category> _categoryList = [];
-  int _categorySelectedIndex;
+  int _categorySelectedIndex = 0;
 
   List<int> _categoryIds = [];
 

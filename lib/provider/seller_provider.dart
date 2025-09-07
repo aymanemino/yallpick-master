@@ -9,14 +9,15 @@ class SellerProvider extends ChangeNotifier {
   SellerProvider({required this.sellerRepo});
 
   List<SellerModel> _orderSellerList = [];
-  SellerModel _sellerModel;
+  SellerModel _sellerModel = SellerModel();
 
   List<SellerModel> get orderSellerList => _orderSellerList;
   SellerModel get sellerModel => _sellerModel;
 
   void initSeller(String sellerId, BuildContext context) async {
     ApiResponse apiResponse = await sellerRepo.getSeller(sellerId);
-    if (apiResponse.response != null && apiResponse.response.statusCode == 200) {
+    if (apiResponse.response != null &&
+        apiResponse.response.statusCode == 200) {
       _orderSellerList.add(SellerModel.fromJson(apiResponse.response.data));
       _sellerModel = SellerModel.fromJson(apiResponse.response.data);
     } else {

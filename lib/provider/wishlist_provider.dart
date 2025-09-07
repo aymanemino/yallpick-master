@@ -9,7 +9,8 @@ import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
 class WishListProvider extends ChangeNotifier {
   final WishListRepo wishListRepo;
   final ProductDetailsRepo productDetailsRepo;
-  WishListProvider({required this.wishListRepo, required this.productDetailsRepo});
+  WishListProvider(
+      {required this.wishListRepo, required this.productDetailsRepo});
 
   bool _wish = false;
   String _searchText = "";
@@ -24,8 +25,8 @@ class WishListProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  List<Product> _wishList;
-  List<Product> _allWishList;
+  List<Product> _wishList = [];
+  List<Product> _allWishList = [];
 
   List<Product> get wishList => _wishList;
   List<Product> get allWishList => _allWishList;
@@ -47,7 +48,8 @@ class WishListProvider extends ChangeNotifier {
 
   void addWishList(int productID, {Function? feedbackMessage}) async {
     ApiResponse apiResponse = await wishListRepo.addWishList(productID);
-    if (apiResponse.response != null && apiResponse.response.statusCode == 200) {
+    if (apiResponse.response != null &&
+        apiResponse.response.statusCode == 200) {
       Map map = apiResponse.response.data;
       String message = map['message'];
       feedbackMessage(message);
@@ -60,12 +62,14 @@ class WishListProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void removeWishList(int productID, {int? index, Function? feedbackMessage}) async {
+  void removeWishList(int productID,
+      {int? index, Function? feedbackMessage}) async {
     ApiResponse apiResponse = await wishListRepo.removeWishList(productID);
-    if (apiResponse.response != null && apiResponse.response.statusCode == 200) {
+    if (apiResponse.response != null &&
+        apiResponse.response.statusCode == 200) {
       Map map = apiResponse.response.data;
       String message = map['message'];
-      if(feedbackMessage != null) {
+      if (feedbackMessage != null) {
         feedbackMessage(message);
       }
       if (index != null) {
@@ -83,14 +87,20 @@ class WishListProvider extends ChangeNotifier {
 
   Future<void> initWishList(BuildContext context, String languageCode) async {
     ApiResponse apiResponse = await wishListRepo.getWishList();
-    if (apiResponse.response != null && apiResponse.response.statusCode == 200) {
+    if (apiResponse.response != null &&
+        apiResponse.response.statusCode == 200) {
       _wishList = [];
       _allWishList = [];
-      for(int i=0; i<apiResponse.response.data.length; i++) {
+      for (int i = 0; i < apiResponse.response.data.length; i++) {
         ApiResponse productResponse = await productDetailsRepo.getProduct(
-          WishListModel.fromJson(apiResponse.response.data[i]).product.slug.toString(), languageCode,
+          WishListModel.fromJson(apiResponse.response.data[i])
+              .product
+              .slug
+              .toString(),
+          languageCode,
         );
-        if (productResponse.response != null && productResponse.response.statusCode == 200) {
+        if (productResponse.response != null &&
+            productResponse.response.statusCode == 200) {
           Product _product = Product.fromJson(productResponse.response.data);
           _wishList.add(_product);
           _allWishList.add(_product);
@@ -99,7 +109,7 @@ class WishListProvider extends ChangeNotifier {
           ApiChecker.checkApi(context, productResponse);
         }
       }
-      if(apiResponse.response.data.length > 0) {
+      if (apiResponse.response.data.length > 0) {
         notifyListeners();
       }
     } else {
@@ -111,7 +121,8 @@ class WishListProvider extends ChangeNotifier {
   void checkWishList(String productId, BuildContext context) async {
     ApiResponse apiResponse = await wishListRepo.getWishList();
     List<String> productIdList = [];
-    if (apiResponse.response != null && apiResponse.response.statusCode == 200) {
+    if (apiResponse.response != null &&
+        apiResponse.response.statusCode == 200) {
       _wishList = [];
       apiResponse.response.data.forEach((wishList) async {
         WishListModel wishListModel = WishListModel.fromJson(wishList);

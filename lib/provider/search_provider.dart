@@ -19,14 +19,14 @@ class SearchProvider with ChangeNotifier {
   List<int> _stateIds = [];
   List<int> _cityIds = [];
 
-  CountryModel _countryModel;
-  List<Countries> _countryList;
+  CountryModel _countryModel = CountryModel();
+  List<Countries> _countryList = [];
 
-  StateModel _stateModel;
-  List<States> _stateList;
+  StateModel _stateModel = StateModel();
+  List<States> _stateList = [];
 
-  CityModel _cityModel;
-  List<Cities> _cityList;
+  CityModel _cityModel = CityModel();
+  List<Cities> _cityList = [];
 
   int _filterIndex = 0;
   List<String> _historyList = [];
@@ -136,8 +136,8 @@ class SearchProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<Product> _searchProductList;
-  List<Product> _filterProductList;
+  List<Product> _searchProductList = [];
+  List<Product> _filterProductList = [];
   bool _isClear = true;
   String _searchText = '';
 

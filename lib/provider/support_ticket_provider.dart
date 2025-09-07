@@ -12,8 +12,8 @@ class SupportTicketProvider extends ChangeNotifier {
   final SupportTicketRepo supportTicketRepo;
   SupportTicketProvider({required this.supportTicketRepo});
 
-  List<SupportTicketModel> _supportTicketList;
-  List<SupportReplyModel> _supportReplyList;
+  List<SupportTicketModel> _supportTicketList = [];
+  List<SupportReplyModel> _supportReplyList = [];
   bool _isLoading = false;
 
   List<SupportTicketModel> get supportTicketList => _supportTicketList ?? [];
@@ -29,7 +29,7 @@ class SupportTicketProvider extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     ApiResponse apiResponse =
-    await supportTicketRepo.sendSupportTicket(supportTicketBody);
+        await supportTicketRepo.sendSupportTicket(supportTicketBody);
     if (apiResponse.response != null &&
         apiResponse.response.statusCode == 200) {
       String message = apiResponse.response.data["message"];
@@ -75,7 +75,7 @@ class SupportTicketProvider extends ChangeNotifier {
         print('🔍 [DEBUG] Processing ticket: $supportTicket');
         try {
           SupportTicketModel ticket =
-          SupportTicketModel.fromJson(supportTicket);
+              SupportTicketModel.fromJson(supportTicket);
           print('🔍 [DEBUG] Ticket parsed successfully: ${ticket.subject}');
           _supportTicketList.add(ticket);
         } catch (e) {
@@ -96,7 +96,7 @@ class SupportTicketProvider extends ChangeNotifier {
       BuildContext context, int ticketID) async {
     _supportReplyList = null;
     ApiResponse apiResponse =
-    await supportTicketRepo.getSupportReplyList(ticketID.toString());
+        await supportTicketRepo.getSupportReplyList(ticketID.toString());
     if (apiResponse.response != null &&
         apiResponse.response.statusCode == 200) {
       _supportReplyList = [];
@@ -111,7 +111,7 @@ class SupportTicketProvider extends ChangeNotifier {
   Future<void> sendReply(
       BuildContext context, int ticketID, String message) async {
     ApiResponse apiResponse =
-    await supportTicketRepo.sendReply(ticketID.toString(), message);
+        await supportTicketRepo.sendReply(ticketID.toString(), message);
     if (apiResponse.response != null &&
         apiResponse.response.statusCode == 200) {
       _supportReplyList.add(SupportReplyModel(

@@ -1,6 +1,6 @@
 class ResponseModel {
-  String _message;
-  bool _isSuccess;
+  String _message = '';
+  bool _isSuccess = false;
 
   ResponseModel(String? message, bool? isSuccess) {
     this._message = message ?? '';

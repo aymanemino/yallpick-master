@@ -1,10 +1,10 @@
 import 'package:flutter_sixvalley_ecommerce/data/model/response/seller_model.dart';
 
 class ProductModel {
-  int _totalSize;
-  int _limit;
-  int _offset;
-  List<Product> _products;
+  int _totalSize = 0;
+  int _limit = 0;
+  int _offset = 0;
+  List<Product> _products = [];
 
   ProductModel(
       {int? totalSize,
@@ -12,10 +12,10 @@ class ProductModel {
       int? offset,
       List<Product>? products,
       int? status}) {
-    this._totalSize = totalSize;
-    this._limit = limit;
-    this._offset = offset;
-    this._products = products;
+    this._totalSize = totalSize ?? 0;
+    this._limit = limit ?? 0;
+    this._offset = offset ?? 0;
+    this._products = products ?? [];
   }
 
   int get totalSize => _totalSize;
@@ -358,16 +358,16 @@ class Product {
 }
 
 class CategoryIds {
-  int _position;
+  int _position = 0;
 
   CategoryIds({int? position}) {
-    this._position = position;
+    this._position = position ?? 0;
   }
 
   int get position => _position;
 
   CategoryIds.fromJson(Map<String, dynamic> json) {
-    _position = json['position'];
+    _position = json['position'] ?? 0;
   }
 
   Map<String, dynamic> toJson() {
@@ -378,12 +378,12 @@ class CategoryIds {
 }
 
 class ProductColors {
-  String _name;
-  String _code;
+  String _name = '';
+  String _code = '';
 
   ProductColors({String? name, String? code}) {
-    this._name = name;
-    this._code = code;
+    this._name = name ?? '';
+    this._code = code ?? '';
   }
 
   String get name => _name;
@@ -391,8 +391,8 @@ class ProductColors {
   String get code => _code;
 
   ProductColors.fromJson(Map<String, dynamic> json) {
-    _name = json['name'];
-    _code = json['code'];
+    _name = json['name'] ?? '';
+    _code = json['code'] ?? '';
   }
 
   Map<String, dynamic> toJson() {
@@ -404,14 +404,14 @@ class ProductColors {
 }
 
 class ChoiceOptions {
-  String _name;
-  String _title;
-  List<String> _options;
+  String _name = '';
+  String _title = '';
+  List<String> _options = [];
 
   ChoiceOptions({String? name, String? title, List<String>? options}) {
-    this._name = name;
-    this._title = title;
-    this._options = options;
+    this._name = name ?? '';
+    this._title = title ?? '';
+    this._options = options ?? [];
   }
 
   String get name => _name;
@@ -421,9 +421,9 @@ class ChoiceOptions {
   List<String> get options => _options;
 
   ChoiceOptions.fromJson(Map<String, dynamic> json) {
-    _name = json['name'];
-    _title = json['title'];
-    _options = json['options'].cast<String>();
+    _name = json['name'] ?? '';
+    _title = json['title'] ?? '';
+    _options = json['options']?.cast<String>() ?? [];
   }
 
   Map<String, dynamic> toJson() {
@@ -436,16 +436,16 @@ class ChoiceOptions {
 }
 
 class Variation {
-  String _type;
-  double _price;
-  String _sku;
-  int _qty;
+  String _type = '';
+  double _price = 0.0;
+  String _sku = '';
+  int _qty = 0;
 
   Variation({String? type, double? price, String? sku, int? qty}) {
-    this._type = type;
-    this._price = price;
-    this._sku = sku;
-    this._qty = qty;
+    this._type = type ?? '';
+    this._price = price ?? 0.0;
+    this._sku = sku ?? '';
+    this._qty = qty ?? 0;
   }
 
   String get type => _type;
@@ -457,10 +457,10 @@ class Variation {
   int get qty => _qty;
 
   Variation.fromJson(Map<String, dynamic> json) {
-    _type = json['type'];
-    _price = json['price'].toDouble();
-    _sku = json['sku'];
-    _qty = json['qty'];
+    _type = json['type'] ?? '';
+    _price = (json['price'] ?? 0.0).toDouble();
+    _sku = json['sku'] ?? '';
+    _qty = json['qty'] ?? 0;
   }
 
   Map<String, dynamic> toJson() {
@@ -474,12 +474,12 @@ class Variation {
 }
 
 class Rating {
-  String _average;
-  int _productId;
+  String _average = '';
+  int _productId = 0;
 
   Rating({String? average, int? productId}) {
-    this._average = average;
-    this._productId = productId;
+    this._average = average ?? '';
+    this._productId = productId ?? 0;
   }
 
   String get average => _average;
@@ -487,8 +487,8 @@ class Rating {
   int get productId => _productId;
 
   Rating.fromJson(Map<String, dynamic> json) {
-    _average = json['average'].toString();
-    _productId = json['product_id'];
+    _average = json['average']?.toString() ?? '';
+    _productId = json['product_id'] ?? 0;
   }
 
   Map<String, dynamic> toJson() {

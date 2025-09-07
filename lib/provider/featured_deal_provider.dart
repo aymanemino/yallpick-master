@@ -10,9 +10,9 @@ class FeaturedDealProvider extends ChangeNotifier {
   FeaturedDealProvider({required this.featuredDealRepo});
 
   List<FeaturedDealModel> _featuredDealList = [];
-  int _featuredDealSelectedIndex;
-  List<Product> _featuredDealProductList =[];
-  List<Product> get featuredDealProductList =>_featuredDealProductList;
+  int _featuredDealSelectedIndex = 0;
+  List<Product> _featuredDealProductList = [];
+  List<Product> get featuredDealProductList => _featuredDealProductList;
 
   List<FeaturedDealModel> get featuredDealList => _featuredDealList;
   int get featuredDealSelectedIndex => _featuredDealSelectedIndex;
@@ -20,10 +20,13 @@ class FeaturedDealProvider extends ChangeNotifier {
   Future<void> getFeaturedDealList(bool reload, BuildContext context) async {
     if (_featuredDealList.length == 0 || reload) {
       ApiResponse apiResponse = await featuredDealRepo.getFeaturedDeal();
-      if (apiResponse.response != null && apiResponse.response.statusCode == 200 && apiResponse.response.data.toString() != '{}') {
+      if (apiResponse.response != null &&
+          apiResponse.response.statusCode == 200 &&
+          apiResponse.response.data.toString() != '{}') {
         _featuredDealList.clear();
-        _featuredDealProductList =[];
-        apiResponse.response.data.forEach((fDeal) => _featuredDealList.add(FeaturedDealModel.fromJson(fDeal)));
+        _featuredDealProductList = [];
+        apiResponse.response.data.forEach((fDeal) =>
+            _featuredDealList.add(FeaturedDealModel.fromJson(fDeal)));
         _featuredDealList.forEach((product) {
           _featuredDealProductList.add(product.product);
         });

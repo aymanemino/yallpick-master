@@ -15,7 +15,7 @@ class LocalizationProvider extends ChangeNotifier {
   Locale _locale = Locale(AppConstants.languages[0].languageCode,
       AppConstants.languages[0].countryCode);
   bool _isLtr = true;
-  int _languageIndex;
+  int _languageIndex = 0;
 
   Locale get locale => _locale;
 

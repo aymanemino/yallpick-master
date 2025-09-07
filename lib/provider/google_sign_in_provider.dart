@@ -3,8 +3,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class GoogleSignInProvider with ChangeNotifier {
   GoogleSignIn _googleSignIn = GoogleSignIn();
-  GoogleSignInAccount googleAccount;
-  GoogleSignInAuthentication auth;
+  late GoogleSignInAccount googleAccount;
+  late GoogleSignInAuthentication auth;
 
   Future<void> login() async {
     this.googleAccount = await _googleSignIn.signIn();

@@ -10,13 +10,13 @@ class SplashProvider extends ChangeNotifier {
 
   SplashProvider({required this.splashRepo});
 
-  ConfigModel _configModel;
-  BaseUrls _baseUrls;
-  CurrencyList _myCurrency;
-  CurrencyList _usdCurrency;
-  CurrencyList _defaultCurrency;
-  int _currencyIndex;
-  PackageInfo _packageInfo;
+  ConfigModel _configModel = ConfigModel();
+  BaseUrls _baseUrls = BaseUrls();
+  CurrencyList _myCurrency = CurrencyList();
+  CurrencyList _usdCurrency = CurrencyList();
+  CurrencyList _defaultCurrency = CurrencyList();
+  int _currencyIndex = 0;
+  late PackageInfo _packageInfo;
   bool _hasConnection = true;
   bool _fromSetting = false;
   bool _firstTimeConnectionCheck = true;

@@ -7,8 +7,8 @@ class CouponProvider extends ChangeNotifier {
   final CouponRepo couponRepo;
   CouponProvider({required this.couponRepo});
 
-  CouponModel _coupon;
-  double _discount;
+  CouponModel _coupon = CouponModel();
+  double _discount = 0.0;
   bool _isLoading = false;
   CouponModel get coupon => _coupon;
   double get discount => _discount;
@@ -19,13 +19,17 @@ class CouponProvider extends ChangeNotifier {
     _discount = 0;
     notifyListeners();
     ApiResponse apiResponse = await couponRepo.getCoupon(coupon);
-    if (apiResponse.response != null && apiResponse.response.toString() != '{}' && apiResponse.response.statusCode == 200) {
+    if (apiResponse.response != null &&
+        apiResponse.response.toString() != '{}' &&
+        apiResponse.response.statusCode == 200) {
       _coupon = CouponModel.fromJson(apiResponse.response.data);
       if (_coupon.minPurchase != null && _coupon.minPurchase < order) {
-        if(_coupon.discountType == 'percent' || _coupon.discountType == 'percentage' ) {
+        if (_coupon.discountType == 'percent' ||
+            _coupon.discountType == 'percentage') {
           _discount = (_coupon.discount * order / 100) < _coupon.maxDiscount
-              ? (_coupon.discount * order / 100) : _coupon.maxDiscount;
-        }else {
+              ? (_coupon.discount * order / 100)
+              : _coupon.maxDiscount;
+        } else {
           _discount = _coupon.discount;
         }
       } else {

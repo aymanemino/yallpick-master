@@ -17,7 +17,8 @@ class LocationProvider with ChangeNotifier {
   final SharedPreferences sharedPreferences;
   final LocationRepo locationRepo;
 
-  LocationProvider({required this.sharedPreferences, required this.locationRepo});
+  LocationProvider(
+      {required this.sharedPreferences, required this.locationRepo});
 
   Position _position = Position(
       longitude: 0,
@@ -62,7 +63,7 @@ class LocationProvider with ChangeNotifier {
 
   bool _buttonDisabled = true;
   bool _changeAddress = true;
-  GoogleMapController _mapController;
+  late GoogleMapController _mapController;
   List<Prediction> _predictionList = [];
   bool _updateAddAddressData = true;
 
@@ -112,13 +113,21 @@ class LocationProvider with ChangeNotifier {
     try {
       Placemark _address = await getAddressPlaceMarkFromGeocode(
           LatLng(_myPosition.latitude, _myPosition.longitude), context);
-      _myPlaceMark =
-          Placemark(name: "${_address.name}, ${_address.street}, ${_address.administrativeArea}", locality: '', postalCode: '', country: _address.country);
+      _myPlaceMark = Placemark(
+          name:
+              "${_address.name}, ${_address.street}, ${_address.administrativeArea}",
+          locality: '',
+          postalCode: '',
+          country: _address.country);
     } catch (e) {
       Placemark _address = await getAddressPlaceMarkFromGeocode(
           LatLng(_myPosition.latitude, _myPosition.longitude), context);
-      _myPlaceMark =
-          Placemark(name: "${_address.name}, ${_address.street}, ${_address.administrativeArea}", locality: '', postalCode: '', country: _address.country);
+      _myPlaceMark = Placemark(
+          name:
+              "${_address.name}, ${_address.street}, ${_address.administrativeArea}",
+          locality: '',
+          postalCode: '',
+          country: _address.country);
     }
     fromAddress ? _address = _myPlaceMark : _pickAddress = _myPlaceMark;
     if (fromAddress) {
@@ -161,9 +170,7 @@ class LocationProvider with ChangeNotifier {
           Placemark _addresss = await getAddressPlaceMarkFromGeocode(
               LatLng(position.target.latitude, position.target.longitude),
               context);
-          fromAddress
-              ? _address = _addresss
-              : _pickAddress = _addresss;
+          fromAddress ? _address = _addresss : _pickAddress = _addresss;
 
           if (address != null) {
             _locationController.text = address;
@@ -218,7 +225,7 @@ class LocationProvider with ChangeNotifier {
   bool get isAvaibleLocation => _isAvaibleLocation;
 
   // user address
-  List<AddressModel> _addressList;
+  List<AddressModel> _addressList = [];
 
   List<AddressModel> get addressList => _addressList;
 

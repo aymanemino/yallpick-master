@@ -23,8 +23,8 @@ class CartProvider extends ChangeNotifier {
   double _amount = 0.0;
   bool _isSelectAll = true;
   bool _isLoading = false;
-  CartModel cart;
-  String _updateQuantityErrorText;
+  CartModel cart = CartModel();
+  String _updateQuantityErrorText = '';
   String get addOrderStatusErrorText => _updateQuantityErrorText;
   bool _getData = true;
 
@@ -203,7 +203,7 @@ class CartProvider extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     ApiResponse apiResponse =
-    await cartRepo.addToCartListData(cart, choices, variationIndexes);
+        await cartRepo.addToCartListData(cart, choices, variationIndexes);
     _isLoading = false;
     if (apiResponse.response != null &&
         apiResponse.response.statusCode == 200) {
@@ -278,7 +278,7 @@ class CartProvider extends ChangeNotifier {
     await getChosenShippingMethod(context);
     for (int i = 0; i < sellerIdList.length; i++) {
       ApiResponse apiResponse =
-      await cartRepo.getShippingMethod(sellerIdList[i], sellerTypeList[i]);
+          await cartRepo.getShippingMethod(sellerIdList[i], sellerTypeList[i]);
 
       if (apiResponse.response != null &&
           apiResponse.response.statusCode == 200) {
@@ -331,7 +331,7 @@ class CartProvider extends ChangeNotifier {
     // Don't call getChosenShippingMethod to avoid loading previous selections
     for (int i = 0; i < sellerIdList.length; i++) {
       ApiResponse apiResponse =
-      await cartRepo.getShippingMethod(sellerIdList[i], sellerTypeList[i]);
+          await cartRepo.getShippingMethod(sellerIdList[i], sellerTypeList[i]);
 
       if (apiResponse.response != null &&
           apiResponse.response.statusCode == 200) {
@@ -485,7 +485,7 @@ class CartProvider extends ChangeNotifier {
       for (int index = 0; index < cartRepo.getCartList().length; index++) {
         await addToCartAPI(
           cartRepo.getCartList()[index],
-              (success, message) {},
+          (success, message) {},
           context,
           cartRepo.getCartList()[index].choiceOptions,
           cartRepo.getCartList()[index].variationIndexes,

@@ -24,7 +24,7 @@ class SpeechToTextProvider extends ChangeNotifier {
   ];
   String spokenWords = '';
   bool isListening = false;
-  Function(String) _onNavigation;
+  late Function(String) _onNavigation;
 
   // setUpSpeechToText() async {
   //   bool available = await speechToText.initialize(
