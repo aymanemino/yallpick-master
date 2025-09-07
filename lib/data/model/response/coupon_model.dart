@@ -1,32 +1,32 @@
 class CouponModel {
-  int _id;
-  String _couponType;
-  String _title;
-  String _code;
-  String _startDate;
-  String _expireDate;
-  double _minPurchase;
-  double _maxDiscount;
-  double _discount;
-  String _discountType;
-  int _status;
-  String _createdAt;
-  String _updatedAt;
+  int _id = 0;
+  String _couponType = '';
+  String _title = '';
+  String _code = '';
+  String _startDate = '';
+  String _expireDate = '';
+  double _minPurchase = 0.0;
+  double _maxDiscount = 0.0;
+  double _discount = 0.0;
+  String _discountType = '';
+  int _status = 0;
+  String _createdAt = '';
+  String _updatedAt = '';
 
   CouponModel(
       {int? id,
-        String? couponType,
-        String? title,
-        String? code,
-        String? startDate,
-        String? expireDate,
-        double? minPurchase,
-        double? maxDiscount,
-        double? discount,
-        String? discountType,
-        int? status,
-        String? createdAt,
-        String? updatedAt}) {
+      String? couponType,
+      String? title,
+      String? code,
+      String? startDate,
+      String? expireDate,
+      double? minPurchase,
+      double? maxDiscount,
+      double? discount,
+      String? discountType,
+      int? status,
+      String? createdAt,
+      String? updatedAt}) {
     this._id = id;
     this._couponType = couponType;
     this._title = title;

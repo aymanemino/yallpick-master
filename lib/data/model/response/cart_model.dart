@@ -1,37 +1,54 @@
-
 import 'package:flutter_sixvalley_ecommerce/data/model/response/product_model.dart';
 
-
 class CartModel {
-  int _id;
-  String _image;
-  String _name;
-  String _thumbnail;
-  int _sellerId;
-  String _sellerIs;
-  String _seller;
-  double _price;
-  double _discountedPrice;
-  int _quantity;
-  int _maxQuantity;
-  String _variant;
-  String _color;
-  Variation _variation;
-  double _discount;
-  String _discountType;
-  double _tax;
-  String _taxType;
-  int shippingMethodId;
-  String _cartGroupId;
-  String _shopInfo;
-  List<ChoiceOptions> _choiceOptions;
-  List<int> _variationIndexes;
-
+  int _id = 0;
+  String _image = '';
+  String _name = '';
+  String _thumbnail = '';
+  int _sellerId = 0;
+  String _sellerIs = '';
+  String _seller = '';
+  double _price = 0.0;
+  double _discountedPrice = 0.0;
+  int _quantity = 0;
+  int _maxQuantity = 0;
+  String _variant = '';
+  String _color = '';
+  Variation _variation = Variation();
+  double _discount = 0.0;
+  String _discountType = '';
+  double _tax = 0.0;
+  String _taxType = '';
+  int shippingMethodId = 0;
+  String _cartGroupId = '';
+  String _shopInfo = '';
+  List<ChoiceOptions> _choiceOptions = [];
+  List<int> _variationIndexes = [];
 
   CartModel(
-      int? id, String? image, String? name, String? seller, double? price, double? discountedPrice, int? quantity, int? maxQuantity, String? variant, String? color,
-      Variation? variation, double? discount, String? discountType, double? tax, String? taxType, int? shippingMethodId, String? cartGroupId, int? sellerId, String? sellerIs,
-      String? thumbnail, String? shopInfo, List<ChoiceOptions>? choiceOptions, List<int>? variationIndexes) {
+      int? id,
+      String? image,
+      String? name,
+      String? seller,
+      double? price,
+      double? discountedPrice,
+      int? quantity,
+      int? maxQuantity,
+      String? variant,
+      String? color,
+      Variation? variation,
+      double? discount,
+      String? discountType,
+      double? tax,
+      String? taxType,
+      int? shippingMethodId,
+      String? cartGroupId,
+      int? sellerId,
+      String? sellerIs,
+      String? thumbnail,
+      String? shopInfo,
+      List<ChoiceOptions>? choiceOptions,
+      List<int>? variationIndexes) {
     this._id = id ?? 0;
     this._image = image ?? '';
     this._name = name ?? '';
@@ -66,6 +83,7 @@ class CartModel {
   set quantity(int value) {
     _quantity = value;
   }
+
   int get maxQuantity => _maxQuantity;
   double get price => _price;
   double get discountedPrice => _discountedPrice;
@@ -99,7 +117,9 @@ class CartModel {
     _maxQuantity = json['max_quantity'];
     _variant = json['variant'];
     _color = json['color'];
-    _variation = json['variation'] != null ? Variation.fromJson(json['variation']) : null;
+    _variation = json['variation'] != null
+        ? Variation.fromJson(json['variation'])
+        : null;
     _discount = json['discount'].toDouble();
     _discountType = json['discount_type'];
     _tax = json['tax'].toDouble();
@@ -109,10 +129,13 @@ class CartModel {
     _shopInfo = json['shop_info'];
     if (json['choice_options'] != null) {
       _choiceOptions = [];
-      json['choice_options'].forEach((v) {_choiceOptions.add(new ChoiceOptions.fromJson(v));
+      json['choice_options'].forEach((v) {
+        _choiceOptions.add(new ChoiceOptions.fromJson(v));
       });
     }
-    _variationIndexes = json['variation_indexes'] != null ? json['variation_indexes'].cast<int>() : [];
+    _variationIndexes = json['variation_indexes'] != null
+        ? json['variation_indexes'].cast<int>()
+        : [];
   }
 
   Map<String, dynamic> toJson() {
@@ -139,7 +162,8 @@ class CartModel {
     data['seller_is'] = this._sellerIs;
     data['shop_info'] = this._shopInfo;
     if (this._choiceOptions != null) {
-      data['choice_options'] = this._choiceOptions.map((v) => v.toJson()).toList();
+      data['choice_options'] =
+          this._choiceOptions.map((v) => v.toJson()).toList();
     }
     data['variation_indexes'] = this._variationIndexes;
     return data;

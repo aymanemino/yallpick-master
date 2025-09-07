@@ -1,37 +1,37 @@
 class SupportTicketModel {
-  int _id;
-  int _customerId;
-  String _subject;
-  String _type;
-  String _priority;
-  String _description;
-  String _reply;
-  String
-  _status; // Changed from int to String since API returns "closed", "pending", etc.
-  String _createdAt;
-  String _updatedAt;
+  int _id = 0;
+  int _customerId = 0;
+  String _subject = '';
+  String _type = '';
+  String _priority = '';
+  String _description = '';
+  String _reply = '';
+  String _status =
+      ''; // Changed from int to String since API returns "closed", "pending", etc.
+  String _createdAt = '';
+  String _updatedAt = '';
 
   SupportTicketModel(
       {int? id,
-        int? customerId,
-        String? subject,
-        String? type,
-        String? priority,
-        String? description,
-        String? reply,
-        String? status, // Changed from int to String
-        String? createdAt,
-        String? updatedAt}) {
-    this._id = id;
-    this._customerId = customerId;
-    this._subject = subject;
-    this._type = type;
-    this._priority = priority;
-    this._description = description;
-    this._reply = reply;
-    this._status = status;
-    this._createdAt = createdAt;
-    this._updatedAt = updatedAt;
+      int? customerId,
+      String? subject,
+      String? type,
+      String? priority,
+      String? description,
+      String? reply,
+      String? status, // Changed from int to String
+      String? createdAt,
+      String? updatedAt}) {
+    this._id = id ?? 0;
+    this._customerId = customerId ?? 0;
+    this._subject = subject ?? '';
+    this._type = type ?? '';
+    this._priority = priority ?? '';
+    this._description = description ?? '';
+    this._reply = reply ?? '';
+    this._status = status ?? '';
+    this._createdAt = createdAt ?? '';
+    this._updatedAt = updatedAt ?? '';
   }
 
   int get id => _id;
@@ -55,10 +55,10 @@ class SupportTicketModel {
     _type = json['type'] ?? '';
     _priority = json['priority'] ?? '';
     _description = json['description'] ?? '';
-    _reply = json['reply'];
-    _status = json['status'];
-    _createdAt = json['created_at'];
-    _updatedAt = json['updated_at'];
+    _reply = json['reply'] ?? '';
+    _status = json['status'] ?? '';
+    _createdAt = json['created_at'] ?? '';
+    _updatedAt = json['updated_at'] ?? '';
   }
 
   Map<String, dynamic> toJson() {

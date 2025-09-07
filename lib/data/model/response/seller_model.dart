@@ -1,23 +1,23 @@
 class SellerModel {
-  int _id;
-  String _sellerId;
-  String _fName;
-  String _lName;
-  String _phone;
-  String _image;
-  String _location;
-  Shop _shop;
+  int _id = 0;
+  String _sellerId = '';
+  String _fName = '';
+  String _lName = '';
+  String _phone = '';
+  String _image = '';
+  String _location = '';
+  Shop _shop = Shop();
 
-  SellerModel(int? id, String? sellerId, String? fName, String? lName, String? phone,
-      String? image, String? location, Shop? shop) {
-    this._id = id;
-    this._sellerId = sellerId;
-    this._fName = fName;
-    this._lName = lName;
-    this._phone = phone;
-    this._image = image;
-    this._location = location;
-    this._shop = shop;
+  SellerModel(int? id, String? sellerId, String? fName, String? lName,
+      String? phone, String? image, String? location, Shop? shop) {
+    this._id = id ?? 0;
+    this._sellerId = sellerId ?? '';
+    this._fName = fName ?? '';
+    this._lName = lName ?? '';
+    this._phone = phone ?? '';
+    this._image = image ?? '';
+    this._location = location ?? '';
+    this._shop = shop ?? Shop();
   }
 
   int get id => _id;
@@ -28,7 +28,7 @@ class SellerModel {
   String get image => _image;
   String get location => _location;
   // ignore: unnecessary_getters_setters
-  Shop get shop => _shop??Shop.fromJson({});
+  Shop get shop => _shop ?? Shop.fromJson({});
   // ignore: unnecessary_getters_setters
   set shop(Shop value) {
     _shop = value;
@@ -37,9 +37,9 @@ class SellerModel {
   SellerModel.fromJson(Map<String, dynamic> json) {
     _id = json['id'];
     _sellerId = json['seller_id'];
-    _fName = json['f_name']??"";
-    _lName = json['l_name']??"";
-    _phone = json['phone']??"";
+    _fName = json['f_name'] ?? "";
+    _lName = json['l_name'] ?? "";
+    _phone = json['phone'] ?? "";
     _image = json['image'];
     _location = json['location'];
     _shop = json['shop'] != null ? new Shop.fromJson(json['shop']) : null;

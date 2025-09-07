@@ -1,27 +1,27 @@
 class OrderModel {
-  int _id;
-  int _customerId;
-  String _customerType;
-  String _paymentStatus;
-  String _orderStatus;
-  String _paymentMethod;
-  String _transactionRef;
-  double _orderAmount;
-  int _shippingAddress;
-  String _billingAddress;
-  ShippingAddressData _shippingAddressData;
-  BillingAddressData _billingAddressData;
-  int _sellerId;
-  int _shippingMethodId;
-  double _shippingCost;
-  String _createdAt;
-  String _updatedAt;
-  double _discountAmount;
-  String _discountType;
-  String _orderNote;
-  String _orderType;
-  double _extraDiscount;
-  String _extraDiscountType;
+  int _id = 0;
+  int _customerId = 0;
+  String _customerType = '';
+  String _paymentStatus = '';
+  String _orderStatus = '';
+  String _paymentMethod = '';
+  String _transactionRef = '';
+  double _orderAmount = 0.0;
+  int _shippingAddress = 0;
+  String _billingAddress = '';
+  ShippingAddressData _shippingAddressData = ShippingAddressData();
+  BillingAddressData _billingAddressData = BillingAddressData();
+  int _sellerId = 0;
+  int _shippingMethodId = 0;
+  double _shippingCost = 0.0;
+  String _createdAt = '';
+  String _updatedAt = '';
+  double _discountAmount = 0.0;
+  String _discountType = '';
+  String _orderNote = '';
+  String _orderType = '';
+  double _extraDiscount = 0.0;
+  String _extraDiscountType = '';
 
   OrderModel({
     int? id,
@@ -48,29 +48,29 @@ class OrderModel {
     double? extraDiscount,
     String? extraDiscountType,
   }) {
-    this._id = id;
-    this._customerId = customerId;
-    this._customerType = customerType;
-    this._paymentStatus = paymentStatus;
-    this._orderStatus = orderStatus;
-    this._paymentMethod = paymentMethod;
-    this._transactionRef = transactionRef;
-    this._orderAmount = orderAmount;
-    this._shippingAddress = shippingAddress;
+    this._id = id ?? 0;
+    this._customerId = customerId ?? 0;
+    this._customerType = customerType ?? '';
+    this._paymentStatus = paymentStatus ?? '';
+    this._orderStatus = orderStatus ?? '';
+    this._paymentMethod = paymentMethod ?? '';
+    this._transactionRef = transactionRef ?? '';
+    this._orderAmount = orderAmount ?? 0.0;
+    this._shippingAddress = shippingAddress ?? 0;
     if (shippingAddressData != null) {
       this._shippingAddressData = shippingAddressData;
     }
-    this._billingAddress = billingAddress;
-    this._billingAddressData = billingAddressData;
-    this._sellerId = sellerId;
-    this._shippingCost = shippingCost;
-    this._shippingMethodId = shippingMethodId;
-    this._createdAt = createdAt;
-    this._updatedAt = updatedAt;
-    this._discountAmount = discountAmount;
-    this._discountType = discountType;
-    this._orderNote = orderNote;
-    this._orderType = orderType;
+    this._billingAddress = billingAddress ?? '';
+    this._billingAddressData = billingAddressData ?? BillingAddressData();
+    this._sellerId = sellerId ?? 0;
+    this._shippingCost = shippingCost ?? 0.0;
+    this._shippingMethodId = shippingMethodId ?? 0;
+    this._createdAt = createdAt ?? '';
+    this._updatedAt = updatedAt ?? '';
+    this._discountAmount = discountAmount ?? 0.0;
+    this._discountType = discountType ?? '';
+    this._orderNote = orderNote ?? '';
+    this._orderType = orderType ?? '';
     if (extraDiscount != null) {
       this._extraDiscount = extraDiscount;
     }

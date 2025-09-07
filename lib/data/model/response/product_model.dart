@@ -51,40 +51,40 @@ class ProductModel {
 }
 
 class Product {
-  int _id;
-  String _addedBy;
-  int _userId;
-  String _name;
-  String _videoUrl;
-  String _slug;
+  int _id = 0;
+  String _addedBy = '';
+  int _userId = 0;
+  String _name = '';
+  String _videoUrl = '';
+  String _slug = '';
   dynamic _categoryIds;
 
   // List<CategoryIds> _categoryIds;
   // int _categoryIds;
-  String _unit;
-  List<String> _images;
-  String _thumbnail;
-  List<ProductColors> _colors;
-  List<String> _attributes;
-  List<ChoiceOptions> _choiceOptions;
-  List<Variation> _variation;
-  double _unitPrice;
-  double _purchasePrice;
-  double _tax;
-  int _minQty;
-  String _taxType;
-  double _discount;
-  String _discountType;
-  int _currentStock;
-  String _details;
-  String _createdAt;
-  String _updatedAt;
-  List<Rating> _rating;
-  String _countryId;
-  String _stateId;
-  String _cityId;
-  Shop _shop;
-  int _status;
+  String _unit = '';
+  List<String> _images = [];
+  String _thumbnail = '';
+  List<ProductColors> _colors = [];
+  List<String> _attributes = [];
+  List<ChoiceOptions> _choiceOptions = [];
+  List<Variation> _variation = [];
+  double _unitPrice = 0.0;
+  double _purchasePrice = 0.0;
+  double _tax = 0.0;
+  int _minQty = 0;
+  String _taxType = '';
+  double _discount = 0.0;
+  String _discountType = '';
+  int _currentStock = 0;
+  String _details = '';
+  String _createdAt = '';
+  String _updatedAt = '';
+  List<Rating> _rating = [];
+  String _countryId = '';
+  String _stateId = '';
+  String _cityId = '';
+  Shop _shop = Shop();
+  int _status = 0;
 
   Product({
     int? id,
@@ -124,40 +124,40 @@ class Product {
     Shop? shop,
     int? status,
   }) {
-    this._id = id;
-    this._addedBy = addedBy;
-    this._userId = userId;
-    this._name = name;
-    this._videoUrl = videoUrl;
-    this._slug = slug;
+    this._id = id ?? 0;
+    this._addedBy = addedBy ?? '';
+    this._userId = userId ?? 0;
+    this._name = name ?? '';
+    this._videoUrl = videoUrl ?? '';
+    this._slug = slug ?? '';
     this._categoryIds = categoryIds;
-    this._unit = unit;
-    this._minQty = minQty;
-    this._images = images;
-    this._thumbnail = thumbnail;
-    this._colors = colors;
-    this._attributes = attributes;
-    this._choiceOptions = choiceOptions;
-    this._variation = variation;
-    this._unitPrice = unitPrice;
-    this._purchasePrice = purchasePrice;
-    this._tax = tax;
-    this._taxType = taxType;
-    this._discount = discount;
-    this._discountType = discountType;
-    this._currentStock = currentStock;
-    this._details = details;
-    this._createdAt = createdAt;
-    this._updatedAt = updatedAt;
-    this._rating = rating;
-    this._countryId = countryId;
-    this._stateId = stateId;
-    this._cityId = cityId;
-    this._shop = shop;
-    this._status = status;
+    this._unit = unit ?? '';
+    this._minQty = minQty ?? 0;
+    this._images = images ?? [];
+    this._thumbnail = thumbnail ?? '';
+    this._colors = colors ?? [];
+    this._attributes = attributes ?? [];
+    this._choiceOptions = choiceOptions ?? [];
+    this._variation = variation ?? [];
+    this._unitPrice = unitPrice ?? 0.0;
+    this._purchasePrice = purchasePrice ?? 0.0;
+    this._tax = tax ?? 0.0;
+    this._taxType = taxType ?? '';
+    this._discount = discount ?? 0.0;
+    this._discountType = discountType ?? '';
+    this._currentStock = currentStock ?? 0;
+    this._details = details ?? '';
+    this._createdAt = createdAt ?? '';
+    this._updatedAt = updatedAt ?? '';
+    this._rating = rating ?? [];
+    this._countryId = countryId ?? '';
+    this._stateId = stateId ?? '';
+    this._cityId = cityId ?? '';
+    this._shop = shop ?? Shop();
+    this._status = status ?? 0;
   }
 
-  int get id => _id ?? "";
+  int get id => _id;
 
   String get addedBy => _addedBy;
 
@@ -223,11 +223,11 @@ class Product {
 
   Product.fromJson(Map<String, dynamic> json) {
     _id = json['id'] ?? 0;
-    _addedBy = json['added_by'];
-    _userId = json['user_id'];
-    _name = json['name'];
-    _videoUrl = json['video_url'];
-    _slug = json['slug'];
+    _addedBy = json['added_by'] ?? '';
+    _userId = json['user_id'] ?? 0;
+    _name = json['name'] ?? '';
+    _videoUrl = json['video_url'] ?? '';
+    _slug = json['slug'] ?? '';
     // _categoryIds = json['category_ids'];
     if (json['category_ids'] != null) {
       if (json['category_ids'] is int) {
@@ -239,10 +239,10 @@ class Product {
         });
       }
     }
-    _unit = json['unit'];
-    _minQty = json['min_qty'];
+    _unit = json['unit'] ?? '';
+    _minQty = json['min_qty'] ?? 0;
     _images = json['images'] != null ? json['images'].cast<String>() : [];
-    _thumbnail = json['thumbnail'];
+    _thumbnail = json['thumbnail'] ?? '';
     if (json['colors'] != null) {
       _colors = [];
       json['colors'].forEach((v) {
@@ -274,19 +274,19 @@ class Product {
     if (json['tax'] != null) {
       _tax = json['tax'].toDouble();
     }
-    _taxType = json['tax_type'];
+    _taxType = json['tax_type'] ?? '';
     if (json['discount'] != null) {
       _discount = json['discount'].toDouble();
     }
-    _discountType = json['discount_type'];
-    _currentStock = json['current_stock'];
-    _details = json['details'];
-    _createdAt = json['created_at'];
-    _updatedAt = json['updated_at'];
+    _discountType = json['discount_type'] ?? '';
+    _currentStock = json['current_stock'] ?? 0;
+    _details = json['details'] ?? '';
+    _createdAt = json['created_at'] ?? '';
+    _updatedAt = json['updated_at'] ?? '';
 
-    _countryId = json['country_id'].toString();
-    _stateId = json['state_id'].toString();
-    _cityId = json['city_id'].toString();
+    _countryId = json['country_id']?.toString() ?? '';
+    _stateId = json['state_id']?.toString() ?? '';
+    _cityId = json['city_id']?.toString() ?? '';
 
     if (json['rating'] != null) {
       _rating = [];
@@ -295,8 +295,8 @@ class Product {
       });
     }
 
-    _shop = json['shop'] != null ? new Shop.fromJson(json['shop']) : null;
-    _status = json['status'];
+    _shop = json['shop'] != null ? new Shop.fromJson(json['shop']) : Shop();
+    _status = json['status'] ?? 0;
   }
 
   Map<String, dynamic> toJson() {

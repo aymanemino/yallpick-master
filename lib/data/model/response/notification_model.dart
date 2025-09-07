@@ -1,27 +1,27 @@
 class NotificationModel {
-  int _id;
-  String _title;
-  String _description;
-  String _image;
-  int _status;
-  String _createdAt;
-  String _updatedAt;
+  int _id = 0;
+  String _title = '';
+  String _description = '';
+  String _image = '';
+  int _status = 0;
+  String _createdAt = '';
+  String _updatedAt = '';
 
   NotificationModel(
       {int? id,
-        String? title,
-        String? description,
-        String? image,
-        int? status,
-        String? createdAt,
-        String? updatedAt}) {
-    this._id = id;
-    this._title = title;
-    this._description = description;
-    this._image = image;
-    this._status = status;
-    this._createdAt = createdAt;
-    this._updatedAt = updatedAt;
+      String? title,
+      String? description,
+      String? image,
+      int? status,
+      String? createdAt,
+      String? updatedAt}) {
+    this._id = id ?? 0;
+    this._title = title ?? '';
+    this._description = description ?? '';
+    this._image = image ?? '';
+    this._status = status ?? 0;
+    this._createdAt = createdAt ?? '';
+    this._updatedAt = updatedAt ?? '';
   }
 
   int get id => _id;
