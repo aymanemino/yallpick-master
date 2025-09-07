@@ -154,7 +154,7 @@ class AuthScreen extends StatelessWidget{
                             'Your Shopping Companion',
                             style: TextStyle(
                               fontSize: 12,
-                              color: Colors.grey[600]!!,
+                              color: Colors.grey[600]!!!,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
@@ -201,7 +201,7 @@ class AuthScreen extends StatelessWidget{
                                       fontWeight: FontWeight.w600,
                                       color: authProvider.selectedIndex == 0
                                           ? Colors.white
-                                          : Colors.grey[600]!!,
+                                          : Colors.grey[600]!!!,
                                     ),
                                   ),
                                 ),
@@ -227,7 +227,7 @@ class AuthScreen extends StatelessWidget{
                                       fontWeight: FontWeight.w600,
                                       color: authProvider.selectedIndex == 1
                                           ? Colors.white
-                                          : Colors.grey[600]!!,
+                                          : Colors.grey[600]!!!,
                                     ),
                                   ),
                                 ),

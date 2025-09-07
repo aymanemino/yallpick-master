@@ -175,7 +175,7 @@ class _MoreScreenState extends State<MoreScreen> {
           left: Dimensions.PADDING_SIZE_SMALL,
           right: Dimensions.PADDING_SIZE_SMALL,
           child: Consumer<ProfileProvider>(
-            builder: (context, profile!, child) {
+            builder: (context, profile, child) {
               return Row(children: [
                 // Logo with enhanced modern styling
                 Container(
@@ -754,7 +754,7 @@ class _MoreScreenState extends State<MoreScreen> {
 }
 
 class SquareButton extends StatelessWidget {
-  final String image;
+  final String image = "";
   final String title;
   final Widget navigateTo;
   final int count;
@@ -864,7 +864,7 @@ class SquareButton extends StatelessWidget {
 }
 
 class TitleButton extends StatelessWidget {
-  final String image;
+  final String image = "";
   final String title;
   final Widget navigateTo;
   TitleButton(
@@ -890,7 +890,7 @@ class TitleButton extends StatelessWidget {
 }
 
 class ModernTitleButton extends StatelessWidget {
-  final String image;
+  final String image = "";
   final String title;
   final String subtitle;
   final Widget navigateTo;
@@ -983,7 +983,7 @@ class ModernTitleButton extends StatelessWidget {
                         style: TextStyle(
                           fontSize: Dimensions.FONT_SIZE_SMALL,
                           fontWeight: FontWeight.w400,
-                          color: Colors.grey[600]!!,
+                          color: Colors.grey[600]!!!,
                           letterSpacing: 0.1,
                         ),
                       ),

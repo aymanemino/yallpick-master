@@ -39,7 +39,7 @@ class AddressBottomSheet extends StatelessWidget {
         ),
 
         Consumer<ProfileProvider>(
-          builder: (context, profile!, child) {
+          builder: (context, profile, child) {
             return profile.addressList != null ? profile.addressList.length != 0 ?  SizedBox(
               height: 300,
               child: ListView.builder(

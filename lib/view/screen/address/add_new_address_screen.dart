@@ -19,9 +19,9 @@ import 'package:provider/provider.dart';
 
 class AddNewAddressScreen extends StatefulWidget {
   final bool isEnableUpdate;
-  final bool fromCheckout;
+  final bool fromCheckout = false;
   final AddressModel address;
-  final bool isBilling;
+  final bool isBilling = false;
 
   AddNewAddressScreen(
       {this.isEnableUpdate = false,
@@ -116,7 +116,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
         .initAddressTypeList(context);
 
     return Scaffold(
-      backgroundColor: Colors.grey[50]!!,
+      backgroundColor: Colors.grey[50]!!!,
       body: SafeArea(
         child: GestureDetector(
           onTap: () {
@@ -394,7 +394,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                         'add_the_location_correctly',
                                                         context),
                                                     style: TextStyle(
-                                                      color: Colors.grey[700]!!,
+                                                      color: Colors.grey[700]!!!,
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -492,7 +492,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                                     .selectAddressIndex ==
                                                                 index
                                                             ? Color(0xFFFF6B35)
-                                                            : Colors.grey[100]!!,
+                                                            : Colors.grey[100]!!!,
                                                         border: Border.all(
                                                           color: locationProvider
                                                                       .selectAddressIndex ==
@@ -589,13 +589,13 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                             style: TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.w600,
-                                              color: Colors.grey[700]!!,
+                                              color: Colors.grey[700]!!!,
                                             ),
                                           ),
                                           SizedBox(height: 8),
                                           Container(
                                             decoration: BoxDecoration(
-                                              color: Colors.grey[50]!!,
+                                              color: Colors.grey[50]!!!,
                                               borderRadius:
                                                   BorderRadius.circular(12),
                                               border: Border.all(
@@ -620,7 +620,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                 hintText: getTranslated(
                                                     'address_line_02', context),
                                                 hintStyle: TextStyle(
-                                                  color: Colors.grey[600]!!,
+                                                  color: Colors.grey[600]!!!,
                                                   fontSize: 14,
                                                 ),
                                                 border: InputBorder.none,
@@ -639,13 +639,13 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                             style: TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.w600,
-                                              color: Colors.grey[700]!!,
+                                              color: Colors.grey[700]!!!,
                                             ),
                                           ),
                                           SizedBox(height: 8),
                                           Container(
                                             decoration: BoxDecoration(
-                                              color: Colors.grey[50]!!,
+                                              color: Colors.grey[50]!!!,
                                               borderRadius:
                                                   BorderRadius.circular(12),
                                               border: Border.all(
@@ -663,7 +663,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                               hint: Text(
                                                 getTranslated('city', context),
                                                 style: TextStyle(
-                                                  color: Colors.grey[600]!!,
+                                                  color: Colors.grey[600]!!!,
                                                   fontSize: 14,
                                                 ),
                                               ),
@@ -704,13 +704,13 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                             style: TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.w600,
-                                              color: Colors.grey[700]!!,
+                                              color: Colors.grey[700]!!!,
                                             ),
                                           ),
                                           SizedBox(height: 8),
                                           Container(
                                             decoration: BoxDecoration(
-                                              color: Colors.grey[50]!!,
+                                              color: Colors.grey[50]!!!,
                                               borderRadius:
                                                   BorderRadius.circular(12),
                                               border: Border.all(
@@ -733,7 +733,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                 hintText: getTranslated(
                                                     'address_line_02', context),
                                                 hintStyle: TextStyle(
-                                                  color: Colors.grey[600]!!,
+                                                  color: Colors.grey[600]!!!,
                                                   fontSize: 14,
                                                 ),
                                                 border: InputBorder.none,
@@ -805,13 +805,13 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                             style: TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.w600,
-                                              color: Colors.grey[700]!!,
+                                              color: Colors.grey[700]!!!,
                                             ),
                                           ),
                                           SizedBox(height: 8),
                                           Container(
                                             decoration: BoxDecoration(
-                                              color: Colors.grey[50]!!,
+                                              color: Colors.grey[50]!!!,
                                               borderRadius:
                                                   BorderRadius.circular(12),
                                               border: Border.all(
@@ -838,7 +838,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                     'enter_contact_person_name',
                                                     context),
                                                 hintStyle: TextStyle(
-                                                  color: Colors.grey[600]!!,
+                                                  color: Colors.grey[600]!!!,
                                                   fontSize: 14,
                                                 ),
                                                 border: InputBorder.none,
@@ -859,13 +859,13 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                             style: TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.w600,
-                                              color: Colors.grey[700]!!,
+                                              color: Colors.grey[700]!!!,
                                             ),
                                           ),
                                           SizedBox(height: 8),
                                           Container(
                                             decoration: BoxDecoration(
-                                              color: Colors.grey[50]!!,
+                                              color: Colors.grey[50]!!!,
                                               borderRadius:
                                                   BorderRadius.circular(12),
                                               border: Border.all(
@@ -890,7 +890,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                     'enter_contact_person_number',
                                                     context),
                                                 hintStyle: TextStyle(
-                                                  color: Colors.grey[600]!!,
+                                                  color: Colors.grey[600]!!!,
                                                   fontSize: 14,
                                                 ),
                                                 border: InputBorder.none,
@@ -1123,7 +1123,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                               width: double.infinity,
                                               height: 56,
                                               decoration: BoxDecoration(
-                                                color: Colors.grey[200]!!,
+                                                color: Colors.grey[200]!!!,
                                                 borderRadius:
                                                     BorderRadius.circular(16),
                                               ),

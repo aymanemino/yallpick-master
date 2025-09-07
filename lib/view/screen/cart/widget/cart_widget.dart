@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 class CartWidget extends StatelessWidget {
   final CartModel cartModel;
   final int index;
-  final bool fromCheckout;
+  final bool fromCheckout = false;
   const CartWidget(
       {Key key,
         this.cartModel,
@@ -255,7 +255,7 @@ class CartWidget extends StatelessWidget {
                       Text(
                         '6-8 Days Delivery',
                         style: TextStyle(
-                          color: Colors.grey[600]!!,
+                          color: Colors.grey[600]!!!,
                           fontSize: 10,
                           fontWeight: FontWeight.w500,
                         ),

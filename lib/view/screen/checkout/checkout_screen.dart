@@ -88,7 +88,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       key: _scaffoldKey,
-      backgroundColor: Colors.grey[50]!!,
+      backgroundColor: Colors.grey[50]!!!,
       bottomNavigationBar: Container(
         height: 80,
         padding: EdgeInsets.symmetric(
@@ -476,7 +476,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                       getTranslated('SHIPPING_TO', context),
                                       style: TextStyle(
                                         fontSize: 12,
-                                        color: Colors.grey[600]!!,
+                                        color: Colors.grey[600]!!!,
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
@@ -573,7 +573,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               SizedBox(width: 8),
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Colors.grey[200]!!,
+                                  color: Colors.grey[200]!!!,
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: TextButton.icon(
@@ -582,11 +582,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           builder: (BuildContext context) =>
                                               SavedAddressListScreen())),
                                   icon: Icon(Icons.edit,
-                                      size: 16, color: Colors.grey[700]!!),
+                                      size: 16, color: Colors.grey[700]!!!),
                                   label: Text(
                                     getTranslated('select', context),
                                     style: TextStyle(
-                                      color: Colors.grey[700]!!,
+                                      color: Colors.grey[700]!!!,
                                       fontSize: 12,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -628,7 +628,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                       getTranslated('billing_address', context),
                                       style: TextStyle(
                                         fontSize: 12,
-                                        color: Colors.grey[600]!!,
+                                        color: Colors.grey[600]!!!,
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
@@ -724,7 +724,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               SizedBox(width: 8),
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Colors.grey[200]!!,
+                                  color: Colors.grey[200]!!!,
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: TextButton.icon(
@@ -733,11 +733,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           builder: (BuildContext context) =>
                                               SavedBillingAddressListScreen())),
                                   icon: Icon(Icons.edit,
-                                      size: 16, color: Colors.grey[700]!!),
+                                      size: 16, color: Colors.grey[700]!!!),
                                   label: Text(
                                     getTranslated('select', context),
                                     style: TextStyle(
-                                      color: Colors.grey[700]!!,
+                                      color: Colors.grey[700]!!!,
                                       fontSize: 12,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -828,10 +828,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   margin: EdgeInsets.only(bottom: 12),
                                   padding: EdgeInsets.all(12),
                                   decoration: BoxDecoration(
-                                    color: Colors.grey[50]!!,
+                                    color: Colors.grey[50]!!!,
                                     borderRadius: BorderRadius.circular(12),
                                     border: Border.all(
-                                      color: Colors.grey[200]!!,
+                                      color: Colors.grey[200]!!!,
                                       width: 1,
                                     ),
                                   ),
@@ -1015,7 +1015,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                       hintText: getTranslated(
                                           'have_a_coupon', context),
                                       hintStyle: TextStyle(
-                                        color: Colors.grey[600]!!,
+                                        color: Colors.grey[600]!!!,
                                         fontSize: 14,
                                       ),
                                       border: InputBorder.none,
@@ -1202,7 +1202,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                 SizedBox(height: 12),
                                 Container(
                                   height: 1,
-                                  color: Colors.grey[300]!!,
+                                  color: Colors.grey[300]!!!,
                                 ),
                                 SizedBox(height: 12),
                                 _buildAmountRow(
@@ -1321,7 +1321,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           SizedBox(height: 16),
                           Container(
                             decoration: BoxDecoration(
-                              color: Colors.grey[50]!!,
+                              color: Colors.grey[50]!!!,
                               borderRadius: BorderRadius.circular(12),
                               border: Border.all(
                                 color: Color(0xFFFF6B35).withOpacity(0.2),
@@ -1342,7 +1342,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   hintText:
                                       getTranslated('enter_note', context),
                                   hintStyle: TextStyle(
-                                    color: Colors.grey[600]!!,
+                                    color: Colors.grey[600]!!!,
                                     fontSize: 14,
                                   ),
                                   border: InputBorder.none,
@@ -1373,7 +1373,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             style: TextStyle(
               fontSize: isTotal ? 16 : 14,
               fontWeight: isTotal ? FontWeight.bold : FontWeight.w500,
-              color: isTotal ? Colors.black87 : Colors.grey[700]!!,
+              color: isTotal ? Colors.black87 : Colors.grey[700]!!!,
             ),
           ),
           Text(
@@ -1425,7 +1425,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 }
 
 class PaymentButton extends StatelessWidget {
-  final String image;
+  final String image = "";
   final Function onTap;
 
   PaymentButton({@required this.image, this.onTap});

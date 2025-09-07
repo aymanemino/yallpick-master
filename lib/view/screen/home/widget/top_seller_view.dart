@@ -205,8 +205,8 @@ class TopSellerShimmer extends StatelessWidget {
             Expanded(
               flex: 7,
               child: Shimmer.fromColors(
-                baseColor: Colors.grey[300]!!,
-                highlightColor: Colors.grey[100]!!,
+                baseColor: Colors.grey[300]!!!,
+                highlightColor: Colors.grey[100]!!!,
                 enabled: Provider.of<TopSellerProvider>(context)
                         .topSellerList
                         .length ==
@@ -231,8 +231,8 @@ class TopSellerShimmer extends StatelessWidget {
                         bottomRight: Radius.circular(10)),
                   ),
                   child: Shimmer.fromColors(
-                    baseColor: Colors.grey[300]!!,
-                    highlightColor: Colors.grey[100]!!,
+                    baseColor: Colors.grey[300]!!!,
+                    highlightColor: Colors.grey[100]!!!,
                     enabled: Provider.of<CategoryProvider>(context)
                             .categoryList
                             .length ==

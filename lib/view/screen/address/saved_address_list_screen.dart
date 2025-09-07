@@ -15,7 +15,7 @@ class SavedAddressListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(child: Consumer<ProfileProvider>(
-        builder: (context, profile!, child) {
+        builder: (context, profile, child) {
           return SingleChildScrollView(
             child: Column(
               children: [

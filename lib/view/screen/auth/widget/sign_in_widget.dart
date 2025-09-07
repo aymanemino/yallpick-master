@@ -173,7 +173,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
-                            color: Colors.grey[700]!!,
+                            color: Colors.grey[700]!!!,
                           ),
                         ),
                         SizedBox(height: 6),
@@ -183,10 +183,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                             border: Border.all(
                               color: _emailNode.hasFocus
                                   ? Color(0xFFFF6B35)
-                                  : Colors.grey[300]!!,
+                                  : Colors.grey[300]!!!,
                               width: 1.5,
                             ),
-                            color: Colors.grey[50]!!,
+                            color: Colors.grey[50]!!!,
                           ),
                           child: CustomTextField(
                             hintText:
@@ -212,7 +212,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
-                            color: Colors.grey[700]!!,
+                            color: Colors.grey[700]!!!,
                           ),
                         ),
                         SizedBox(height: 6),
@@ -222,10 +222,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                             border: Border.all(
                               color: _passNode.hasFocus
                                   ? Color(0xFFFF6B35)
-                                  : Colors.grey[300]!!,
+                                  : Colors.grey[300]!!!,
                               width: 1.5,
                             ),
-                            color: Colors.grey[50]!!,
+                            color: Colors.grey[50]!!!,
                           ),
                           child: CustomPasswordTextField(
                             hintTxt:
@@ -273,7 +273,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                               getTranslated('REMEMBER', context),
                               style: TextStyle(
                                 fontSize: 11,
-                                color: Colors.grey[700]!!,
+                                color: Colors.grey[700]!!!,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -344,7 +344,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                 getTranslated('OR', context),
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.grey[500]!!,
+                  color: Colors.grey[500]!!!,
                   fontWeight: FontWeight.w500,
                 ),
               ),

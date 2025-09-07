@@ -101,7 +101,7 @@ class SettingsScreen extends StatelessWidget {
 }
 
 class TitleButton extends StatelessWidget {
-  final String image;
+  final String image = "";
   final String title;
   final Function onTap;
 

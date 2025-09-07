@@ -18,10 +18,10 @@ import '../../../data/model/response/category.dart';
 class BrandAndCategoryProductScreen extends StatelessWidget {
   final bool isBrand;
   final String id;
-  final String name;
-  final String image;
-  final int status;
-  final List<SubCategory> subcategory;
+  final String name = "";
+  final String image = "";
+  final int status = 0;
+  final List<SubCategory> subcategory = [];
 
   BrandAndCategoryProductScreen({
     @required this.isBrand,

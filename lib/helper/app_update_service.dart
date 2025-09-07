@@ -302,7 +302,7 @@ class AppUpdateService {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
-                    color: Colors.grey[800]!!,
+                    color: Colors.grey[800]!!!,
                   ),
                 ),
                 SizedBox(height: 12),
@@ -310,7 +310,7 @@ class AppUpdateService {
                   'Update now to get the latest features and improvements.',
                   style: TextStyle(
                     fontSize: 14,
-                    color: Colors.grey[600]!!,
+                    color: Colors.grey[600]!!!,
                   ),
                 ),
               ],
@@ -324,7 +324,7 @@ class AppUpdateService {
                 child: Text(
                   'Later',
                   style: TextStyle(
-                    color: Colors.grey[600]!!,
+                    color: Colors.grey[600]!!!,
                     fontSize: 16,
                   ),
                 ),
@@ -394,7 +394,7 @@ class AppUpdateService {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
-                    color: Colors.grey[800]!!,
+                    color: Colors.grey[800]!!!,
                   ),
                 ),
                 SizedBox(height: 12),
@@ -402,7 +402,7 @@ class AppUpdateService {
                   'Please update to continue using all features.',
                   style: TextStyle(
                     fontSize: 14,
-                    color: Colors.grey[600]!!,
+                    color: Colors.grey[600]!!!,
                   ),
                 ),
               ],
@@ -416,7 +416,7 @@ class AppUpdateService {
                 child: Text(
                   'Later',
                   style: TextStyle(
-                    color: Colors.grey[600]!!,
+                    color: Colors.grey[600]!!!,
                     fontSize: 16,
                   ),
                 ),
@@ -458,7 +458,7 @@ class AppUpdateService {
           '$label: ',
           style: TextStyle(
             fontWeight: FontWeight.w500,
-            color: Colors.grey[700]!!,
+            color: Colors.grey[700]!!!,
           ),
         ),
         Container(

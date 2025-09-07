@@ -23,7 +23,7 @@ import 'package:flutter_sixvalley_ecommerce/view/screen/cart/widget/recommended_
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatefulWidget {
-  final bool fromCheckout;
+  final bool fromCheckout = false;
   final int sellerId;
   CartScreen({this.fromCheckout = false, this.sellerId = 1});
 

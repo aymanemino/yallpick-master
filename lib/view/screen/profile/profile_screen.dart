@@ -152,7 +152,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       key: _scaffoldKey,
       body: Consumer<ProfileProvider>(
-        builder: (context, profile!, child) {
+        builder: (context, profile, child) {
           _firstNameController.text = profile.userInfoModel.fName ?? "";
           _lastNameController.text = profile.userInfoModel.lName ?? "";
           _emailController.text = profile.userInfoModel.email ?? "";
