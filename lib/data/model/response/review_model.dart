@@ -1,14 +1,14 @@
 class ReviewModel {
-  int _id;
-  int _productId;
-  int _customerId;
-  String _comment;
-  List<String> _attachment;
-  int _rating;
-  int _status;
-  String _createdAt;
-  String _updatedAt;
-  Customer _customer;
+  int _id = 0;
+  int _productId = 0;
+  int _customerId = 0;
+  String _comment = '';
+  List<String> _attachment = [];
+  int _rating = 0;
+  int _status = 0;
+  String _createdAt = '';
+  String _updatedAt = '';
+  Customer _customer = Customer();
 
   ReviewModel(
       {int? id,
@@ -21,16 +21,16 @@ class ReviewModel {
         String? createdAt,
         String? updatedAt,
         Customer? customer}) {
-    this._id = id;
-    this._productId = productId;
-    this._customerId = customerId;
-    this._comment = comment;
-    this._attachment = attachment;
-    this._rating = rating;
-    this._status = status;
-    this._createdAt = createdAt;
-    this._updatedAt = updatedAt;
-    this._customer = customer;
+    this._id = id ?? 0;
+    this._productId = productId ?? 0;
+    this._customerId = customerId ?? 0;
+    this._comment = comment ?? '';
+    this._attachment = attachment ?? [];
+    this._rating = rating ?? 0;
+    this._status = status ?? 0;
+    this._createdAt = createdAt ?? '';
+    this._updatedAt = updatedAt ?? '';
+    this._customer = customer ?? Customer();
   }
 
   int get id => _id;
@@ -45,18 +45,18 @@ class ReviewModel {
   Customer get customer => _customer;
 
   ReviewModel.fromJson(Map<String, dynamic> json) {
-    _id = json['id'];
-    _productId = json['product_id'];
-    _customerId = json['customer_id'];
-    _comment = json['comment'];
-    _attachment = json['attachment'].cast<String>();
-    _rating = json['rating'];
-    _status = json['status'];
-    _createdAt = json['created_at'];
-    _updatedAt = json['updated_at'];
+    _id = json['id'] ?? 0;
+    _productId = json['product_id'] ?? 0;
+    _customerId = json['customer_id'] ?? 0;
+    _comment = json['comment'] ?? '';
+    _attachment = json['attachment']?.cast<String>() ?? [];
+    _rating = json['rating'] ?? 0;
+    _status = json['status'] ?? 0;
+    _createdAt = json['created_at'] ?? '';
+    _updatedAt = json['updated_at'] ?? '';
     _customer = json['customer'] != null
         ? new Customer.fromJson(json['customer'])
-        : null;
+        : Customer();
   }
 
   Map<String, dynamic> toJson() {
@@ -80,56 +80,56 @@ class ReviewModel {
 }
 
 class Customer {
-  int _id;
-  String _name;
-  String _fName;
-  String _lName;
-  String _phone;
-  String _image;
-  String _email;
-  String _emailVerifiedAt;
-  String _createdAt;
-  String _updatedAt;
-  String _streetAddress;
-  String _country;
-  String _city;
-  String _zip;
-  String _houseNo;
-  String _apartmentNo;
+  int _id = 0;
+  String _name = '';
+  String _fName = '';
+  String _lName = '';
+  String _phone = '';
+  String _image = '';
+  String _email = '';
+  String _emailVerifiedAt = '';
+  String _createdAt = '';
+  String _updatedAt = '';
+  String _streetAddress = '';
+  String _country = '';
+  String _city = '';
+  String _zip = '';
+  String _houseNo = '';
+  String _apartmentNo = '';
 
   Customer(
-      {int id,
-        String name,
-        String fName,
-        String lName,
-        String phone,
-        String image,
-        String email,
-        String emailVerifiedAt,
-        String createdAt,
-        String updatedAt,
-        String streetAddress,
-        String country,
-        String city,
-        String zip,
-        String houseNo,
-        String apartmentNo}) {
-    this._id = id;
-    this._name = name;
-    this._fName = fName;
-    this._lName = lName;
-    this._phone = phone;
-    this._image = image;
-    this._email = email;
-    this._emailVerifiedAt = emailVerifiedAt;
-    this._createdAt = createdAt;
-    this._updatedAt = updatedAt;
-    this._streetAddress = streetAddress;
-    this._country = country;
-    this._city = city;
-    this._zip = zip;
-    this._houseNo = houseNo;
-    this._apartmentNo = apartmentNo;
+      {int? id,
+        String? name,
+        String? fName,
+        String? lName,
+        String? phone,
+        String? image,
+        String? email,
+        String? emailVerifiedAt,
+        String? createdAt,
+        String? updatedAt,
+        String? streetAddress,
+        String? country,
+        String? city,
+        String? zip,
+        String? houseNo,
+        String? apartmentNo}) {
+    this._id = id ?? 0;
+    this._name = name ?? '';
+    this._fName = fName ?? '';
+    this._lName = lName ?? '';
+    this._phone = phone ?? '';
+    this._image = image ?? '';
+    this._email = email ?? '';
+    this._emailVerifiedAt = emailVerifiedAt ?? '';
+    this._createdAt = createdAt ?? '';
+    this._updatedAt = updatedAt ?? '';
+    this._streetAddress = streetAddress ?? '';
+    this._country = country ?? '';
+    this._city = city ?? '';
+    this._zip = zip ?? '';
+    this._houseNo = houseNo ?? '';
+    this._apartmentNo = apartmentNo ?? '';
   }
 
   int get id => _id;
@@ -150,22 +150,22 @@ class Customer {
   String get apartmentNo => _apartmentNo;
 
   Customer.fromJson(Map<String, dynamic> json) {
-    _id = json['id'];
-    _name = json['name'];
-    _fName = json['f_name'];
-    _lName = json['l_name'];
-    _phone = json['phone'];
-    _image = json['image'];
-    _email = json['email'];
-    _emailVerifiedAt = json['email_verified_at'];
-    _createdAt = json['created_at'];
-    _updatedAt = json['updated_at'];
-    _streetAddress = json['street_address'];
-    _country = json['country'];
-    _city = json['city'];
-    _zip = json['zip'];
-    _houseNo = json['house_no'];
-    _apartmentNo = json['apartment_no'];
+    _id = json['id'] ?? 0;
+    _name = json['name'] ?? '';
+    _fName = json['f_name'] ?? '';
+    _lName = json['l_name'] ?? '';
+    _phone = json['phone'] ?? '';
+    _image = json['image'] ?? '';
+    _email = json['email'] ?? '';
+    _emailVerifiedAt = json['email_verified_at'] ?? '';
+    _createdAt = json['created_at'] ?? '';
+    _updatedAt = json['updated_at'] ?? '';
+    _streetAddress = json['street_address'] ?? '';
+    _country = json['country'] ?? '';
+    _city = json['city'] ?? '';
+    _zip = json['zip'] ?? '';
+    _houseNo = json['house_no'] ?? '';
+    _apartmentNo = json['apartment_no'] ?? '';
   }
 
   Map<String, dynamic> toJson() {
