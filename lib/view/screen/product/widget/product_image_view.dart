@@ -37,7 +37,7 @@ class ProductImageView extends StatelessWidget {
                     color: Colors.grey[
                         Provider.of<ThemeProvider>(context).darkTheme
                             ? 700
-                            : 300],
+                            : 300]!,
                     spreadRadius: 1,
                     blurRadius: 5)
               ],
@@ -124,15 +124,15 @@ class ProductImageView extends StatelessWidget {
                   width: 60,
                   margin: EdgeInsets.symmetric(horizontal: 5),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Theme.of(context).highlightColor,
-                    border: Provider.of<ProductDetailsProvider>(context)
-                                .imageSliderIndex ==
-                            index
-                        ? Border.all(
-                            color: ColorResources.getPrimary(context), width: 2)
-                        : ""
-                  ),
+                      borderRadius: BorderRadius.circular(5),
+                      color: Theme.of(context).highlightColor,
+                      border: Provider.of<ProductDetailsProvider>(context)
+                                  .imageSliderIndex ==
+                              index
+                          ? Border.all(
+                              color: ColorResources.getPrimary(context),
+                              width: 2)
+                          : null),
                   child: Padding(
                     padding: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
                     child: FadeInImage.assetNetwork(

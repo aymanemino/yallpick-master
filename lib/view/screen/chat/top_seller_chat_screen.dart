@@ -110,7 +110,7 @@ class TopSellerChatScreen extends StatelessWidget {
                         controller: _controller,
                         style: titilliumRegular,
                         keyboardType: TextInputType.multiline,
-                        maxLines: null
+                        maxLines: null,
                         expands: true,
                         decoration: InputDecoration(
                           hintText: getTranslated('type_here', context),
@@ -190,11 +190,11 @@ class ChatShimmer extends StatelessWidget {
       itemBuilder: (context, index) {
         bool isMe = index % 2 == 0;
         return Shimmer.fromColors(
-          baseColor: isMe ? Colors.grey[300]!!! : ColorResources.IMAGE_BG,
+          baseColor: isMe ? Colors.grey[300]! : ColorResources.IMAGE_BG,
           highlightColor: isMe
-              ? Colors.grey[100]!!!
+              ? Colors.grey[100]!
               : ColorResources.IMAGE_BG.withOpacity(0.9),
-          enabled: Provider.of<ChatProvider>(context).chatList == ""
+          enabled: Provider.of<ChatProvider>(context).chatList == "",
           child: Row(
             mainAxisAlignment:
                 isMe ? MainAxisAlignment.end : MainAxisAlignment.start,

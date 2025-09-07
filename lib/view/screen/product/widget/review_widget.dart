@@ -18,61 +18,88 @@ class ReviewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      reviewModel.customer != null?
-      Row(children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(15),
-          child: FadeInImage.assetNetwork(
-            placeholder: Images.placeholder, height: 30, width: 30, fit: BoxFit.cover,
-            image: '${Provider.of<SplashProvider>(context, listen: false).baseUrls.customerImageUrl}/${reviewModel.customer.image}',
-            imageErrorBuilder: (c, o, s) => Image.asset(Images.placeholder, height: 30, width: 30, fit: BoxFit.cover),
-          ),
-        ),
-        SizedBox(width: 5),
-        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Row(children: [
-            Text('${reviewModel.customer.fName} ${reviewModel.customer.lName}',
-              style: titilliumRegular.copyWith(fontSize: Dimensions.FONT_SIZE_DEFAULT),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-            SizedBox(width: 5),
-            RatingBar(rating: reviewModel.rating.toDouble(), size: 12),
-          ]),
-          Text(DateConverter.localDateToIsoStringAMPM(DateTime.parse(reviewModel.updatedAt)),
-              style: titilliumRegular.copyWith(color:  Theme.of(context).hintColor, fontSize: Dimensions.FONT_SIZE_SMALL)),
-        ]),
-      ]):SizedBox(),
+      reviewModel.customer != null
+          ? Row(children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: FadeInImage.assetNetwork(
+                  placeholder: Images.placeholder,
+                  height: 30,
+                  width: 30,
+                  fit: BoxFit.cover,
+                  image:
+                      '${Provider.of<SplashProvider>(context, listen: false).baseUrls.customerImageUrl}/${reviewModel.customer.image}',
+                  imageErrorBuilder: (c, o, s) => Image.asset(
+                      Images.placeholder,
+                      height: 30,
+                      width: 30,
+                      fit: BoxFit.cover),
+                ),
+              ),
+              SizedBox(width: 5),
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Row(children: [
+                  Text(
+                    '${reviewModel.customer.fName} ${reviewModel.customer.lName}',
+                    style: titilliumRegular.copyWith(
+                        fontSize: Dimensions.FONT_SIZE_DEFAULT),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  SizedBox(width: 5),
+                  RatingBar(rating: reviewModel.rating.toDouble(), size: 12),
+                ]),
+                Text(
+                    DateConverter.localDateToIsoStringAMPM(
+                        DateTime.parse(reviewModel.updatedAt)),
+                    style: titilliumRegular.copyWith(
+                        color: Theme.of(context).hintColor,
+                        fontSize: Dimensions.FONT_SIZE_SMALL)),
+              ]),
+            ])
+          : SizedBox(),
       SizedBox(height: 5),
-
       Text(
-        reviewModel.comment, style: titilliumRegular.copyWith(color: Theme.of(context).hintColor, fontSize: Dimensions.FONT_SIZE_EXTRA_SMALL),
+        reviewModel.comment,
+        style: titilliumRegular.copyWith(
+            color: Theme.of(context).hintColor,
+            fontSize: Dimensions.FONT_SIZE_EXTRA_SMALL),
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
       ),
       SizedBox(height: 5),
-
-      reviewModel.attachment.length > 0 ? SizedBox(
-        height: 30,
-        child: ListView.builder(
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemCount: reviewModel.attachment.length,
-          itemBuilder: (context, index) {
-            return Container(
-              margin: EdgeInsets.only(right: Dimensions.PADDING_SIZE_SMALL),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: FadeInImage.assetNetwork(
-                  placeholder: Images.placeholder, height: 30, width: 30, fit: BoxFit.cover,
-                  image: '${Provider.of<SplashProvider>(context, listen: false).baseUrls.reviewImageUrl}/review/${reviewModel.attachment[index]}',
-                  imageErrorBuilder: (c, o, s) => Image.asset(Images.placeholder, height: 30, width: 30, fit: BoxFit.cover),
-                ),
+      reviewModel.attachment.length > 0
+          ? SizedBox(
+              height: 30,
+              child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: reviewModel.attachment.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin:
+                        EdgeInsets.only(right: Dimensions.PADDING_SIZE_SMALL),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(5),
+                      child: FadeInImage.assetNetwork(
+                        placeholder: Images.placeholder,
+                        height: 30,
+                        width: 30,
+                        fit: BoxFit.cover,
+                        image:
+                            '${Provider.of<SplashProvider>(context, listen: false).baseUrls.reviewImageUrl}/review/${reviewModel.attachment[index]}',
+                        imageErrorBuilder: (c, o, s) => Image.asset(
+                            Images.placeholder,
+                            height: 30,
+                            width: 30,
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                  );
+                },
               ),
-            );
-          },
-        ),
-      ) : SizedBox(),
+            )
+          : SizedBox(),
     ]);
   }
 }
@@ -81,9 +108,9 @@ class ReviewShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: Colors.grey[300]!!!,
-      highlightColor: Colors.grey[100]!!!,
-      enabled: Provider.of<ProductDetailsProvider>(context).reviewList == ""
+      baseColor: Colors.grey[300]!,
+      highlightColor: Colors.grey[100]!,
+      enabled: Provider.of<ProductDetailsProvider>(context).reviewList == "",
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Row(children: [
           CircleAvatar(
@@ -107,4 +134,3 @@ class ReviewShimmer extends StatelessWidget {
     );
   }
 }
-

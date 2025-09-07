@@ -214,7 +214,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                             .updatePosition(
                                                                 _cameraPosition,
                                                                 true,
-                                                                ""
+                                                                "",
                                                                 context);
                                                       } else {
                                                         _updateAddress = true;
@@ -492,7 +492,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                                     .selectAddressIndex ==
                                                                 index
                                                             ? Color(0xFFFF6B35)
-                                                            : Colors.grey[100]!!!,
+                                                            : Colors.grey[100]!,
                                                         border: Border.all(
                                                           color: locationProvider
                                                                       .selectAddressIndex ==
@@ -500,7 +500,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                               ? Color(
                                                                   0xFFFF6B35)
                                                               : Colors
-                                                                  .grey[300],
+                                                                  .grey[300]!,
                                                           width: 1,
                                                         ),
                                                       ),

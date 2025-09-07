@@ -62,9 +62,10 @@ class _WishListScreenState extends State<WishListScreen> {
                                         .initWishList(
                                       context,
                                       Provider.of<LocalizationProvider>(context,
-                                              listen: false)
-                                          .locale
-                                          .countryCode ?? "",
+                                                  listen: false)
+                                              .locale
+                                              .countryCode ??
+                                          "",
                                     );
                                   },
                                   child: ListView.builder(
@@ -96,9 +97,9 @@ class WishListShimmer extends StatelessWidget {
       padding: EdgeInsets.all(0),
       itemBuilder: (context, index) {
         return Shimmer.fromColors(
-          baseColor: Colors.grey[300]!!!,
-          highlightColor: Colors.grey[100]!!!,
-          enabled: Provider.of<WishListProvider>(context).wishList == ""
+          baseColor: Colors.grey[300]!,
+          highlightColor: Colors.grey[100]!,
+          enabled: Provider.of<WishListProvider>(context).wishList == "",
           child: ListTile(
             leading:
                 Container(height: 50, width: 50, color: ColorResources.WHITE),

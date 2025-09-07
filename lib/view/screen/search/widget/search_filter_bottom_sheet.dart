@@ -151,7 +151,6 @@ class _SearchFilterBottomSheetState extends State<SearchFilterBottomSheet> {
                         index: 4)),
               ]),
               SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
-
               SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
               Container(
                 padding: EdgeInsets.symmetric(
@@ -165,13 +164,12 @@ class _SearchFilterBottomSheetState extends State<SearchFilterBottomSheet> {
                         color: Colors.grey[
                             Provider.of<ThemeProvider>(context).darkTheme
                                 ? 900
-                                : 200],
+                                : 200]!,
                         spreadRadius: 2,
                         blurRadius: 5,
                         offset: Offset(0, 5))
                   ],
                 ),
-
               ),
               SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
               AbsorbPointer(
@@ -188,13 +186,12 @@ class _SearchFilterBottomSheetState extends State<SearchFilterBottomSheet> {
                           color: Colors.grey[
                               Provider.of<ThemeProvider>(context).darkTheme
                                   ? 900
-                                  : 200],
+                                  : 200]!,
                           spreadRadius: 2,
                           blurRadius: 5,
                           offset: Offset(0, 5))
                     ],
                   ),
-
                 ),
               ),
               SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
@@ -212,13 +209,12 @@ class _SearchFilterBottomSheetState extends State<SearchFilterBottomSheet> {
                           color: Colors.grey[
                               Provider.of<ThemeProvider>(context).darkTheme
                                   ? 900
-                                  : 200],
+                                  : 200]!,
                           spreadRadius: 2,
                           blurRadius: 5,
                           offset: Offset(0, 5))
                     ],
                   ),
-
                 ),
               ),
               Consumer<CategoryProvider>(
