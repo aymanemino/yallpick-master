@@ -66,7 +66,7 @@ class WishListWidget extends StatelessWidget {
                                   onPressed: () {
                                     print(product.id);
 
-                                    Provider.of<WishListProvider>(context, listen: false).removeWishList(product.id, index: index);
+                                    Provider.of<WishListProvider>(context, listen: false).removeWishList(product.id ?? 0, index: index);
                                     Navigator.of(context).pop();
                                   },
                                 ),

@@ -73,7 +73,7 @@ class CartProvider extends ChangeNotifier {
     for (CartModel cartModel in _cartList) {
       if (cartModel.id == id) {
         if (cartModel.variant == variant) {
-          return true;
+          return;
         } else {
           return false;
         }

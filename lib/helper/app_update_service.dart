@@ -68,11 +68,11 @@ class AppUpdateService {
         return result; // true if user chose to update, false if dismissed
       } else {
         print('✅ No blocking update required');
-        return true; // Allow app to proceed
+        return; // Allow app to proceed
       }
     } catch (e) {
       print('❌ Blocking update check failed: $e');
-      return true; // Allow app to proceed on error
+      return; // Allow app to proceed on error
     }
   }
 
@@ -232,7 +232,7 @@ class AppUpdateService {
       return (now - lastCheck) >= _checkInterval.inMilliseconds;
     } catch (e) {
       // If there's an error, allow the check to proceed
-      return true;
+      return;
     }
   }
 

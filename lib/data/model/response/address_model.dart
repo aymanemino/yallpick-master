@@ -16,11 +16,11 @@ class AddressModel {
   int? isBilling;
 
   AddressModel(
-      {this.id,
+      {this.id ?? 0,
         this.customerId,
         this.contactPersonName,
         this.addressType,
-        this.address,
+        this.address ?? "",
         this.city,
         this.zip,
         this.phone,
@@ -60,7 +60,7 @@ class AddressModel {
     data['city'] = this.city;
     data['country'] = this.country;
     data['zip'] = this.zip;
-    data['phone'] = this.phone;
+    data['phone'] = this.phone ?? "";
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     data['state'] = this.state;

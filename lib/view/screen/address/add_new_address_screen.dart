@@ -25,7 +25,7 @@ class AddNewAddressScreen extends StatefulWidget {
 
   AddNewAddressScreen(
       {this.isEnableUpdate = false,
-      this.address,
+      this.address ?? "",
       this.fromCheckout = false,
       this.isBilling});
 

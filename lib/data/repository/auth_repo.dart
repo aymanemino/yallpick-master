@@ -128,7 +128,7 @@ class AuthRepo {
     sharedPreferences.remove(AppConstants.TOKEN);
     sharedPreferences.remove(AppConstants.USER);
     FirebaseMessaging.instance.unsubscribeFromTopic(AppConstants.TOPIC);
-    return true;
+    return;
   }
 
   // for verify Email

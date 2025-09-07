@@ -21,7 +21,7 @@ class _FaqScreenState extends State<FaqScreen> {
       body: Column(children: [
         CustomAppBar(title: widget.title),
 
-        Provider.of<SplashProvider>(context).configModel.faq != null && Provider.of<SplashProvider>(context).configModel.faq?.length ?? 0> 0? Expanded(
+        Provider.of<SplashProvider>(context).configModel.faq != null && Provider.of<SplashProvider>(context).configModel.(faq?.length ?? 0) > 0? Expanded(
           child: ListView.builder(
               itemCount: Provider.of<SplashProvider>(context).configModel.faq?.length ?? 0,
               itemBuilder: (ctx, index){

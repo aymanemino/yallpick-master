@@ -8,7 +8,7 @@ class WishListModel {
   String? updatedAt;
   Product? product;
 
-  WishListModel({this.id, this.customerId, this.productId, this.createdAt, this.updatedAt, this.product});
+  WishListModel({this.id ?? 0, this.customerId, this.productId, this.createdAt, this.updatedAt, this.product});
 
   WishListModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];

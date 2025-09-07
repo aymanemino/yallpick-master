@@ -287,7 +287,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                                                   context,
                                                                   listen: false)
                                                               .addressIndex]
-                                                      .address,
+                                                      .address ?? "",
                                                   Provider.of<ProfileProvider>(context, listen: false)
                                                       .billingAddressList[
                                                           Provider.of<OrderProvider>(
@@ -299,7 +299,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                                   Provider.of<ProfileProvider>(context,
                                                           listen: false)
                                                       .billingAddressList[Provider.of<OrderProvider>(context, listen: false).billingAddressIndex]
-                                                      .address,
+                                                      .address ?? "",
                                                   orderNote),
                                               _cartList,
                                               order.paymentMethodIndex == 0
@@ -496,7 +496,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                                           context,
                                                           listen: false)
                                                       .addressIndex]
-                                              .address,
+                                              .address ?? "",
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.black87,
@@ -647,7 +647,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                                           context,
                                                           listen: false)
                                                       .billingAddressIndex]
-                                              .address,
+                                              .address ?? "",
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.black87,
@@ -1433,7 +1433,7 @@ class PaymentButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: onTap as void Function()?,
       child: Container(
         height: 45,
         margin: EdgeInsets.symmetric(

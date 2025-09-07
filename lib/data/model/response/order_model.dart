@@ -182,11 +182,11 @@ class BillingAddressData {
   int? isBilling;
 
   BillingAddressData(
-      {this.id,
+      {this.id ?? 0,
       this.customerId,
       this.contactPersonName,
       this.addressType,
-      this.address,
+      this.address ?? "",
       this.city,
       this.zip,
       this.phone,
@@ -223,7 +223,7 @@ class BillingAddressData {
     data['address'] = this.address;
     data['city'] = this.city;
     data['zip'] = this.zip;
-    data['phone'] = this.phone;
+    data['phone'] = this.phone ?? "";
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     data['country'] = this.country;

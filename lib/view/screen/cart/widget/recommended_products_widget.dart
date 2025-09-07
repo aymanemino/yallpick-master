@@ -276,7 +276,7 @@ class _RecommendedProductsWidgetState extends State<RecommendedProductsWidget> {
     try {
       // Create CartModel with proper parameters (same as product page)
       CartModel cart = CartModel(
-        product.id,
+        product.id ?? 0,
         product.thumbnail, // image
         product.name,
         product.addedBy == 'seller' ? 'seller' : 'admin', // seller

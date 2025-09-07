@@ -25,7 +25,7 @@ class BrandAndCategoryProductScreen extends StatelessWidget {
 
   BrandAndCategoryProductScreen({
     @required this.isBrand,
-    @required this.id,
+    @required this.id ?? 0,
     @required this.name,
     this.image,
     this.status,
@@ -85,7 +85,7 @@ class BrandAndCategoryProductScreen extends StatelessWidget {
                                   ? List<SubCategory>.from(
                                 subcategory[index].subSubCategories.map(
                                       (e) => SubCategory(
-                                    id: e.id,
+                                    id: e.id ?? 0,
                                     name: e.name,
                                     slug: e.slug,
                                     icon: e.icon,

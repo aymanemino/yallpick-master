@@ -119,7 +119,7 @@ class TitleButton extends StatelessWidget {
       title: Text(title,
           style:
           titilliumRegular.copyWith(fontSize: Dimensions.FONT_SIZE_LARGE)),
-      onTap: onTap,
+      onTap: onTap as void Function()?,
     );
   }
 }

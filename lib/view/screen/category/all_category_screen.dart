@@ -453,7 +453,7 @@ class AllCategoryScreen extends StatelessWidget {
                 subcategory: List<SubCategory>.from(
                   subCategory.subSubCategories.map(
                         (e) => SubCategory(
-                      id: e.id,
+                      id: e.id ?? 0,
                       name: e.name,
                       slug: e.slug,
                       icon: e.icon,
@@ -541,7 +541,7 @@ class AllCategoryScreen extends StatelessWidget {
                   subcategory: List<SubCategory>.from(
                     subCategory.subSubCategories.map(
                           (e) => SubCategory(
-                        id: e.id,
+                        id: e.id ?? 0,
                         name: e.name,
                         slug: e.slug,
                         icon: e.icon,

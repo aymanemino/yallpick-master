@@ -140,6 +140,6 @@ class SplashPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
+    return;
   }
 }

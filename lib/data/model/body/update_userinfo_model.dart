@@ -17,9 +17,9 @@ class UpdateUserInfoModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['f_name'] = this.fName;
-    data['l_name'] = this.lName;
-    data['phone'] = this.phone;
+    data['f_name'] = this.fName ?? "";
+    data['l_name'] = this.lName ?? "";
+    data['phone'] = this.phone ?? "";
     return data;
   }
 }

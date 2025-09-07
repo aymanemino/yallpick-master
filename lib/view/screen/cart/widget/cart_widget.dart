@@ -139,7 +139,7 @@ class CartWidget extends StatelessWidget {
                               if (cartModel.quantity > 1) {
                                 Provider.of<CartProvider>(context,
                                     listen: false)
-                                    .updateCartProductQuantity(cartModel.id,
+                                    .updateCartProductQuantity(cartModel.id ?? 0,
                                     cartModel.quantity - 1, context);
                               }
                             },
@@ -173,7 +173,7 @@ class CartWidget extends StatelessWidget {
                           InkWell(
                             onTap: () {
                               Provider.of<CartProvider>(context, listen: false)
-                                  .updateCartProductQuantity(cartModel.id,
+                                  .updateCartProductQuantity(cartModel.id ?? 0,
                                   cartModel.quantity + 1, context);
                             },
                             child: Container(

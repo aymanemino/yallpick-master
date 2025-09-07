@@ -206,13 +206,13 @@ class ProfileProvider extends ChangeNotifier {
   }
 
   Future<ResponseModel> updateUserInfo(UserInfoModel updateUserModel,
-      String pass, File file, String token) async {
+      String pass, File file!, String token) async {
     _isLoading = true;
     notifyListeners();
 
     ResponseModel responseModel;
     http.StreamedResponse response =
-        await profileRepo.updateProfile(updateUserModel, pass, file, token);
+        await profileRepo.updateProfile(updateUserModel, pass, file!, token);
     _isLoading = false;
     if (response.statusCode == 200) {
       Map map = jsonDecode(await response.stream.bytesToString());

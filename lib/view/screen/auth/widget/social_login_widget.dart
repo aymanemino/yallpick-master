@@ -105,7 +105,7 @@ class _SocialLoginWidgetState extends State<SocialLoginWidget> {
                           email = Provider.of<GoogleSignInProvider>(context,
                                   listen: false)
                               .googleAccount
-                              .email;
+                              .email ?? "";
                           token = Provider.of<GoogleSignInProvider>(context,
                                   listen: false)
                               .auth

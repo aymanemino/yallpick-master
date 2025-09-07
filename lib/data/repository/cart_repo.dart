@@ -27,7 +27,7 @@ class CartRepo {
     List<CartModel> old_carts = getCartList();
     cartProductList.forEach((cartModel) {
       CartModel temp = old_carts.firstWhere(
-            (element) => element.id == cartModel.id,
+            (element) => element.id == cartModel.id ?? 0,
       );
       if (temp != null) {
         cartModel.quantity = cartModel.quantity + temp.quantity;
@@ -63,7 +63,7 @@ class CartRepo {
       });
     }
     Map<String, dynamic> _data = {
-      'id': cart.id,
+      'id': cart.id ?? 0,
       'variant': cart.variation != null ? cart.variation.type : ""
       'quantity': cart.quantity
     };

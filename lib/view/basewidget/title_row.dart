@@ -58,7 +58,7 @@ class TitleRow extends StatelessWidget {
 
       onTap != null
           ? InkWell(
-              onTap: onTap,
+              onTap: onTap as void Function()?,
               child: Row(children: [
                 isDetailsPage == null
                     ? Text(getTranslated('VIEW_ALL', context),

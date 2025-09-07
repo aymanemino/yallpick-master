@@ -268,7 +268,7 @@ class _CartBottomSheetState extends State<CartBottomSheet> {
                   onTap: _stock < 1  ? null :() {
                     if(_stock > 0 ) {
                       CartModel cart = CartModel(
-                          widget.product.id, widget.product.thumbnail, widget.product.name,
+                          widget.product.id ?? 0, widget.product.thumbnail, widget.product.name,
                           widget.product.addedBy == 'seller' ? '${Provider.of<SellerProvider>(context, listen: false).sellerModel.fName} '
                               '${Provider.of<SellerProvider>(context, listen: false).sellerModel.lName}' : 'admin',
                           price, priceWithDiscount, details.quantity, _stock,

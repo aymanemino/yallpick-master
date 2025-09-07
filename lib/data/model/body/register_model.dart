@@ -21,11 +21,11 @@ class RegisterModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['email'] = this.email;
+    data['email'] = this.email ?? "";
     data['password'] = this.password;
-    data['f_name'] = this.fName;
-    data['l_name'] = this.lName;
-    data['phone'] = this.phone;
+    data['f_name'] = this.fName ?? "";
+    data['l_name'] = this.lName ?? "";
+    data['phone'] = this.phone ?? "";
     data['social_id'] = this.socialId;
     data['login_medium'] = this.loginMedium;
     return data;

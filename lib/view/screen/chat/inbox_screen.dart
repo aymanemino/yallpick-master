@@ -44,7 +44,7 @@ class InboxScreen extends StatelessWidget {
             borderRadius: BorderRadius.only(bottomLeft: Radius.circular(5), bottomRight: Radius.circular(5)),
             child: Image.asset(
               Images.toolbar_background, fit: BoxFit.fill, height: 90, width: double.infinity,
-              color: Provider.of<ThemeProvider>(context).darkTheme ? Colors.black : ""
+              color: Provider.of<ThemeProvider>(context).darkTheme ? Colors.black : Colors.white
             ),
           ),
           Container(

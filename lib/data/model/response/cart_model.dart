@@ -193,7 +193,7 @@ class CartModel {
 //   String updatedAt;
 //
 //   CartModel(
-//       {this.id,
+//       {this.id ?? 0,
 //         this.customerId,
 //         this.cartGroupId,
 //         this.productId,

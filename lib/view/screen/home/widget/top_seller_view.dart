@@ -75,7 +75,7 @@ class TopSellerView extends StatelessWidget {
                                                     context,
                                                     listen: false)
                                                 .baseUrls
-                                                .shopImageUrl +
+                                                .shopImageUrl ?? "" +
                                             '/' +
                                             topSellerProvider
                                                 .topSellerList[index].image,
@@ -145,7 +145,7 @@ class TopSellerView extends StatelessWidget {
                                     image: Provider.of<SplashProvider>(context,
                                                 listen: false)
                                             .baseUrls
-                                            .shopImageUrl +
+                                            .shopImageUrl ?? "" +
                                         '/' +
                                         topSellerProvider
                                             .topSellerList[index].image,

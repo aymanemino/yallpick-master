@@ -471,7 +471,7 @@ class _ProductDetailsState extends State<ProductDetails> {
     VoidCallback onTap,
   }) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap as void Function()?,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: Column(

@@ -61,7 +61,7 @@ class _AllProductScreenState extends State<AllProductScreen> {
           backgroundColor: Theme.of(context).primaryColor,
           onRefresh: () async {
             await _loadData(context, true);
-            return true;
+            return;
           },
           child: CustomScrollView(
             controller: _scrollController,

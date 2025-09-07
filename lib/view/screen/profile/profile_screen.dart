@@ -121,7 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           .updateUserInfo(
         updateUserInfoModel,
         pass,
-        file,
+        file!,
         Provider.of<AuthProvider>(context, listen: false).getUserToken(),
       )
           .then((response) {
@@ -152,11 +152,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       key: _scaffoldKey,
       body: Consumer<ProfileProvider>(
-        builder: (context, profile, child) {
-          _firstNameController.text = profile.userInfoModel.fName;
-          _lastNameController.text = profile.userInfoModel.lName;
-          _emailController.text = profile.userInfoModel.email;
-          _phoneController.text = profile.userInfoModel.phone;
+        builder: (context, profile!, child) {
+          _firstNameController.text = profile.userInfoModel.fName ?? "";
+          _lastNameController.text = profile.userInfoModel.lName ?? "";
+          _emailController.text = profile.userInfoModel.email ?? "";
+          _phoneController.text = profile.userInfoModel.phone ?? "";
 
           return Stack(
             clipBehavior: Clip.none,
@@ -218,7 +218,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                 height: 100,
                                                 fit: BoxFit.cover),
                                       )
-                                    : Image.file(file,
+                                    : Image.file(file!,
                                         width: 100,
                                         height: 100,
                                         fit: BoxFit.fill),

@@ -268,7 +268,7 @@ class ProductTitleView extends StatelessWidget {
                                 } else {
                                   wishListProvider.isWish
                                       ? wishListProvider
-                                      .removeWishList(productModel.id,
+                                      .removeWishList(productModel.id ?? 0,
                                       feedbackMessage: (message) {
                                         if (message != '') {
                                           showCustomSnackBar(message, context,
@@ -276,7 +276,7 @@ class ProductTitleView extends StatelessWidget {
                                         }
                                       })
                                       : wishListProvider
-                                      .addWishList(productModel.id,
+                                      .addWishList(productModel.id ?? 0,
                                       feedbackMessage: (message) {
                                         if (message != '') {
                                           showCustomSnackBar(message, context,

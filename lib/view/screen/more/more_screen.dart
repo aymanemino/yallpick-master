@@ -175,7 +175,7 @@ class _MoreScreenState extends State<MoreScreen> {
           left: Dimensions.PADDING_SIZE_SMALL,
           right: Dimensions.PADDING_SIZE_SMALL,
           child: Consumer<ProfileProvider>(
-            builder: (context, profile, child) {
+            builder: (context, profile!, child) {
               return Row(children: [
                 // Logo with enhanced modern styling
                 Container(

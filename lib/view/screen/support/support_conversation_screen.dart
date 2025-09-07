@@ -232,7 +232,7 @@ class SupportConversationScreen extends StatelessWidget {
                     if (_controller.text.isNotEmpty) {
                       Provider.of<SupportTicketProvider>(context,
                           listen: false)
-                          .sendReply(context, supportTicketModel.id,
+                          .sendReply(context, supportTicketModel.id ?? 0,
                           _controller.text);
                       _controller.text = '';
                     } else {}

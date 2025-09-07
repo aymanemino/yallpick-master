@@ -78,7 +78,7 @@ class VerificationScreen extends StatelessWidget {
                           enableActiveFill: true,
                           onChanged: authProvider.updateVerificationCode,
                           beforeTextPaste: (text) {
-                            return true;
+                            return;
                           },
                         ),
                       ),

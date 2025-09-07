@@ -30,7 +30,7 @@ class TopSellerChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     if (isFirstTime) {
       Provider.of<ChatProvider>(context, listen: false)
-          .initChatList(topSeller.id, context);
+          .initChatList(topSeller.id ?? 0, context);
 
       isFirstTime = false;
     }
@@ -80,7 +80,7 @@ class TopSellerChatScreen extends StatelessWidget {
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  Image.file(Provider.of<ChatProvider>(context).imageFile, height: 70, width: 70, fit: BoxFit.cover),
+                  Image.file(Provider.of<ChatProvider>(context).imagefile!, height: 70, width: 70, fit: BoxFit.cover),
                   Positioned(
                     top: -2, right: -2,
                     child: InkWell(

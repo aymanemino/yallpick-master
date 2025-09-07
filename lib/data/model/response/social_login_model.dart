@@ -18,7 +18,7 @@ class SocialLoginModel {
     data['token'] = this.token;
     data['unique_id'] = this.uniqueId;
     data['medium'] = this.medium;
-    data['email'] = this.email;
+    data['email'] = this.email ?? "";
     return data;
   }
 }

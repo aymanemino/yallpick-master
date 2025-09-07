@@ -13,7 +13,7 @@ class HomeCategoryProduct {
   List<dynamic>? translations;
 
   HomeCategoryProduct(
-      {this.id,
+      {this.id ?? 0,
         this.name,
         this.slug,
         this.icon,

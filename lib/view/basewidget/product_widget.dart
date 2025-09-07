@@ -73,7 +73,7 @@ class _ProductWidgetState extends State<ProductWidget>
     try {
       // Create CartModel with proper parameters
       CartModel cart = CartModel(
-        product.id,
+        product.id ?? 0,
         product.thumbnail, // image
         product.name,
         product.addedBy == 'seller' ? 'seller' : 'admin', // seller

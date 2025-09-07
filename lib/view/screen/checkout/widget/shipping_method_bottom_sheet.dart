@@ -87,7 +87,7 @@ class _ShippingMethodBottomSheetState extends State<ShippingMethodBottomSheet> {
                           ),
                         ),
                       ) :
-                      order.addShippingMethod(context, shipping.id, shipping.duration, route);
+                      order.addShippingMethod(context, shipping.id ?? 0, shipping.duration, route);
                       // Navigator.pop(context);
                     },
                   );

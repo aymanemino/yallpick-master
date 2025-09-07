@@ -32,7 +32,7 @@ class OrderWidget extends StatelessWidget {
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => OrderDetailsScreen(
               orderModel: orderModel,
-              orderId: orderModel.id,
+              orderId: orderModel.id ?? 0,
               orderType: orderModel.orderType,
               extraDiscount: orderModel.extraDiscount,
               extraDiscountType: orderModel.extraDiscountType,

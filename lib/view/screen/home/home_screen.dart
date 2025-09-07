@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                 await Provider.of<FlashDealProvider>(context, listen: false)
                     .getMegaDealList(true, context, false);
 
-                return true;
+                return;
               },
               child: CustomScrollView(
                 controller: _scrollController,

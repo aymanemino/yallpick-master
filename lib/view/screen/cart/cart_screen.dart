@@ -225,7 +225,7 @@ class _CartScreenState extends State<CartScreen> {
                                                 .cartGroupId,
                                             sellerIndex: index,
                                             sellerId:
-                                            sellerGroupList[index].id,
+                                            sellerGroupList[index].id ?? 0,
                                           ),
                                     );
                                   } else {
@@ -759,7 +759,7 @@ class _CartScreenState extends State<CartScreen> {
     VoidCallback onTap,
   }) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap as void Function()?,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: Column(

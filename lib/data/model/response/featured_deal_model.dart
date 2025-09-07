@@ -12,7 +12,7 @@ class FeaturedDealModel {
   Product? product;
 
   FeaturedDealModel(
-      {this.id,
+      {this.id ?? 0,
         this.flashDealId,
         this.productId,
         this.discount,

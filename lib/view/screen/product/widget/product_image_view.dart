@@ -97,7 +97,7 @@ class ProductImageView extends StatelessWidget {
                   isSelected:
                       Provider.of<WishListProvider>(context, listen: false)
                           .isWish,
-                  productId: productModel.id,
+                  productId: productModel.id ?? 0,
                 ),
               ),
             ]),

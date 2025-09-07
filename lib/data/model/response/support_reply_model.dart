@@ -6,7 +6,7 @@ class SupportReplyModel {
   String? updatedAt;
 
   SupportReplyModel(
-      {this.id,
+      {this.id ?? 0,
         this.customerMessage,
         this.adminMessage,
         this.createdAt,

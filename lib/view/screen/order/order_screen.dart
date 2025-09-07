@@ -419,7 +419,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
               ),
               SizedBox(height: 16),
               Text(
-                widget.orderModel.billingAddressData.address,
+                widget.orderModel.billingAddressData.address ?? "",
                 style: TextStyle(
                   fontSize: 14,
                   color: Color(0xFF6C757D),

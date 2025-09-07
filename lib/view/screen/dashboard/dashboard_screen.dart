@@ -39,7 +39,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
           _setPage(0); // Set page to Home when back button is pressed
           return false;
         } else {
-          return true;
+          return;
         }
       },
       child: Scaffold(
@@ -139,7 +139,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
     VoidCallback onTap,
   }) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap as void Function()?,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: Column(

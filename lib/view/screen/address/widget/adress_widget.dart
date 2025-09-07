@@ -57,7 +57,7 @@ class AddressWidget extends StatelessWidget {
                                   style: robotoRegular.copyWith(color: Theme.of(context).primaryColor, fontSize: Dimensions.FONT_SIZE_LARGE),
                                 ),
                                 Text(
-                                  addressModel.address,
+                                  addressModel.address ?? "",
                                   style: robotoRegular.copyWith(color: ColorResources.getTextTitle(context), fontSize: Dimensions.FONT_SIZE_LARGE),
                                 ),
                               ],
@@ -75,7 +75,7 @@ class AddressWidget extends StatelessWidget {
                               valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),
                             ),
                           ));
-                          Provider.of<LocationProvider>(context, listen: false).deleteUserAddressByID(addressModel.id, index,
+                          Provider.of<LocationProvider>(context, listen: false).deleteUserAddressByID(addressModel.id ?? 0, index,
                                   (bool isSuccessful, String message) {
                             Navigator.pop(context);
                                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -86,8 +86,8 @@ class AddressWidget extends StatelessWidget {
                         } else {
                           // Navigator.of(context).pushNamed(
                           //   RouteHelper.getUpdateAddressRoute(
-                          //     addressModel.address, addressModel.addressType, addressModel.latitude, addressModel.longitude, addressModel.contactPersonName,
-                          //     addressModel.phone, addressModel.id, addressModel.id,
+                          //     addressModel.address ?? "", addressModel.addressType, addressModel.latitude, addressModel.longitude, addressModel.contactPersonName,
+                          //     addressModel.phone, addressModel.id ?? 0, addressModel.id ?? 0,
                           //   ),
                           //   arguments: AddNewAddressScreen(isEnableUpdate: true, address: addressModel),
                           // );
