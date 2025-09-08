@@ -61,22 +61,24 @@ class ApiErrorHandler {
                       : 'Délai de réception en connexion avec le serveur';
               break;
             case DioErrorType.response:
-              switch (error.response.statusCode) {
-                case 404:
-                case 500:
-                case 503:
-                  errorDescription = error.response.statusMessage;
-                  break;
-                default:
-                  print('errorrororor ${error.response.data}');
-                  ErrorResponse errorResponse =
-                      ErrorResponse.fromJson(error.response.data);
-                  if (errorResponse.errors != null &&
-                      errorResponse.errors.length > 0)
-                    errorDescription = errorResponse;
-                  else
-                    errorDescription =
-                        "Failed to load data - status code: ${error.response.statusCode}";
+              if (error.response != null) {
+                switch (error.response!.statusCode) {
+                  case 404:
+                  case 500:
+                  case 503:
+                    errorDescription = error.response!.statusMessage;
+                    break;
+                  default:
+                    print('errorrororor ${error.response!.data}');
+                    ErrorResponse errorResponse =
+                        ErrorResponse.fromJson(error.response!.data);
+                    if (errorResponse.errors != null &&
+                        errorResponse.errors.length > 0)
+                      errorDescription = errorResponse;
+                    else
+                      errorDescription =
+                          "Failed to load data - status code: ${error.response!.statusCode}";
+                }
               }
               break;
             case DioErrorType.sendTimeout:

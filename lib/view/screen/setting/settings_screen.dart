@@ -105,8 +105,7 @@ class TitleButton extends StatelessWidget {
   final String title;
   final Function onTap;
 
-  TitleButton(
-      {required this.image, required this.title, required this.onTap});
+  TitleButton({required this.image, required this.title, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
