@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 
 class ProductDetailsProvider extends ChangeNotifier {
   final ProductDetailsRepo productDetailsRepo;
-  ProductDetailsProvider({this.productDetailsRepo});
+  ProductDetailsProvider({required this.productDetailsRepo});
 
   List<ReviewModel> _reviewList = [];
   int _imageSliderIndex = 0;

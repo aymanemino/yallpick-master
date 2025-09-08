@@ -18,7 +18,7 @@ class ProductView extends StatelessWidget {
       {this.isHomePage,
         this.productType,
         this.scrollController,
-        this.sellerId});
+        required this.sellerId});
 
   @override
   Widget build(BuildContext context) {

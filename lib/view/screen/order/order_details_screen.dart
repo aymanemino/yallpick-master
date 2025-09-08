@@ -33,9 +33,9 @@ class OrderDetailsScreen extends StatefulWidget {
   final double? extraDiscount;
   final String? extraDiscountType;
   OrderDetailsScreen(
-      {this.orderModel,
-        this.orderId,
-        this.orderType,
+      {required this.orderModel,
+        required this.orderId,
+        required this.orderType,
         this.extraDiscount,
         this.extraDiscountType});
 

@@ -8,7 +8,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 class OrderRepo {
   final DioClient dioClient;
 
-  OrderRepo({this.dioClient});
+  OrderRepo({required this.dioClient});
 
   Future<ApiResponse> getOrderList() async {
     try {

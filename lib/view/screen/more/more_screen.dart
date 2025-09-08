@@ -763,7 +763,7 @@ class SquareButton extends StatelessWidget {
 
   SquareButton(
       {this.image,
-      this.title,
+      required this.title,
       this.navigateTo,
       this.count,
       this.hasCount});
@@ -869,7 +869,7 @@ class TitleButton extends StatelessWidget {
   final String title;
   final Widget navigateTo;
   TitleButton(
-      {this.image, this.title, this.navigateTo});
+      {this.image, required this.title, this.navigateTo});
 
   @override
   Widget build(BuildContext context) {
@@ -898,7 +898,7 @@ class ModernTitleButton extends StatelessWidget {
 
   ModernTitleButton({
     this.image,
-    this.title,
+    required this.title,
     this.subtitle,
     this.navigateTo,
   });

@@ -11,7 +11,7 @@ import 'package:flutter_sixvalley_ecommerce/helper/date_converter.dart';
 
 class ChatProvider extends ChangeNotifier {
   final ChatRepo chatRepo;
-  ChatProvider({this.chatRepo});
+  ChatProvider({required this.chatRepo});
 
   ChatInfoModel _chatInfoModel = ChatInfoModel();
   List<ChatModel> _chatList = [];

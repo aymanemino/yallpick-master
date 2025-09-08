@@ -10,7 +10,7 @@ import 'package:flutter_sixvalley_ecommerce/data/repository/support_ticket_repo.
 
 class SupportTicketProvider extends ChangeNotifier {
   final SupportTicketRepo supportTicketRepo;
-  SupportTicketProvider({this.supportTicketRepo});
+  SupportTicketProvider({required this.supportTicketRepo});
 
   List<SupportTicketModel> _supportTicketList = [];
   List<SupportReplyModel> _supportReplyList = [];

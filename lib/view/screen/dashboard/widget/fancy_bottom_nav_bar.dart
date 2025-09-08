@@ -252,7 +252,7 @@ class FancyBottomNavBarState extends State<FancyBottomNavBar>
 }
 
 class FancyTabData {
-  FancyTabData({this.imagePath, this.title, this.onclick});
+  FancyTabData({this.imagePath, required this.title, this.onclick});
 
   String imagePath;
   String title;
@@ -273,7 +273,7 @@ class TabItem extends StatelessWidget {
       {this.uniqueKey,
         this.selected,
         this.imagePath,
-        this.title,
+        required this.title,
         this.callbackFunction,
         this.textColor,
         this.iconColor});

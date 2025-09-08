@@ -17,7 +17,7 @@ class AddressModel {
 
   AddressModel(
       {this.id,
-        this.customerId,
+        required this.customerId,
         this.contactPersonName,
         this.addressType,
         this.address,
@@ -53,7 +53,7 @@ class AddressModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
-    data['customer_id'] = this.customerId;
+    data['customer_id'] = required this.customerId;
     data['contact_person_name'] = this.contactPersonName;
     data['address_type'] = this.addressType;
     data['address'] = this.address;

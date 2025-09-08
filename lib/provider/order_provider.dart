@@ -12,7 +12,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class OrderProvider with ChangeNotifier {
   final OrderRepo orderRepo;
-  OrderProvider({this.orderRepo});
+  OrderProvider({required this.orderRepo});
 
   List<OrderModel> _pendingList = [];
   List<OrderModel> _deliveredList = [];

@@ -18,7 +18,7 @@ import 'order_provider.dart';
 class ProfileProvider extends ChangeNotifier {
   final ProfileRepo profileRepo;
 
-  ProfileProvider({this.profileRepo});
+  ProfileProvider({required this.profileRepo});
 
   List<String> _addressTypeList = [];
   String _addressType = '';

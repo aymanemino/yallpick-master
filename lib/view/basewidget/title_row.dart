@@ -13,7 +13,7 @@ class TitleRow extends StatelessWidget {
   final Duration? eventDuration;
   final bool? isDetailsPage;
   TitleRow(
-      {this.title,
+      {required this.title,
       this.icon,
       this.onTap,
       this.eventDuration,

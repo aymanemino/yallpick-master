@@ -10,7 +10,7 @@ class WishListModel {
 
   WishListModel(
       {this.id,
-      this.customerId,
+      required this.customerId,
       this.productId,
       this.createdAt,
       this.updatedAt,
@@ -29,7 +29,7 @@ class WishListModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
-    data['customer_id'] = this.customerId;
+    data['customer_id'] = required this.customerId;
     data['product_id'] = this.productId;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;

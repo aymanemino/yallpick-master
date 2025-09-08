@@ -7,7 +7,7 @@ import 'package:flutter_sixvalley_ecommerce/data/model/response/product_model.da
 class FeaturedDealProvider extends ChangeNotifier {
   final FeaturedDealRepo featuredDealRepo;
 
-  FeaturedDealProvider({this.featuredDealRepo});
+  FeaturedDealProvider({required this.featuredDealRepo});
 
   List<FeaturedDealModel> _featuredDealList = [];
   int _featuredDealSelectedIndex = 0;

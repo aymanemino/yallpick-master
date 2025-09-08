@@ -5,7 +5,7 @@ import 'package:flutter_sixvalley_ecommerce/data/repository/coupon_repo.dart';
 
 class CouponProvider extends ChangeNotifier {
   final CouponRepo couponRepo;
-  CouponProvider({this.couponRepo});
+  CouponProvider({required this.couponRepo});
 
   CouponModel _coupon = CouponModel();
   double _discount = 0.0;

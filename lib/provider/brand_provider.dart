@@ -7,7 +7,7 @@ import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
 class BrandProvider extends ChangeNotifier {
   final BrandRepo brandRepo;
 
-  BrandProvider({this.brandRepo});
+  BrandProvider({required this.brandRepo});
 
   List<BrandModel> _brandList = [];
 

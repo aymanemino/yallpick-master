@@ -252,7 +252,7 @@ class _SearchFilterBottomSheetState extends State<SearchFilterBottomSheet> {
 class MyCheckBox extends StatelessWidget {
   final String title;
   final int index;
-  MyCheckBox({this.title, this.index});
+  MyCheckBox({required this.title, this.index});
 
   @override
   Widget build(BuildContext context) {

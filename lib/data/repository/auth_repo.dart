@@ -15,7 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AuthRepo {
   final DioClient dioClient;
   final SharedPreferences sharedPreferences;
-  AuthRepo({this.dioClient, this.sharedPreferences});
+  AuthRepo({required this.dioClient, required this.sharedPreferences});
 
   Future<ApiResponse> socialLogin(SocialLoginModel socialLogin) async {
     try {

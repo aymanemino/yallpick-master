@@ -10,7 +10,7 @@ class WishListProvider extends ChangeNotifier {
   final WishListRepo wishListRepo;
   final ProductDetailsRepo productDetailsRepo;
   WishListProvider(
-      {this.wishListRepo, this.productDetailsRepo});
+      {required this.wishListRepo, this.productDetailsRepo});
 
   bool _wish = false;
   String _searchText = "";

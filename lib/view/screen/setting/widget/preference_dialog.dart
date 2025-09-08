@@ -34,7 +34,7 @@ class PreferenceDialog extends StatelessWidget {
 class SwitchTile extends StatelessWidget {
   final String title;
   final bool value;
-  SwitchTile({this.title, this.value});
+  SwitchTile({required this.title, this.value});
 
   @override
   Widget build(BuildContext context) {

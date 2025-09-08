@@ -7,7 +7,7 @@ import 'package:flutter_sixvalley_ecommerce/data/model/response/product_model.da
 
 class HomeCategoryProductProvider extends ChangeNotifier {
   final HomeCategoryProductRepo homeCategoryProductRepo;
-  HomeCategoryProductProvider({this.homeCategoryProductRepo});
+  HomeCategoryProductProvider({required this.homeCategoryProductRepo});
 
   List<HomeCategoryProduct> _homeCategoryProductList = [];
   List<Product> _productList = [];

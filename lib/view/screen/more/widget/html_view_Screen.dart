@@ -6,7 +6,7 @@ import 'package:flutter_sixvalley_ecommerce/view/basewidget/custom_app_bar.dart'
 class HtmlViewScreen extends StatelessWidget {
   final String title;
   final String url;
-  HtmlViewScreen({this.url, this.title});
+  HtmlViewScreen({this.url, required this.title});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

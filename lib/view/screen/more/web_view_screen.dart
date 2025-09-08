@@ -8,7 +8,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 class WebViewScreen extends StatefulWidget {
   final String title;
   final String url;
-  WebViewScreen({this.url, this.title});
+  WebViewScreen({this.url, required this.title});
 
   @override
   _WebViewScreenState createState() => _WebViewScreenState();

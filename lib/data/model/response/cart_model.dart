@@ -194,7 +194,7 @@ class CartModel {
 //
 //   CartModel(
 //       {this.id ?? 0,
-//         this.customerId,
+//         required this.customerId,
 //         this.cartGroupId,
 //         this.productId,
 //         this.color,
@@ -209,8 +209,8 @@ class CartModel {
 //         this.slug,
 //         this.name,
 //         this.thumbnail,
-//         this.sellerId,
-//         this.sellerIs,
+//         required this.sellerId,
+//         required this.sellerIs,
 //         this.createdAt,
 //         this.updatedAt});
 //
@@ -240,7 +240,7 @@ class CartModel {
 //   Map<String, dynamic> toJson() {
 //     final Map<String, dynamic> data = new Map<String, dynamic>();
 //     data['id'] = this.id;
-//     data['customer_id'] = this.customerId;
+//     data['customer_id'] = required this.customerId;
 //     data['cart_group_id'] = this.cartGroupId;
 //     data['product_id'] = this.productId;
 //     data['color'] = this.color;
@@ -255,8 +255,8 @@ class CartModel {
 //     data['slug'] = this.slug;
 //     data['name'] = this.name;
 //     data['thumbnail'] = this.thumbnail;
-//     data['seller_id'] = this.sellerId;
-//     data['seller_is'] = this.sellerIs;
+//     data['seller_id'] = required this.sellerId;
+//     data['seller_is'] = required this.sellerIs;
 //     data['created_at'] = this.createdAt;
 //     data['updated_at'] = this.updatedAt;
 //     return data;

@@ -46,7 +46,7 @@ class CheckoutScreen extends StatefulWidget {
       this.tax,
       this.totalOrderAmount,
       this.shippingFee,
-      this.sellerId});
+      required this.sellerId});
 
   @override
   _CheckoutScreenState createState() => _CheckoutScreenState();

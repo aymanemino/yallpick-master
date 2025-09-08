@@ -19,7 +19,7 @@ import '../../more/web_view_screen.dart';
 
 class SellerView extends StatelessWidget {
   final String sellerId;
-  SellerView({this.sellerId});
+  SellerView({required this.sellerId});
 
   @override
   Widget build(BuildContext context) {

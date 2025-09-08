@@ -569,7 +569,7 @@ class CategoryItem extends StatelessWidget {
   final bool isSelected;
 
   CategoryItem(
-      {this.title, this.icon, this.isSelected});
+      {required this.title, this.icon, this.isSelected});
 
   Widget build(BuildContext context) {
     return Container(

@@ -13,7 +13,7 @@ import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
 
 class AuthProvider with ChangeNotifier {
   final AuthRepo authRepo;
-  AuthProvider({this.authRepo});
+  AuthProvider({required this.authRepo});
 
   bool _isLoading = false;
   bool _isRemember = false;

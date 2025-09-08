@@ -11,7 +11,7 @@ import 'package:flutter_sixvalley_ecommerce/view/screen/tracking/tracking_result
 
 class TrackingScreen extends StatelessWidget {
   final String orderID;
-  TrackingScreen({this.orderID});
+  TrackingScreen({required this.orderID});
 
   final TextEditingController _orderIdController = TextEditingController();
   final GlobalKey<ScaffoldMessengerState> _globalKey = GlobalKey();

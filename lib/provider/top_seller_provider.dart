@@ -7,7 +7,7 @@ import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
 class TopSellerProvider extends ChangeNotifier {
   final TopSellerRepo topSellerRepo;
 
-  TopSellerProvider({this.topSellerRepo});
+  TopSellerProvider({required this.topSellerRepo});
 
   List<TopSellerModel> _topSellerList = [];
   int _topSellerSelectedIndex = 0;

@@ -9,7 +9,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class OnBoardingRepo {
   final DioClient dioClient;
-  OnBoardingRepo({this.dioClient});
+  OnBoardingRepo({required this.dioClient});
 
   Future<ApiResponse> getOnBoardingList(BuildContext context) async {
     try {

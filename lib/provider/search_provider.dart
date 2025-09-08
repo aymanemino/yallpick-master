@@ -10,7 +10,7 @@ import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
 class SearchProvider with ChangeNotifier {
   final SearchRepo searchRepo;
 
-  SearchProvider({this.searchRepo});
+  SearchProvider({required this.searchRepo});
 
   int _countryIndex = 0;
   int _stateIndex = 0;

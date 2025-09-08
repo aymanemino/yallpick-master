@@ -7,7 +7,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class ChatRepo {
   final DioClient dioClient;
-  ChatRepo({this.dioClient});
+  ChatRepo({required this.dioClient});
 
   Future<ApiResponse> getChatList(String sellerID) async {
     try {

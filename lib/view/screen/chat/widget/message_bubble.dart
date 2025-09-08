@@ -13,7 +13,7 @@ class MessageBubble extends StatelessWidget {
   final String sellerImage;
   final Function onProfileTap;
   MessageBubble(
-      {this.chat, this.sellerImage, this.onProfileTap});
+      {this.chat, required this.sellerImage, this.onProfileTap});
 
   @override
   Widget build(BuildContext context) {

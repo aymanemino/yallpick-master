@@ -11,7 +11,7 @@ class SearchRepo {
   final DioClient dioClient;
   final SharedPreferences sharedPreferences;
 
-  SearchRepo({this.dioClient, this.sharedPreferences});
+  SearchRepo({required this.dioClient, required this.sharedPreferences});
 
   Future<ApiResponse> getSearchProductList(
     String query,

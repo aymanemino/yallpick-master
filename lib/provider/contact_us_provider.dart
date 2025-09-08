@@ -6,7 +6,7 @@ import 'package:flutter_sixvalley_ecommerce/data/repository/contact_us_repo.dart
 
 class ContactUsProvider extends ChangeNotifier {
   final ContactUsRepo contactUsRepo;
-  ContactUsProvider({this.contactUsRepo});
+  ContactUsProvider({required this.contactUsRepo});
 
   bool _isLoading = false;
 

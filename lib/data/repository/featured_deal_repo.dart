@@ -6,7 +6,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class FeaturedDealRepo {
   final DioClient dioClient;
-  FeaturedDealRepo({this.dioClient});
+  FeaturedDealRepo({required this.dioClient});
 
   Future<ApiResponse> getFeaturedDeal() async {
     try {

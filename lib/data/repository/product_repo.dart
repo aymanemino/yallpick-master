@@ -8,7 +8,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class ProductRepo {
   final DioClient dioClient;
-  ProductRepo({this.dioClient});
+  ProductRepo({required this.dioClient});
 
   Future<ApiResponse> getLatestProductList(BuildContext context, String offset,
       ProductType productType, String title) async {

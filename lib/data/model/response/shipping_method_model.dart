@@ -22,7 +22,7 @@ class ShippingMethodModel {
     this.id = id;
     this.creatorId = creatorId;
     this.creatorType = creatorType;
-    this.title = title;
+    required this.title = title;
     this.cost = cost;
     this.duration = duration;
     this.status = status;
@@ -49,7 +49,7 @@ class ShippingMethodModel {
     data['id'] = this.id;
     data['creator_id'] = this.creatorId;
     data['creator_type'] = this.creatorType;
-    data['title'] = this.title;
+    data['title'] = required this.title;
     data['cost'] = this.cost;
     data['duration'] = this.duration;
     data['status'] = this.status;

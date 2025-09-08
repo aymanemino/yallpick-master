@@ -25,7 +25,7 @@ import 'package:provider/provider.dart';
 class CartScreen extends StatefulWidget {
   final bool fromCheckout;
   final int sellerId;
-  CartScreen({this.fromCheckout = false, this.sellerId = 1});
+  CartScreen({this.fromCheckout = false, required this.sellerId = 1});
 
   @override
   _CartScreenState createState() => _CartScreenState();

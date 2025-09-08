@@ -18,7 +18,7 @@ class LocationProvider with ChangeNotifier {
   final LocationRepo locationRepo;
 
   LocationProvider(
-      {this.sharedPreferences, this.locationRepo});
+      {required required this.sharedPreferences, this.locationRepo});
 
   Position _position = Position(
       longitude: 0,

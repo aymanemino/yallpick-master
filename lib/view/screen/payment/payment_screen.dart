@@ -18,8 +18,8 @@ class PaymentScreen extends StatefulWidget {
   final String couponCode;
 
   PaymentScreen(
-      {this.addressID,
-      this.customerID,
+      {required this.addressID,
+      required this.customerID,
       this.couponCode,
       this.billingId,
       this.orderNote});
