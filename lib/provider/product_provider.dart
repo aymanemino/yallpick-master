@@ -8,7 +8,7 @@ import 'package:flutter_sixvalley_ecommerce/helper/product_type.dart';
 class ProductProvider extends ChangeNotifier {
   final ProductRepo productRepo;
 
-  ProductProvider({required this.productRepo});
+  ProductProvider({this.productRepo});
 
   // Latest products
   List<Product> _latestProductList = [];

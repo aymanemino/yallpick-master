@@ -14,7 +14,7 @@ import 'dart:ui';
 
 class MapWidget extends StatefulWidget {
   final AddressModel address;
-  MapWidget({required this.address});
+  MapWidget({this.address});
 
   @override
   _MapWidgetState createState() => _MapWidgetState();

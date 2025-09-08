@@ -17,7 +17,7 @@ import 'package:provider/provider.dart';
 class ReviewBottomSheet extends StatefulWidget {
   final String productID;
   final Function callback;
-  ReviewBottomSheet({required this.productID, required this.callback});
+  ReviewBottomSheet({this.productID, this.callback});
 
   @override
   _ReviewBottomSheetState createState() => _ReviewBottomSheetState();

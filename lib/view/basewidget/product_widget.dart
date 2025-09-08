@@ -19,7 +19,7 @@ import 'package:provider/provider.dart';
 class ProductWidget extends StatefulWidget {
   final Product productModel;
 
-  ProductWidget({required this.productModel});
+  ProductWidget({this.productModel});
 
   @override
   _ProductWidgetState createState() => _ProductWidgetState();

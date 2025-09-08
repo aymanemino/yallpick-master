@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 class CustomCheckBox extends StatelessWidget {
   final String title;
   final int index;
-  CustomCheckBox({required this.title, required this.index});
+  CustomCheckBox({this.title, this.index});
 
   @override
   Widget build(BuildContext context) {

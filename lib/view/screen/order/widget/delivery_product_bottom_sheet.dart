@@ -9,7 +9,7 @@ import 'order_product_widget.dart';
 
 class DeliveryProductBottomSheet extends StatelessWidget {
   final List<OrderDetailsModel> orderDetailsList;
-  DeliveryProductBottomSheet({required this.orderDetailsList});
+  DeliveryProductBottomSheet({this.orderDetailsList});
 
   @override
   Widget build(BuildContext context) {

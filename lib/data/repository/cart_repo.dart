@@ -12,7 +12,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class CartRepo {
   final DioClient dioClient;
   final SharedPreferences sharedPreferences;
-  CartRepo({required this.dioClient, required this.sharedPreferences});
+  CartRepo({this.dioClient, this.sharedPreferences});
 
   List<CartModel> getCartList() {
     List<String> carts =

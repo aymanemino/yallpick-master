@@ -762,11 +762,11 @@ class SquareButton extends StatelessWidget {
   final bool hasCount;
 
   SquareButton(
-      {required this.image,
-      required this.title,
-      required this.navigateTo,
-      required this.count,
-      required this.hasCount});
+      {this.image,
+      this.title,
+      this.navigateTo,
+      this.count,
+      this.hasCount});
 
   @override
   Widget build(BuildContext context) {
@@ -869,7 +869,7 @@ class TitleButton extends StatelessWidget {
   final String title;
   final Widget navigateTo;
   TitleButton(
-      {required this.image, required this.title, required this.navigateTo});
+      {this.image, this.title, this.navigateTo});
 
   @override
   Widget build(BuildContext context) {
@@ -897,10 +897,10 @@ class ModernTitleButton extends StatelessWidget {
   final Widget navigateTo;
 
   ModernTitleButton({
-    required this.image,
-    required this.title,
-    required this.subtitle,
-    required this.navigateTo,
+    this.image,
+    this.title,
+    this.subtitle,
+    this.navigateTo,
   });
 
   @override

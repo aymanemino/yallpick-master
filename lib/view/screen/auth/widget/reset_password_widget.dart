@@ -15,7 +15,7 @@ class ResetPasswordWidget extends StatefulWidget {
   final String otp;
 
   const ResetPasswordWidget(
-      {Key key, required this.mobileNumber, required this.otp})
+      {Key key, this.mobileNumber, this.otp})
       : super(key: key);
 
   @override

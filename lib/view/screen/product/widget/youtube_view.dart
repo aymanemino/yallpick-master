@@ -8,7 +8,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 class YoutubeView extends StatefulWidget {
   final String videoUrl;
-  YoutubeView({required this.videoUrl});
+  YoutubeView({this.videoUrl});
 
   @override
   State<YoutubeView> createState() => _YoutubeViewState();

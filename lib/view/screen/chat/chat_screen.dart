@@ -20,7 +20,7 @@ class ChatScreen extends StatelessWidget {
   final SellerModel seller;
   final TopSellerModel topSeller;
 
-  ChatScreen({required this.seller, this.topSeller});
+  ChatScreen({this.seller, this.topSeller});
 
   final ImagePicker picker = ImagePicker();
   final TextEditingController _controller = TextEditingController();

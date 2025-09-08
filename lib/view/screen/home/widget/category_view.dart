@@ -12,7 +12,7 @@ import 'package:shimmer/shimmer.dart';
 class CategoryView extends StatefulWidget {
   final bool isHomePage;
 
-  CategoryView({required this.isHomePage});
+  CategoryView({this.isHomePage});
 
   @override
   _CategoryViewState createState() => _CategoryViewState();

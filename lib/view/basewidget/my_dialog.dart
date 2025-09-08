@@ -11,7 +11,7 @@ class MyDialog extends StatelessWidget {
   final IconData icon;
   final String title;
   final String description;
-  MyDialog({this.isFailed = false, this.rotateAngle = 0, required this.icon, required this.title, required this.description});
+  MyDialog({this.isFailed = false, this.rotateAngle = 0, this.icon, this.title, this.description});
 
   @override
   Widget build(BuildContext context) {

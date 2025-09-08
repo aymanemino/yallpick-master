@@ -8,7 +8,7 @@ class LocalizationProvider extends ChangeNotifier {
   final DioClient dioClient;
 
   LocalizationProvider(
-      {required this.sharedPreferences, required this.dioClient}) {
+      {this.sharedPreferences, this.dioClient}) {
     _loadCurrentLanguage();
   }
 

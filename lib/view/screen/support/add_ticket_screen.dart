@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 
 class AddTicketScreen extends StatefulWidget {
   final String type;
-  AddTicketScreen({required this.type});
+  AddTicketScreen({this.type});
 
   @override
   _AddTicketScreenState createState() => _AddTicketScreenState();

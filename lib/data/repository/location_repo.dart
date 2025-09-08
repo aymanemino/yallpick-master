@@ -13,7 +13,7 @@ class LocationRepo {
   final DioClient dioClient;
   final SharedPreferences sharedPreferences;
 
-  LocationRepo({required this.dioClient, required this.sharedPreferences});
+  LocationRepo({this.dioClient, this.sharedPreferences});
 
   Future<ApiResponse> getAllAddress() async {
     try {

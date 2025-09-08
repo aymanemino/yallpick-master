@@ -17,8 +17,8 @@ class DioClient {
   DioClient(
     this.baseUrl,
     Dio dioC, {
-    required this.loggingInterceptor,
-    required this.sharedPreferences,
+    this.loggingInterceptor,
+    this.sharedPreferences,
   }) {
     token = sharedPreferences.getString(AppConstants.TOKEN) ?? '';
     countryCode = sharedPreferences.getString(AppConstants.COUNTRY_CODE) ??

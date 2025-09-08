@@ -9,8 +9,8 @@ class PaymentCardWidget extends StatelessWidget {
 
   const PaymentCardWidget({
     Key key,
-    required this.index,
-    required this.path,
+    this.index,
+    this.path,
   }) : super(key: key);
 
   @override

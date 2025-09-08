@@ -10,7 +10,7 @@ import 'package:intl/intl.dart';
 
 class FlashDealProvider extends ChangeNotifier {
   final FlashDealRepo megaDealRepo;
-  FlashDealProvider({required this.megaDealRepo});
+  FlashDealProvider({this.megaDealRepo});
 
   FlashDealModel _flashDeal = FlashDealModel();
   List<Product> _flashDealList = [];

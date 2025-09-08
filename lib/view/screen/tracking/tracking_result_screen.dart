@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 
 class TrackingResultScreen extends StatelessWidget {
   final String orderID;
-  TrackingResultScreen({required this.orderID});
+  TrackingResultScreen({this.orderID});
 
   @override
   Widget build(BuildContext context) {
@@ -203,7 +203,7 @@ class CustomStepper extends StatelessWidget {
   final Color color;
   final bool isLastItem;
   CustomStepper(
-      {required this.title, required this.color, this.isLastItem = false});
+      {this.title, this.color, this.isLastItem = false});
 
   @override
   Widget build(BuildContext context) {

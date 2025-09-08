@@ -7,7 +7,7 @@ import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
 class NotificationProvider extends ChangeNotifier {
   final NotificationRepo notificationRepo;
 
-  NotificationProvider({required this.notificationRepo});
+  NotificationProvider({this.notificationRepo});
 
   List<NotificationModel> _notificationList = [];
   List<NotificationModel> get notificationList => _notificationList;

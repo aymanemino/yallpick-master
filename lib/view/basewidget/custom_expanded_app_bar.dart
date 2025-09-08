@@ -15,7 +15,7 @@ class CustomExpandedAppBar extends StatelessWidget {
   final Widget child;
   final Widget bottomChild;
   final bool isGuestCheck;
-  CustomExpandedAppBar({required this.title, required this.child, this.bottomChild, this.isGuestCheck = false});
+  CustomExpandedAppBar({this.title, this.child, this.bottomChild, this.isGuestCheck = false});
 
   @override
   Widget build(BuildContext context) {

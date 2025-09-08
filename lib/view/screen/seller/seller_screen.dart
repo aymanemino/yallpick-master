@@ -18,7 +18,7 @@ import 'package:provider/provider.dart';
 
 class SellerScreen extends StatelessWidget {
   final SellerModel seller;
-  SellerScreen({required this.seller});
+  SellerScreen({this.seller});
 
   @override
   Widget build(BuildContext context) {

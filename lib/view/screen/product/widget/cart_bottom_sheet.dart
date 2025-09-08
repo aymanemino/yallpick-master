@@ -21,7 +21,7 @@ import 'package:provider/provider.dart';
 class CartBottomSheet extends StatefulWidget {
   final Product product;
   final Function callback;
-  CartBottomSheet({required this.product, this.callback});
+  CartBottomSheet({this.product, this.callback});
 
   @override
   _CartBottomSheetState createState() => _CartBottomSheetState();
@@ -313,9 +313,9 @@ class QuantityButton extends StatelessWidget {
   final int stock;
 
   QuantityButton({
-    required this.isIncrement,
-    required this.quantity,
-    required this.stock,
+    this.isIncrement,
+    this.quantity,
+    this.stock,
     this.isCartWidget = false,
   });
 

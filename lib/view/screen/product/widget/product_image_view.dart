@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 
 class ProductImageView extends StatelessWidget {
   final Product productModel;
-  ProductImageView({required this.productModel});
+  ProductImageView({this.productModel});
 
   final PageController _controller = PageController();
 

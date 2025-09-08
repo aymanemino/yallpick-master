@@ -257,7 +257,7 @@ class FlashDealsView extends StatelessWidget {
 
 class MegaDealShimmer extends StatelessWidget {
   final bool isHomeScreen;
-  MegaDealShimmer({required this.isHomeScreen});
+  MegaDealShimmer({this.isHomeScreen});
 
   @override
   Widget build(BuildContext context) {

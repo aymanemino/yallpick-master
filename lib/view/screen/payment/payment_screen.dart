@@ -18,10 +18,10 @@ class PaymentScreen extends StatefulWidget {
   final String couponCode;
 
   PaymentScreen(
-      {required this.addressID,
-      required this.customerID,
-      required this.couponCode,
-      required this.billingId,
+      {this.addressID,
+      this.customerID,
+      this.couponCode,
+      this.billingId,
       this.orderNote});
 
   @override

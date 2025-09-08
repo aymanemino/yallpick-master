@@ -761,7 +761,7 @@ class _HomePageState extends State<HomePage> {
 class SliverDelegate extends SliverPersistentHeaderDelegate {
   Widget child;
 
-  SliverDelegate({required this.child});
+  SliverDelegate({this.child});
 
   @override
   Widget build(

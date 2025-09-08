@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 class CustomButton extends StatelessWidget {
   final Function? onTap;
   final String? buttonText;
-  CustomButton({this.onTap, required this.buttonText});
+  CustomButton({this.onTap, this.buttonText});
 
   @override
   Widget build(BuildContext context) {

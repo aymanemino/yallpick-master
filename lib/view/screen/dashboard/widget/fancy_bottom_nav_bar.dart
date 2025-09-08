@@ -11,8 +11,8 @@ const double BAR_HEIGHT = 60;
 
 class FancyBottomNavBar extends StatefulWidget {
   FancyBottomNavBar(
-      {required this.tabs,
-        required this.onTabChangedListener,
+      {this.tabs,
+        this.onTabChangedListener,
         this.key,
         this.isLtr,
         this.initialSelection = 0,
@@ -252,7 +252,7 @@ class FancyBottomNavBarState extends State<FancyBottomNavBar>
 }
 
 class FancyTabData {
-  FancyTabData({required this.imagePath, required this.title, this.onclick});
+  FancyTabData({this.imagePath, this.title, this.onclick});
 
   String imagePath;
   String title;
@@ -270,13 +270,13 @@ const int ANIM_DURATION = 300;
 
 class TabItem extends StatelessWidget {
   TabItem(
-      {required this.uniqueKey,
-        required this.selected,
-        required this.imagePath,
-        required this.title,
-        required this.callbackFunction,
-        required this.textColor,
-        required this.iconColor});
+      {this.uniqueKey,
+        this.selected,
+        this.imagePath,
+        this.title,
+        this.callbackFunction,
+        this.textColor,
+        this.iconColor});
 
   final UniqueKey uniqueKey;
   final String title;

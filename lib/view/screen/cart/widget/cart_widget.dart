@@ -18,8 +18,8 @@ class CartWidget extends StatelessWidget {
   const CartWidget(
       {Key? key,
       this.cartModel,
-      required this.index,
-      required this.fromCheckout});
+      this.index,
+      this.fromCheckout});
 
   @override
   Widget build(BuildContext context) {

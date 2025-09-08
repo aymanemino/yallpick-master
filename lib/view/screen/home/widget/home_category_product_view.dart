@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 class HomeCategoryProductView extends StatelessWidget {
   final bool isHomePage;
 
-  HomeCategoryProductView({required this.isHomePage});
+  HomeCategoryProductView({this.isHomePage});
 
   @override
   Widget build(BuildContext context) {

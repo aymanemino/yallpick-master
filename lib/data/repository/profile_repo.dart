@@ -14,7 +14,7 @@ import 'package:http/http.dart' as http;
 class ProfileRepo {
   final DioClient dioClient;
   final SharedPreferences sharedPreferences;
-  ProfileRepo({required this.dioClient, required this.sharedPreferences});
+  ProfileRepo({this.dioClient, this.sharedPreferences});
 
   Future<ApiResponse> getAddressTypeList() async {
     try {

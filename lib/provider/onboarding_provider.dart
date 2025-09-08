@@ -7,7 +7,7 @@ import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
 class OnBoardingProvider with ChangeNotifier {
   final OnBoardingRepo onboardingRepo;
 
-  OnBoardingProvider({required this.onboardingRepo});
+  OnBoardingProvider({this.onboardingRepo});
 
   List<OnboardingModel> _onBoardingList = [];
   List<OnboardingModel> get onBoardingList => _onBoardingList;

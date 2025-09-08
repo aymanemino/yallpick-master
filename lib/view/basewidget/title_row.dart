@@ -13,7 +13,7 @@ class TitleRow extends StatelessWidget {
   final Duration? eventDuration;
   final bool? isDetailsPage;
   TitleRow(
-      {required this.title,
+      {this.title,
       this.icon,
       this.onTap,
       this.eventDuration,
@@ -98,7 +98,7 @@ class TimerBox extends StatelessWidget {
   final int? time;
   final bool isBorder;
 
-  TimerBox({required this.time, this.isBorder = false});
+  TimerBox({this.time, this.isBorder = false});
 
   @override
   Widget build(BuildContext context) {

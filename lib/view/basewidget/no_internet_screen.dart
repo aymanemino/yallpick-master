@@ -9,7 +9,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
 class NoInternetOrDataScreen extends StatelessWidget {
   final bool isNoInternet;
   final Widget child;
-  NoInternetOrDataScreen({required this.isNoInternet, this.child});
+  NoInternetOrDataScreen({this.isNoInternet, this.child});
 
   @override
   Widget build(BuildContext context) {

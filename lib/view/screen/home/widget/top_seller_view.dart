@@ -15,7 +15,7 @@ class TopSellerView extends StatelessWidget {
   final bool isHomePage;
 
   // final String sellerId;
-  TopSellerView({required this.isHomePage});
+  TopSellerView({this.isHomePage});
 
   @override
   Widget build(BuildContext context) {

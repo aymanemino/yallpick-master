@@ -9,7 +9,7 @@ import 'package:flutter_sixvalley_ecommerce/view/basewidget/show_custom_snakbar.
 class BannerProvider extends ChangeNotifier {
   final BannerRepo bannerRepo;
 
-  BannerProvider({required this.bannerRepo});
+  BannerProvider({this.bannerRepo});
 
   List<BannerModel> _mainBannerList = [];
   List<BannerModel> _footerBannerList = [];

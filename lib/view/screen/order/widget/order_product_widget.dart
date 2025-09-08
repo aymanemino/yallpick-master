@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 
 class OrderProductWidget extends StatelessWidget {
   final OrderDetailsModel orderDetailsModel;
-  OrderProductWidget({required this.orderDetailsModel});
+  OrderProductWidget({this.orderDetailsModel});
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,7 @@ import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
 
 class SellerProvider extends ChangeNotifier {
   final SellerRepo sellerRepo;
-  SellerProvider({required this.sellerRepo});
+  SellerProvider({this.sellerRepo});
 
   List<SellerModel> _orderSellerList = [];
   SellerModel _sellerModel = SellerModel();

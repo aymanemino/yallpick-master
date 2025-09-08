@@ -12,7 +12,7 @@ import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
 
 class CartProvider extends ChangeNotifier {
   final CartRepo cartRepo;
-  CartProvider({required this.cartRepo});
+  CartProvider({this.cartRepo});
 
   List<CartModel> _cartList = [];
   List<ChosenShippingMethodModel> _chosenShippingList = [];

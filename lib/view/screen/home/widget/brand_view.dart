@@ -12,7 +12,7 @@ import 'package:shimmer/shimmer.dart';
 class BrandView extends StatelessWidget {
   final bool isHomePage;
 
-  BrandView({required this.isHomePage});
+  BrandView({this.isHomePage});
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +143,7 @@ class BrandView extends StatelessWidget {
 class BrandShimmer extends StatelessWidget {
   final bool isHomePage;
 
-  BrandShimmer({required this.isHomePage});
+  BrandShimmer({this.isHomePage});
 
   @override
   Widget build(BuildContext context) {

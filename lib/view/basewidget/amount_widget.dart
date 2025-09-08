@@ -6,7 +6,7 @@ class AmountWidget extends StatelessWidget {
   final String title;
   final String amount;
 
-  AmountWidget({required this.title, required this.amount});
+  AmountWidget({this.title, this.amount});
 
   @override
   Widget build(BuildContext context) {

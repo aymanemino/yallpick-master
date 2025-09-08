@@ -6,7 +6,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class FlashDealRepo {
   final DioClient dioClient;
-  FlashDealRepo({required this.dioClient});
+  FlashDealRepo({this.dioClient});
 
   Future<ApiResponse> getFlashDeal() async {
     try {

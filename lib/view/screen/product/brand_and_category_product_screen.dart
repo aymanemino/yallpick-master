@@ -24,9 +24,9 @@ class BrandAndCategoryProductScreen extends StatelessWidget {
   final List<SubCategory> subcategory = [];
 
   BrandAndCategoryProductScreen({
-    required this.isBrand,
-    required this.id,
-    required this.name,
+    this.isBrand,
+    this.id,
+    this.name,
     this.image,
     this.status,
     this.subcategory,

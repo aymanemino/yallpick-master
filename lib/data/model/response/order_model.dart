@@ -186,7 +186,7 @@ class BillingAddressData {
       this.customerId,
       this.contactPersonName,
       this.addressType,
-      this.address ?? "",
+      this.address,
       this.city,
       this.zip,
       this.phone,

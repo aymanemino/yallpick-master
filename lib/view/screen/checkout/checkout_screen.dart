@@ -40,12 +40,12 @@ class CheckoutScreen extends StatefulWidget {
   final int sellerId;
 
   CheckoutScreen(
-      {required this.cartList,
+      {this.cartList,
       this.fromProductDetails = false,
-      required this.discount,
-      required this.tax,
-      required this.totalOrderAmount,
-      required this.shippingFee,
+      this.discount,
+      this.tax,
+      this.totalOrderAmount,
+      this.shippingFee,
       this.sellerId});
 
   @override
@@ -1429,7 +1429,7 @@ class PaymentButton extends StatelessWidget {
   final String image;
   final Function onTap;
 
-  PaymentButton({required this.image, this.onTap});
+  PaymentButton({this.image, this.onTap});
 
   @override
   Widget build(BuildContext context) {

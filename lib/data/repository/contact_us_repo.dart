@@ -9,7 +9,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class ContactUsRepo {
   final DioClient dioClient;
-  ContactUsRepo({required this.dioClient});
+  ContactUsRepo({this.dioClient});
 
   Future<ApiResponse> sendData(
       {String? name,

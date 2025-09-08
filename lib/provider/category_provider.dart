@@ -7,7 +7,7 @@ import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
 class CategoryProvider extends ChangeNotifier {
   final CategoryRepo categoryRepo;
 
-  CategoryProvider({required this.categoryRepo});
+  CategoryProvider({this.categoryRepo});
 
   List<Category> _categoryList = [];
   int _categorySelectedIndex = 0;

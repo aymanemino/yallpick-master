@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 
 class SupportConversationScreen extends StatelessWidget {
   final SupportTicketModel supportTicketModel;
-  SupportConversationScreen({required this.supportTicketModel});
+  SupportConversationScreen({this.supportTicketModel});
 
   final TextEditingController _controller = TextEditingController();
 

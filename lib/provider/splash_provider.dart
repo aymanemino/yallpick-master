@@ -8,7 +8,7 @@ import 'package:package_info/package_info.dart';
 class SplashProvider extends ChangeNotifier {
   final SplashRepo splashRepo;
 
-  SplashProvider({required this.splashRepo});
+  SplashProvider({this.splashRepo});
 
   ConfigModel _configModel = ConfigModel();
   BaseUrls _baseUrls = BaseUrls();
