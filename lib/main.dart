@@ -109,7 +109,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  final int orderId;
+  final int? orderId;
 
   MyApp({this.orderId});
 
