@@ -21,7 +21,7 @@ class RecommendedProductsWidget extends StatefulWidget {
   // Method to refresh recommendations from parent
   static void refreshRecommendations(BuildContext context) {
     final state =
-    context.findAncestorStateOfType<_RecommendedProductsWidgetState>();
+        context.findAncestorStateOfType<_RecommendedProductsWidgetState>();
     state?.refreshRecommendations();
   }
 
@@ -71,7 +71,7 @@ class _RecommendedProductsWidgetState extends State<RecommendedProductsWidget> {
 
     try {
       var productProvider =
-      Provider.of<ProductProvider>(context, listen: false);
+          Provider.of<ProductProvider>(context, listen: false);
       var cartProvider = Provider.of<CartProvider>(context, listen: false);
 
       // Try multiple product sources to ensure we always have products
@@ -123,7 +123,7 @@ class _RecommendedProductsWidgetState extends State<RecommendedProductsWidget> {
       if (cartProvider.cartList.isNotEmpty) {
         _allProducts = _allProducts
             .where((product) => !cartProvider.cartList
-            .any((cartItem) => cartItem.id == product.id))
+                .any((cartItem) => cartItem.id == product.id))
             .toList();
       }
 
@@ -140,7 +140,7 @@ class _RecommendedProductsWidgetState extends State<RecommendedProductsWidget> {
       // Take first 6 products initially for better performance
       // But preserve existing count if this is a retry
       int targetCount =
-      _recommendedProducts.isEmpty ? 6 : _recommendedProducts.length;
+          _recommendedProducts.isEmpty ? 6 : _recommendedProducts.length;
       _recommendedProducts = _allProducts.take(targetCount).toList();
       _currentPage = (targetCount / _productsPerPage).ceil();
       _hasMoreProducts = _allProducts.length > targetCount;
@@ -188,7 +188,7 @@ class _RecommendedProductsWidgetState extends State<RecommendedProductsWidget> {
     if (cartProvider.cartList.isNotEmpty) {
       _allProducts = _allProducts
           .where((product) => !cartProvider.cartList
-          .any((cartItem) => cartItem.id == product.id))
+              .any((cartItem) => cartItem.id == product.id))
           .toList();
 
       // Update recommended products - preserve loaded count
@@ -235,7 +235,7 @@ class _RecommendedProductsWidgetState extends State<RecommendedProductsWidget> {
 
       if (startIndex < _allProducts.length) {
         List<Product> newProducts =
-        _allProducts.skip(startIndex).take(_productsPerPage).toList();
+            _allProducts.skip(startIndex).take(_productsPerPage).toList();
         _recommendedProducts.addAll(newProducts);
         _currentPage++;
         _hasMoreProducts = endIndex < _allProducts.length;
@@ -286,7 +286,7 @@ class _RecommendedProductsWidgetState extends State<RecommendedProductsWidget> {
         product.minQty ?? 1, // maxQuantity
         '', // variant
         '', // color
-        "" // variation
+        "", // variation
         product.discount,
         product.discountType,
         product.tax,
@@ -304,7 +304,7 @@ class _RecommendedProductsWidgetState extends State<RecommendedProductsWidget> {
       // Add to cart using the API method (same as product page)
       await cartProvider.addToCartAPI(
         cart,
-            (success, message) {
+        (success, message) {
           if (success) {
             showCustomSnackBar(getTranslated('added_to_cart', context), context,
                 isError: false);
@@ -374,7 +374,7 @@ class _RecommendedProductsWidgetState extends State<RecommendedProductsWidget> {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     childAspectRatio:
-                    0.8, // Increased aspect ratio to prevent overflow
+                        0.8, // Increased aspect ratio to prevent overflow
                     crossAxisSpacing: 12,
                     mainAxisSpacing: 12,
                   ),
@@ -470,7 +470,7 @@ class _RecommendedProductsWidgetState extends State<RecommendedProductsWidget> {
                   children: [
                     CircularProgressIndicator(
                       valueColor:
-                      AlwaysStoppedAnimation<Color>(Color(0xFFFF6B35)),
+                          AlwaysStoppedAnimation<Color>(Color(0xFFFF6B35)),
                     ),
                     SizedBox(height: 16),
                     Text(
@@ -563,7 +563,7 @@ class _RecommendedProductsWidgetState extends State<RecommendedProductsWidget> {
             flex: 2,
             child: Container(
               padding:
-              EdgeInsets.all(10), // Reduced padding to prevent overflow
+                  EdgeInsets.all(10), // Reduced padding to prevent overflow
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -615,19 +615,19 @@ class _RecommendedProductsWidgetState extends State<RecommendedProductsWidget> {
                           ),
                           child: _productLoadingStates[product.id] == true
                               ? SizedBox(
-                            width: 14, // Reduced size to prevent overflow
-                            height: 14,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2,
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                  Colors.white),
-                            ),
-                          )
+                                  width: 14, // Reduced size to prevent overflow
+                                  height: 14,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                        Colors.white),
+                                  ),
+                                )
                               : Icon(
-                            Icons.add_shopping_cart,
-                            color: Colors.white,
-                            size: 14, // Reduced size to prevent overflow
-                          ),
+                                  Icons.add_shopping_cart,
+                                  color: Colors.white,
+                                  size: 14, // Reduced size to prevent overflow
+                                ),
                         ),
                       ),
                     ],

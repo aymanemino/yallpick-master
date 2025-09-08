@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 
 class AllTopSellerScreen extends StatelessWidget {
   final TopSellerModel topSeller;
-  AllTopSellerScreen({@required this.topSeller});
+  AllTopSellerScreen({required this.topSeller});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

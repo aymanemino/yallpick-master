@@ -14,12 +14,12 @@ import 'package:provider/provider.dart';
 class CartWidget extends StatelessWidget {
   final CartModel cartModel;
   final int index;
-  final bool fromCheckout = false;
+  final bool fromCheckout;
   const CartWidget(
-      {Key key,
-        this.cartModel,
-        @required this.index,
-        @required this.fromCheckout});
+      {Key? key,
+      this.cartModel,
+      required this.index,
+      required this.fromCheckout});
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +92,7 @@ class CartWidget extends StatelessWidget {
                       SizedBox(width: 6),
                       Container(
                         padding:
-                        EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                         decoration: BoxDecoration(
                           color: Color(0xFFFF6B35).withOpacity(0.1),
                           borderRadius: BorderRadius.circular(4),
@@ -138,9 +138,11 @@ class CartWidget extends StatelessWidget {
                             onTap: () {
                               if (cartModel.quantity > 1) {
                                 Provider.of<CartProvider>(context,
-                                    listen: false)
-                                    .updateCartProductQuantity(cartModel.id ?? 0,
-                                    cartModel.quantity - 1, context);
+                                        listen: false)
+                                    .updateCartProductQuantity(
+                                        cartModel.id ?? 0,
+                                        cartModel.quantity - 1,
+                                        context);
                               }
                             },
                             child: Container(
@@ -174,7 +176,7 @@ class CartWidget extends StatelessWidget {
                             onTap: () {
                               Provider.of<CartProvider>(context, listen: false)
                                   .updateCartProductQuantity(cartModel.id ?? 0,
-                                  cartModel.quantity + 1, context);
+                                      cartModel.quantity + 1, context);
                             },
                             child: Container(
                               padding: EdgeInsets.all(6),
@@ -226,7 +228,7 @@ class CartWidget extends StatelessWidget {
                     children: [
                       Container(
                         padding:
-                        EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+                            EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                         decoration: BoxDecoration(
                           color: Colors.green,
                           borderRadius: BorderRadius.circular(4),

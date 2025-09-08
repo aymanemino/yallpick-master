@@ -11,7 +11,7 @@ import 'package:http/http.dart' as http;
 
 class ProductDetailsRepo {
   final DioClient dioClient;
-  ProductDetailsRepo({@required this.dioClient});
+  ProductDetailsRepo({required this.dioClient});
 
   Future<ApiResponse> getProduct(String productID, String languageCode) async {
     try {
@@ -26,7 +26,6 @@ class ProductDetailsRepo {
   }
 
   Future<ApiResponse> getReviews(String productID) async {
-
     try {
       final response =
           await dioClient.get(AppConstants.PRODUCT_REVIEW_URI + productID);

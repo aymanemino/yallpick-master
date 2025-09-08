@@ -19,7 +19,7 @@ import 'package:provider/provider.dart';
 class ProductWidget extends StatefulWidget {
   final Product productModel;
 
-  ProductWidget({@required this.productModel});
+  ProductWidget({required this.productModel});
 
   @override
   _ProductWidgetState createState() => _ProductWidgetState();
@@ -83,7 +83,7 @@ class _ProductWidgetState extends State<ProductWidget>
         product.minQty ?? 1, // maxQuantity
         '', // variant
         '', // color
-        "" // variation
+        "", // variation
         product.discount,
         product.discountType,
         product.tax,

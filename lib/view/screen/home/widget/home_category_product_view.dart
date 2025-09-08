@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 class HomeCategoryProductView extends StatelessWidget {
   final bool isHomePage;
 
-  HomeCategoryProductView({@required this.isHomePage});
+  HomeCategoryProductView({required this.isHomePage});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class HomeCategoryProductView extends StatelessWidget {
                   // Shuffle the list of products in each section
                   homeCategoryProductProvider
                       .homeCategoryProductList[index].products
-                      .shuffle();
+                      ?.shuffle();
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -64,8 +64,8 @@ class HomeCategoryProductView extends StatelessWidget {
                         constraints: homeCategoryProductProvider
                                     .homeCategoryProductList[index]
                                     .products
-                                    .length >
-                                0
+                                    ?.length ??
+                                0 > 0
                             ? BoxConstraints(maxHeight: 315)
                             : BoxConstraints(maxHeight: 0),
                         child: ListView.builder(
@@ -104,8 +104,10 @@ class HomeCategoryProductView extends StatelessWidget {
                                     child: ProductWidget(
                                         productModel:
                                             homeCategoryProductProvider
-                                                .homeCategoryProductList[index]
-                                                .products?[i])),
+                                                    .homeCategoryProductList[
+                                                        index]
+                                                    .products?[i] ??
+                                                Product())),
                               );
                             }),
                       )

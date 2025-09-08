@@ -18,7 +18,7 @@ import 'package:share/share.dart';
 
 class ProductTitleView extends StatelessWidget {
   final Product productModel;
-  ProductTitleView({@required this.productModel});
+  ProductTitleView({required this.productModel});
 
   @override
   Widget build(BuildContext context) {

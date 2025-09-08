@@ -13,7 +13,7 @@ class AddressWidget extends StatelessWidget {
 
   final AddressModel addressModel;
   final int index;
-  AddressWidget({@required this.addressModel, @required this.index});
+  AddressWidget({required this.addressModel, required this.index});
 
   @override
   Widget build(BuildContext context) {

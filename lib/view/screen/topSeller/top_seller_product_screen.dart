@@ -23,7 +23,7 @@ class TopSellerProductScreen extends StatelessWidget {
   final TopSellerModel topSeller;
   final String topSellerId;
 
-  TopSellerProductScreen({@required this.topSeller, this.topSellerId});
+  TopSellerProductScreen({required this.topSeller, this.topSellerId});
 
   @override
   Widget build(BuildContext context) {

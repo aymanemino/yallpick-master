@@ -6,7 +6,7 @@ import 'package:shimmer/shimmer.dart';
 class ProductShimmer extends StatelessWidget {
   final bool isEnabled;
   final bool isHomePage;
-  ProductShimmer({@required this.isEnabled, @required this.isHomePage});
+  ProductShimmer({required this.isEnabled, required this.isHomePage});
 
   @override
   Widget build(BuildContext context) {

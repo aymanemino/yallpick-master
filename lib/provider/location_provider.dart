@@ -256,11 +256,11 @@ class LocationProvider with ChangeNotifier {
   String get addressStatusMessage => _addressStatusMessage;
 
   updateAddressStatusMessae({String? message}) {
-    _addressStatusMessage = message;
+    _addressStatusMessage = message ?? '';
   }
 
   updateErrorMessage({String? message}) {
-    _errorMessage = message;
+    _errorMessage = message ?? '';
   }
 
   Future<ResponseModel> addAddress(
@@ -268,7 +268,7 @@ class LocationProvider with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     _errorMessage = '';
-    _addressStatusMessage = null;
+    _addressStatusMessage = '';
     print("REQUEST:: ${addressModel.toJson()}");
     ApiResponse apiResponse = await locationRepo.addAddress(addressModel);
     _isLoading = false;
@@ -304,7 +304,7 @@ class LocationProvider with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     _errorMessage = '';
-    _addressStatusMessage = null;
+    _addressStatusMessage = '';
     ApiResponse apiResponse =
         await locationRepo.updateAddress(addressModel, addressId);
     _isLoading = false;
@@ -436,7 +436,11 @@ class LocationProvider with ChangeNotifier {
         await placemarkFromCoordinates(latLng.latitude, latLng.longitude);
     // _address = response.response.data['results'][0]['formatted_address'].toString();
     Placemark addrs = placemarks.first;
-    _address = addrs.name + " " + addrs.street + " " + addrs.administrativeArea;
+    _address = (addrs.name ?? '') +
+        " " +
+        (addrs.street ?? '') +
+        " " +
+        (addrs.administrativeArea ?? '');
     // }else {
     //   ApiChecker.checkApi(context, response);
     // }

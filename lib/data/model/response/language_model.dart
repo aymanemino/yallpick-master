@@ -5,5 +5,5 @@ class LanguageModel {
   String? countryCode;
 
   LanguageModel(
-      {this.imageUrl, this.languageName, this.countryCode ?? "", this.languageCode});
+      {this.imageUrl, this.languageName, this.countryCode, this.languageCode});
 }

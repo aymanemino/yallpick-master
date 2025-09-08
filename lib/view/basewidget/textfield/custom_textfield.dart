@@ -63,11 +63,11 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         maxLines: maxLine ?? 1,
         textCapitalization: capitalization,
-        maxLength: isPhoneNumber ? 15 : ""
+        maxLength: isPhoneNumber ? 15 : null,
         focusNode: focusNode,
         keyboardType: textInputType ?? TextInputType.text,
         //keyboardType: TextInputType.number,
-        initialValue: ""
+        initialValue: "",
         textInputAction: textInputAction ?? TextInputAction.next,
         onFieldSubmitted: (v) {
           FocusScope.of(context).requestFocus(nextNode);
@@ -88,7 +88,7 @@ class CustomTextField extends StatelessWidget {
         },
         decoration: InputDecoration(
           hintText: hintText ?? '',
-          filled: fillColor != ""
+          filled: fillColor != "",
           fillColor: fillColor,
           contentPadding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 15),
           isDense: true,

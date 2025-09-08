@@ -11,17 +11,17 @@ class FeaturedProductView extends StatelessWidget {
   final ScrollController scrollController;
   final bool isHome;
 
-  FeaturedProductView({this.scrollController, @required this.isHome});
+  FeaturedProductView({this.scrollController, required this.isHome});
 
   @override
   Widget build(BuildContext context) {
     int offset = 1;
     scrollController?.addListener(() {
       if (scrollController.position.maxScrollExtent ==
-          scrollController.position.pixels &&
+              scrollController.position.pixels &&
           Provider.of<ProductProvider>(context, listen: false)
-              .featuredProductList
-              .length !=
+                  .featuredProductList
+                  .length !=
               0 &&
           !Provider.of<ProductProvider>(context, listen: false)
               .isFeaturedLoading) {
@@ -55,59 +55,59 @@ class FeaturedProductView extends StatelessWidget {
         return Column(children: [
           prodProvider.firstFeaturedLoading
               ? ProductShimmer(
-              isHomePage: true,
-              isEnabled: prodProvider.firstFeaturedLoading)
+                  isHomePage: true,
+                  isEnabled: prodProvider.firstFeaturedLoading)
               : productList.length > 0
-              ? Container(
-            height: isHome
-                ? 350
-                : "" // Reduced height to accommodate dynamic card sizing
-            child: isHome
-                ? ListView.builder(
-                scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.symmetric(
-                    horizontal:
-                    0), // No padding to eliminate edge spacing
-                itemCount: productList.length,
-                itemBuilder: (ctx, index) {
-                  return Container(
-                      width: (MediaQuery.of(context).size.width /
-                          2) -
-                          4, // Reduced spacing for better fit
-                      margin: EdgeInsets.only(
-                          right:
-                          2), // Minimal margin between products
-                      child: ProductWidget(
-                          productModel: productList[index]));
-                })
-                : StaggeredGridView.countBuilder(
-              itemCount: productList.length,
-              crossAxisCount: 2,
-              padding: EdgeInsets.all(
-                  0), // No padding to eliminate edge spacing
-              physics: NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              mainAxisSpacing:
-              2, // Minimal spacing between rows
-              crossAxisSpacing:
-              2, // Minimal spacing between columns
-              staggeredTileBuilder: (int index) =>
-                  StaggeredTile.fit(1),
-              itemBuilder: (BuildContext context, int index) {
-                return ProductWidget(
-                    productModel: productList[index]);
-              },
-            ),
-          )
-              : SizedBox.shrink(),
+                  ? Container(
+                      height: isHome
+                          ? 350.0
+                          : 200.0, // Reduced height to accommodate dynamic card sizing
+                      child: isHome
+                          ? ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      0), // No padding to eliminate edge spacing
+                              itemCount: productList.length,
+                              itemBuilder: (ctx, index) {
+                                return Container(
+                                    width: (MediaQuery.of(context).size.width /
+                                            2) -
+                                        4, // Reduced spacing for better fit
+                                    margin: EdgeInsets.only(
+                                        right:
+                                            2), // Minimal margin between products
+                                    child: ProductWidget(
+                                        productModel: productList[index]));
+                              })
+                          : StaggeredGridView.countBuilder(
+                              itemCount: productList.length,
+                              crossAxisCount: 2,
+                              padding: EdgeInsets.all(
+                                  0), // No padding to eliminate edge spacing
+                              physics: NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              mainAxisSpacing:
+                                  2, // Minimal spacing between rows
+                              crossAxisSpacing:
+                                  2, // Minimal spacing between columns
+                              staggeredTileBuilder: (int index) =>
+                                  StaggeredTile.fit(1),
+                              itemBuilder: (BuildContext context, int index) {
+                                return ProductWidget(
+                                    productModel: productList[index]);
+                              },
+                            ),
+                    )
+                  : SizedBox.shrink(),
           prodProvider.isFeaturedLoading
               ? Center(
-              child: Padding(
-                padding: EdgeInsets.all(Dimensions.ICON_SIZE_EXTRA_SMALL),
-                child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                        Theme.of(context).primaryColor)),
-              ))
+                  child: Padding(
+                  padding: EdgeInsets.all(Dimensions.ICON_SIZE_EXTRA_SMALL),
+                  child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                          Theme.of(context).primaryColor)),
+                ))
               : SizedBox.shrink(),
         ]);
       },

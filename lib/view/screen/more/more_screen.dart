@@ -49,8 +49,9 @@ class _MoreScreenState extends State<MoreScreen> {
       Provider.of<WishListProvider>(context, listen: false).initWishList(
         context,
         Provider.of<LocalizationProvider>(context, listen: false)
-            .locale
-            .countryCode ?? "",
+                .locale
+                .countryCode ??
+            "",
       );
       version = Provider.of<SplashProvider>(context, listen: false)
                   .configModel
@@ -754,18 +755,18 @@ class _MoreScreenState extends State<MoreScreen> {
 }
 
 class SquareButton extends StatelessWidget {
-  final String image = "";
+  final String image;
   final String title;
   final Widget navigateTo;
   final int count;
   final bool hasCount;
 
   SquareButton(
-      {@required this.image,
-      @required this.title,
-      @required this.navigateTo,
-      @required this.count,
-      @required this.hasCount});
+      {required this.image,
+      required this.title,
+      required this.navigateTo,
+      required this.count,
+      required this.hasCount});
 
   @override
   Widget build(BuildContext context) {
@@ -864,11 +865,11 @@ class SquareButton extends StatelessWidget {
 }
 
 class TitleButton extends StatelessWidget {
-  final String image = "";
+  final String image;
   final String title;
   final Widget navigateTo;
   TitleButton(
-      {@required this.image, @required this.title, @required this.navigateTo});
+      {required this.image, required this.title, required this.navigateTo});
 
   @override
   Widget build(BuildContext context) {
@@ -890,16 +891,16 @@ class TitleButton extends StatelessWidget {
 }
 
 class ModernTitleButton extends StatelessWidget {
-  final String image = "";
+  final String image;
   final String title;
   final String subtitle;
   final Widget navigateTo;
 
   ModernTitleButton({
-    @required this.image,
-    @required this.title,
-    @required this.subtitle,
-    @required this.navigateTo,
+    required this.image,
+    required this.title,
+    required this.subtitle,
+    required this.navigateTo,
   });
 
   @override

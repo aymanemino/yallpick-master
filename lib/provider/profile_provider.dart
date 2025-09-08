@@ -206,7 +206,7 @@ class ProfileProvider extends ChangeNotifier {
   }
 
   Future<ResponseModel> updateUserInfo(UserInfoModel updateUserModel,
-      String pass, File file!, String token) async {
+      String pass, File file, String token) async {
     _isLoading = true;
     notifyListeners();
 

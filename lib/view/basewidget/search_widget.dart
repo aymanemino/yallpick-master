@@ -17,10 +17,10 @@ class SearchWidget extends StatefulWidget {
   final Function onCategoryIdChange;
 
   SearchWidget(
-      {@required this.hintText,
+      {required this.hintText,
         this.onTextChanged,
-        @required this.onClearPressed,
-        @required this.onCategoryIdChange,
+        required this.onClearPressed,
+        required this.onCategoryIdChange,
         this.onSubmit});
 
   @override

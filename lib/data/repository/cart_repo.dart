@@ -16,7 +16,7 @@ class CartRepo {
 
   List<CartModel> getCartList() {
     List<String> carts =
-    sharedPreferences.getStringList(AppConstants.CART_LIST);
+        sharedPreferences.getStringList(AppConstants.CART_LIST);
     List<CartModel> cartList = [];
     carts.forEach((cart) => cartList.add(CartModel.fromJson(jsonDecode(cart))));
     return cartList;
@@ -27,7 +27,7 @@ class CartRepo {
     List<CartModel> old_carts = getCartList();
     cartProductList.forEach((cartModel) {
       CartModel temp = old_carts.firstWhere(
-            (element) => element.id == cartModel.id ?? 0,
+        (element) => element.id == cartModel.id ?? 0,
       );
       if (temp != null) {
         cartModel.quantity = cartModel.quantity + temp.quantity;
@@ -59,12 +59,12 @@ class CartRepo {
     for (int index = 0; index < choiceOptions.length; index++) {
       _choice.addAll({
         choiceOptions[index].name:
-        choiceOptions[index].options[variationIndexes[index]]
+            choiceOptions[index].options[variationIndexes[index]]
       });
     }
     Map<String, dynamic> _data = {
       'id': cart.id ?? 0,
-      'variant': cart.variation != null ? cart.variation.type : ""
+      'variant': cart.variation != null ? cart.variation.type : "",
       'quantity': cart.quantity
     };
     _data.addAll(_choice);
@@ -129,7 +129,7 @@ class CartRepo {
   Future<ApiResponse> getChosenShippingMethod() async {
     try {
       final response =
-      await dioClient.get(AppConstants.CHOSEN_SHIPPING_METHOD_URI);
+          await dioClient.get(AppConstants.CHOSEN_SHIPPING_METHOD_URI);
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));
@@ -139,7 +139,7 @@ class CartRepo {
   Future<ApiResponse> checkJdMinimumOrder() async {
     try {
       final response =
-      await dioClient.get(AppConstants.CHECK_JD_MINIMUM_ORDER_URI);
+          await dioClient.get(AppConstants.CHECK_JD_MINIMUM_ORDER_URI);
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));
@@ -149,7 +149,7 @@ class CartRepo {
   Future<ApiResponse> getJdMinimumOrderAmount() async {
     try {
       final response =
-      await dioClient.get(AppConstants.GET_JD_MINIMUM_ORDER_AMOUNT_URI);
+          await dioClient.get(AppConstants.GET_JD_MINIMUM_ORDER_AMOUNT_URI);
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));

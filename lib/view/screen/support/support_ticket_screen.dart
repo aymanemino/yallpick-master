@@ -60,87 +60,83 @@ class SupportTicketScreen extends StatelessWidget {
         ),
       ),
       child: Provider.of<SupportTicketProvider>(context).supportTicketList !=
-          null
+              null
           ? Provider.of<SupportTicketProvider>(context)
-          .supportTicketList
-          .length !=
-          0
-          ? Consumer<SupportTicketProvider>(
-        builder: (context, support, child) {
-          List<SupportTicketModel> supportTicketList =
-          support.supportTicketList.reversed.toList();
+                      .supportTicketList
+                      .length !=
+                  0
+              ? Consumer<SupportTicketProvider>(
+                  builder: (context, support, child) {
+                    List<SupportTicketModel> supportTicketList =
+                        support.supportTicketList.reversed.toList();
 
-          // Debug: Print all tickets and their status
-          print('🔍 [DEBUG] All tickets:');
-          supportTicketList.forEach((ticket) {
-            print(
-                '🔍 [DEBUG] Ticket: ${ticket.subject} - Status: "${ticket.status}" (Type: ${ticket.status.runtimeType})');
-          });
+                    // Debug: Print all tickets and their status
+                    print('🔍 [DEBUG] All tickets:');
+                    supportTicketList.forEach((ticket) {
+                      print(
+                          '🔍 [DEBUG] Ticket: ${ticket.subject} - Status: "${ticket.status}" (Type: ${ticket.status.runtimeType})');
+                    });
 
-          // Separate open and closed tickets
-          List<SupportTicketModel> openTickets = supportTicketList
-              .where((ticket) => ticket.status == 'open')
-              .toList();
-          List<SupportTicketModel> closedTickets = supportTicketList
-              .where((ticket) => ticket.status == 'closed')
-              .toList();
+                    // Separate open and closed tickets
+                    List<SupportTicketModel> openTickets = supportTicketList
+                        .where((ticket) => ticket.status == 'open')
+                        .toList();
+                    List<SupportTicketModel> closedTickets = supportTicketList
+                        .where((ticket) => ticket.status == 'closed')
+                        .toList();
 
-          // Debug: Print filtered results
-          print(
-              '🔍 [DEBUG] Open tickets count: ${openTickets.length}');
-          print(
-              '🔍 [DEBUG] Closed tickets count: ${closedTickets.length}');
-          openTickets.forEach((ticket) {
-            print(
-                '🔍 [DEBUG] Open ticket: ${ticket.subject} - Status: "${ticket.status}"');
-          });
-          closedTickets.forEach((ticket) {
-            print(
-                '🔍 [DEBUG] Closed ticket: ${ticket.subject} - Status: "${ticket.status}"');
-          });
+                    // Debug: Print filtered results
+                    print(
+                        '🔍 [DEBUG] Open tickets count: ${openTickets.length}');
+                    print(
+                        '🔍 [DEBUG] Closed tickets count: ${closedTickets.length}');
+                    openTickets.forEach((ticket) {
+                      print(
+                          '🔍 [DEBUG] Open ticket: ${ticket.subject} - Status: "${ticket.status}"');
+                    });
+                    closedTickets.forEach((ticket) {
+                      print(
+                          '🔍 [DEBUG] Closed ticket: ${ticket.subject} - Status: "${ticket.status}"');
+                    });
 
-          return RefreshIndicator(
-            backgroundColor: Theme.of(context).primaryColor,
-            onRefresh: () async {
-              await support.getSupportTicketList(context);
-            },
-            child: ListView(
-              padding: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
-              children: [
-                // Open Tickets Section
-                if (openTickets.isNotEmpty) ...[
-                  _buildSectionHeader(context, 'Open Tickets',
-                      openTickets.length, Colors.green),
-                  ...openTickets
-                      .map((ticket) => _buildTicketCard(
-                      context,
-                      ticket,
-                      ticket.status == 'open'))
-                      .toList(),
-                  SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
-                ],
+                    return RefreshIndicator(
+                      backgroundColor: Theme.of(context).primaryColor,
+                      onRefresh: () async {
+                        await support.getSupportTicketList(context);
+                      },
+                      child: ListView(
+                        padding: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
+                        children: [
+                          // Open Tickets Section
+                          if (openTickets.isNotEmpty) ...[
+                            _buildSectionHeader(context, 'Open Tickets',
+                                openTickets.length, Colors.green),
+                            ...openTickets
+                                .map((ticket) => _buildTicketCard(
+                                    context, ticket, ticket.status == 'open'))
+                                .toList(),
+                            SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
+                          ],
 
-                // Closed Tickets Section
-                if (closedTickets.isNotEmpty) ...[
-                  _buildSectionHeader(context, 'Closed Tickets',
-                      closedTickets.length, Colors.grey),
-                  ...closedTickets
-                      .map((ticket) => _buildTicketCard(
-                      context,
-                      ticket,
-                      ticket.status == 'open'))
-                      .toList(),
-                ],
+                          // Closed Tickets Section
+                          if (closedTickets.isNotEmpty) ...[
+                            _buildSectionHeader(context, 'Closed Tickets',
+                                closedTickets.length, Colors.grey),
+                            ...closedTickets
+                                .map((ticket) => _buildTicketCard(
+                                    context, ticket, ticket.status == 'open'))
+                                .toList(),
+                          ],
 
-                // Empty state if no tickets
-                if (openTickets.isEmpty && closedTickets.isEmpty)
-                  _buildEmptyState(context),
-              ],
-            ),
-          );
-        },
-      )
-          : NoInternetOrDataScreen(isNoInternet: false)
+                          // Empty state if no tickets
+                          if (openTickets.isEmpty && closedTickets.isEmpty)
+                            _buildEmptyState(context),
+                        ],
+                      ),
+                    );
+                  },
+                )
+              : NoInternetOrDataScreen(isNoInternet: false)
           : SupportTicketShimmer(),
     );
   }
@@ -182,8 +178,8 @@ class SupportTicketScreen extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (_) => SupportConversationScreen(
-                  supportTicketModel: ticket,
-                )));
+                      supportTicketModel: ticket,
+                    )));
       },
       child: Container(
         padding: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
@@ -364,10 +360,10 @@ class SupportTicketShimmer extends StatelessWidget {
             baseColor: Colors.grey[300]!!!,
             highlightColor: Colors.grey[100]!!!,
             enabled:
-            Provider.of<SupportTicketProvider>(context).supportTicketList ==
-                ""
+                Provider.of<SupportTicketProvider>(context).supportTicketList ==
+                    "",
             child:
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Container(height: 10, width: 100, color: ColorResources.WHITE),
               SizedBox(height: Dimensions.PADDING_SIZE_EXTRA_SMALL),
               Container(height: 15, color: ColorResources.WHITE),

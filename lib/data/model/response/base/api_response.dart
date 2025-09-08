@@ -7,7 +7,7 @@ class ApiResponse {
   ApiResponse(this.response, this.error);
 
   ApiResponse.withError(dynamic errorValue)
-      : response = ""
+      : response = Response(requestOptions: RequestOptions(path: '')),
         error = errorValue;
 
   ApiResponse.withSuccess(Response responseValue)

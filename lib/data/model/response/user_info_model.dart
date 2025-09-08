@@ -12,7 +12,17 @@ class UserInfoModel {
   String? updatedAt;
 
   UserInfoModel(
-      {this.id ?? 0, this.name, this.method, this.fName, this.lName, this.phone, this.image, this.email, this.emailVerifiedAt, this.createdAt, this.updatedAt});
+      {this.id,
+      this.name,
+      this.method,
+      this.fName,
+      this.lName,
+      this.phone,
+      this.image,
+      this.email,
+      this.emailVerifiedAt,
+      this.createdAt,
+      this.updatedAt});
 
   UserInfoModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];

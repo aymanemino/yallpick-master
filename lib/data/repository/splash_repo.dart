@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SplashRepo {
   final DioClient dioClient;
   final SharedPreferences sharedPreferences;
-  SplashRepo({@required this.dioClient, @required this.sharedPreferences});
+  SplashRepo({required this.dioClient, required this.sharedPreferences});
 
   Future<ApiResponse> getConfig() async {
     try {

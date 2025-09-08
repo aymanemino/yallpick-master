@@ -9,7 +9,7 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 
 class LocationSearchDialog extends StatelessWidget {
   final GoogleMapController mapController;
-  LocationSearchDialog({@required this.mapController});
+  LocationSearchDialog({required this.mapController});
 
   @override
   Widget build(BuildContext context) {

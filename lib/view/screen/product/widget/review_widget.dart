@@ -13,7 +13,7 @@ import 'package:shimmer/shimmer.dart';
 
 class ReviewWidget extends StatelessWidget {
   final ReviewModel reviewModel;
-  ReviewWidget({@required this.reviewModel});
+  ReviewWidget({required this.reviewModel});
 
   @override
   Widget build(BuildContext context) {

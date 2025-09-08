@@ -182,7 +182,7 @@ class BillingAddressData {
   int? isBilling;
 
   BillingAddressData(
-      {this.id ?? 0,
+      {this.id,
       this.customerId,
       this.contactPersonName,
       this.addressType,

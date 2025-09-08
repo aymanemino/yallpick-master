@@ -6,11 +6,11 @@ class SupportReplyModel {
   String? updatedAt;
 
   SupportReplyModel(
-      {this.id ?? 0,
-        this.customerMessage,
-        this.adminMessage,
-        this.createdAt,
-        this.updatedAt});
+      {this.id,
+      this.customerMessage,
+      this.adminMessage,
+      this.createdAt,
+      this.updatedAt});
 
   SupportReplyModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];

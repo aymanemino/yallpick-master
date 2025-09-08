@@ -566,9 +566,9 @@ class UpdateInfo {
   final String releaseNotes;
 
   UpdateInfo({
-    @required this.localVersion,
-    @required this.storeVersion,
-    @required this.canUpdate,
+    required this.localVersion,
+    required this.storeVersion,
+    required this.canUpdate,
     this.releaseNotes,
   });
 }

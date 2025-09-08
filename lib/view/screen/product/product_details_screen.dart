@@ -33,7 +33,7 @@ import 'faq_and_review_screen.dart';
 class ProductDetails extends StatefulWidget {
   final Product product;
   final bool banner;
-  ProductDetails({@required this.product, this.banner = false});
+  ProductDetails({required this.product, this.banner = false});
 
   @override
   State<ProductDetails> createState() => _ProductDetailsState();

@@ -13,16 +13,16 @@ class HomeCategoryProduct {
   List<dynamic>? translations;
 
   HomeCategoryProduct(
-      {this.id ?? 0,
-        this.name,
-        this.slug,
-        this.icon,
-        this.parentId,
-        this.position,
-        this.createdAt,
-        this.updatedAt,
-        this.products,
-        this.translations});
+      {this.id,
+      this.name,
+      this.slug,
+      this.icon,
+      this.parentId,
+      this.position,
+      this.createdAt,
+      this.updatedAt,
+      this.products,
+      this.translations});
 
   HomeCategoryProduct.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -35,14 +35,15 @@ class HomeCategoryProduct {
     updatedAt = json['updated_at'];
     if (json['products'] != null) {
       products = [];
-      json['products'].forEach((v) { products.add(new Product.fromJson(v)); });
+      json['products'].forEach((v) {
+        products.add(new Product.fromJson(v));
+      });
     }
 
     if (json['translations'] != null) {
       translations = [];
       translations = List<dynamic>.from(translations.map((x) => x));
     }
-
   }
 
   Map<String, dynamic> toJson() {

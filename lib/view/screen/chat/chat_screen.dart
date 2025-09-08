@@ -20,7 +20,7 @@ class ChatScreen extends StatelessWidget {
   final SellerModel seller;
   final TopSellerModel topSeller;
 
-  ChatScreen({@required this.seller, this.topSeller});
+  ChatScreen({required this.seller, this.topSeller});
 
   final ImagePicker picker = ImagePicker();
   final TextEditingController _controller = TextEditingController();
@@ -30,7 +30,8 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isFirstTime) {
-      Provider.of<ChatProvider>(context, listen: false).initChatList(seller.shop.id ?? 0, context);
+      Provider.of<ChatProvider>(context, listen: false)
+          .initChatList(seller.shop.id ?? 0, context);
 
       isFirstTime = false;
     }
@@ -47,11 +48,15 @@ class ChatScreen extends StatelessWidget {
                     ? ListView.builder(
                         physics: BouncingScrollPhysics(),
                         padding: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
-                        itemCount: Provider.of<ChatProvider>(context).chatList.length,
+                        itemCount:
+                            Provider.of<ChatProvider>(context).chatList.length,
                         reverse: true,
                         itemBuilder: (context, index) {
                           List<ChatModel> chats =
-                              Provider.of<ChatProvider>(context).chatList.reversed.toList();
+                              Provider.of<ChatProvider>(context)
+                                  .chatList
+                                  .reversed
+                                  .toList();
                           return MessageBubble(
                               chat: chats[index],
                               sellerImage: seller.image,
@@ -59,7 +64,8 @@ class ChatScreen extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (_) => SellerScreen(seller: seller)));
+                                        builder: (_) =>
+                                            SellerScreen(seller: seller)));
                               });
                         },
                       )
@@ -94,21 +100,23 @@ class ChatScreen extends StatelessWidget {
                 shadowColor: Colors.grey[200]!!!,
                 elevation: 2,
                 margin: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50)),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_SMALL),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Dimensions.PADDING_SIZE_SMALL),
                   child: Row(children: [
                     Expanded(
                       child: TextField(
                         controller: _controller,
                         style: titilliumRegular,
                         keyboardType: TextInputType.multiline,
-                        maxLines: null
+                        maxLines: null,
                         expands: true,
                         decoration: InputDecoration(
                           hintText: getTranslated('type_here', context),
-                          hintStyle:
-                              titilliumRegular.copyWith(color: ColorResources.HINT_TEXT_COLOR),
+                          hintStyle: titilliumRegular.copyWith(
+                              color: ColorResources.HINT_TEXT_COLOR),
                           border: InputBorder.none,
                         ),
                         onChanged: (String newText) {
@@ -143,7 +151,8 @@ class ChatScreen extends StatelessWidget {
                     ),*/
                     InkWell(
                       onTap: () {
-                        if (Provider.of<ChatProvider>(context, listen: false).isSendButtonActive) {
+                        if (Provider.of<ChatProvider>(context, listen: false)
+                            .isSendButtonActive) {
                           MessageBody messageBody = MessageBody(
                               sellerId: seller.id.toString(),
                               shopId: seller.shop.id.toString(),
@@ -155,7 +164,8 @@ class ChatScreen extends StatelessWidget {
                       },
                       child: Icon(
                         Icons.send,
-                        color: Provider.of<ChatProvider>(context).isSendButtonActive
+                        color: Provider.of<ChatProvider>(context)
+                                .isSendButtonActive
                             ? Theme.of(context).primaryColor
                             : ColorResources.HINT_TEXT_COLOR,
                         size: Dimensions.ICON_SIZE_DEFAULT,
@@ -183,25 +193,35 @@ class ChatShimmer extends StatelessWidget {
         bool isMe = index % 2 == 0;
         return Shimmer.fromColors(
           baseColor: isMe ? Colors.grey[300]!!! : ColorResources.IMAGE_BG,
-          highlightColor: isMe ? Colors.grey[100]!!! : ColorResources.IMAGE_BG.withOpacity(0.9),
-          enabled: Provider.of<ChatProvider>(context).chatList == ""
+          highlightColor: isMe
+              ? Colors.grey[100]!!!
+              : ColorResources.IMAGE_BG.withOpacity(0.9),
+          enabled: Provider.of<ChatProvider>(context).chatList == "",
           child: Row(
-            mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+            mainAxisAlignment:
+                isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
             children: [
-              isMe ? SizedBox.shrink() : InkWell(child: CircleAvatar(child: Icon(Icons.person))),
+              isMe
+                  ? SizedBox.shrink()
+                  : InkWell(child: CircleAvatar(child: Icon(Icons.person))),
               Expanded(
                 child: Container(
-                  margin:
-                      isMe ? EdgeInsets.fromLTRB(50, 5, 10, 5) : EdgeInsets.fromLTRB(10, 5, 50, 5),
+                  margin: isMe
+                      ? EdgeInsets.fromLTRB(50, 5, 10, 5)
+                      : EdgeInsets.fromLTRB(10, 5, 50, 5),
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(10),
-                        bottomLeft: isMe ? Radius.circular(10) : Radius.circular(0),
-                        bottomRight: isMe ? Radius.circular(0) : Radius.circular(10),
+                        bottomLeft:
+                            isMe ? Radius.circular(10) : Radius.circular(0),
+                        bottomRight:
+                            isMe ? Radius.circular(0) : Radius.circular(10),
                         topRight: Radius.circular(10),
                       ),
-                      color: isMe ? ColorResources.IMAGE_BG : ColorResources.WHITE),
+                      color: isMe
+                          ? ColorResources.IMAGE_BG
+                          : ColorResources.WHITE),
                   child: Container(height: 20),
                 ),
               ),

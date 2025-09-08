@@ -8,7 +8,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 class OrderRepo {
   final DioClient dioClient;
 
-  OrderRepo({@required this.dioClient});
+  OrderRepo({required this.dioClient});
 
   Future<ApiResponse> getOrderList() async {
     try {
@@ -19,10 +19,12 @@ class OrderRepo {
     }
   }
 
-  Future<ApiResponse> getOrderDetails(String orderID, String languageCode) async {
+  Future<ApiResponse> getOrderDetails(
+      String orderID, String languageCode) async {
     try {
       final response = await dioClient.get(
-        AppConstants.ORDER_DETAILS_URI+orderID, options: Options(headers: {AppConstants.LANG_KEY: languageCode}),
+        AppConstants.ORDER_DETAILS_URI + orderID,
+        options: Options(headers: {AppConstants.LANG_KEY: languageCode}),
       );
       return ApiResponse.withSuccess(response);
     } catch (e) {
@@ -39,10 +41,11 @@ class OrderRepo {
     }
   }
 
-
-  Future<ApiResponse> placeOrder(String addressID, String couponCode, String billingAddressId, String orderNote) async {
+  Future<ApiResponse> placeOrder(String addressID, String couponCode,
+      String billingAddressId, String orderNote) async {
     try {
-      final response = await dioClient.get(AppConstants.ORDER_PLACE_URI+'?address_id=$addressID&coupon_code=$couponCode&billing_address_id=$billingAddressId&order_note=$orderNote');
+      final response = await dioClient.get(AppConstants.ORDER_PLACE_URI +
+          '?address_id=$addressID&coupon_code=$couponCode&billing_address_id=$billingAddressId&order_note=$orderNote');
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));
@@ -51,7 +54,7 @@ class OrderRepo {
 
   Future<ApiResponse> getTrackingInfo(String orderID) async {
     try {
-      final response = await dioClient.get(AppConstants.TRACKING_URI+orderID);
+      final response = await dioClient.get(AppConstants.TRACKING_URI + orderID);
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));
@@ -60,12 +63,14 @@ class OrderRepo {
 
   Future<ApiResponse> getShippingMethod(int sellerId) async {
     try {
-      final response = sellerId==1?await dioClient.get('${AppConstants.GET_SHIPPING_METHOD}/$sellerId/admin'):
-      await dioClient.get('${AppConstants.GET_SHIPPING_METHOD}/$sellerId/seller');
+      final response = sellerId == 1
+          ? await dioClient
+              .get('${AppConstants.GET_SHIPPING_METHOD}/$sellerId/admin')
+          : await dioClient
+              .get('${AppConstants.GET_SHIPPING_METHOD}/$sellerId/seller');
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));
     }
   }
-
 }

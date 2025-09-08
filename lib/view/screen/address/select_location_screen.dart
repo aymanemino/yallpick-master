@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 class SelectLocationScreen extends StatefulWidget {
   final GoogleMapController googleMapController;
 
-  SelectLocationScreen({@required this.googleMapController});
+  SelectLocationScreen({required this.googleMapController});
 
   @override
   _SelectLocationScreenState createState() => _SelectLocationScreenState();

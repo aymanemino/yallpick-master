@@ -15,8 +15,8 @@ class ProductView extends StatelessWidget {
   final String sellerId;
 
   ProductView(
-      {@required this.isHomePage,
-        @required this.productType,
+      {required this.isHomePage,
+        required this.productType,
         this.scrollController,
         this.sellerId});
 

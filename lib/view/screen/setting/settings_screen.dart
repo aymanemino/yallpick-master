@@ -66,7 +66,7 @@ class SettingsScreen extends StatelessWidget {
                   TitleButton(
                     image: Images.currency,
                     title:
-                    '${getTranslated('currency', context)} (${Provider.of<SplashProvider>(context).myCurrency.name})',
+                        '${getTranslated('currency', context)} (${Provider.of<SplashProvider>(context).myCurrency.name})',
                     onTap: () => showAnimatedDialog(context, CurrencyDialog()),
                   ),
                   TitleButton(
@@ -101,12 +101,12 @@ class SettingsScreen extends StatelessWidget {
 }
 
 class TitleButton extends StatelessWidget {
-  final String image = "";
+  final String image;
   final String title;
   final Function onTap;
 
   TitleButton(
-      {@required this.image, @required this.title, @required this.onTap});
+      {required this.image, required this.title, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +118,7 @@ class TitleButton extends StatelessWidget {
           color: ColorResources.getPrimary(context)),
       title: Text(title,
           style:
-          titilliumRegular.copyWith(fontSize: Dimensions.FONT_SIZE_LARGE)),
+              titilliumRegular.copyWith(fontSize: Dimensions.FONT_SIZE_LARGE)),
       onTap: onTap as void Function()?,
     );
   }

@@ -25,7 +25,7 @@ class MyNotification {
         if (payload.isNotEmpty) {
           MyApp.navigatorKey.currentState.push(MaterialPageRoute(
               builder: (context) => OrderDetailsScreen(
-                    orderModel: ""
+                    orderModel: "",
                     orderId: int.parse(payload),
                     orderType: 'default_type',
                   )));
@@ -47,7 +47,7 @@ class MyNotification {
             message.notification.titleLocKey.isNotEmpty) {
           MyApp.navigatorKey.currentState.push(MaterialPageRoute(
               builder: (context) => OrderDetailsScreen(
-                    orderModel: ""
+                    orderModel: "",
                     orderId: int.parse(message.notification.titleLocKey),
                     orderType: 'default_type',
                   )));

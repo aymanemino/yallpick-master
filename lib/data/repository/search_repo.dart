@@ -11,24 +11,24 @@ class SearchRepo {
   final DioClient dioClient;
   final SharedPreferences sharedPreferences;
 
-  SearchRepo({@required this.dioClient, @required this.sharedPreferences});
+  SearchRepo({required this.dioClient, required this.sharedPreferences});
 
   Future<ApiResponse> getSearchProductList(
-      String query,
-      String catId,
-      String limit,
-      /* String countryId, String stateId, String cityId */
-      ) async {
+    String query,
+    String catId,
+    String limit,
+    /* String countryId, String stateId, String cityId */
+  ) async {
     try {
       final response = await dioClient.get(AppConstants.SEARCH_URI +
-          base64.encode(utf8.encode(query)) +
-          (catId != '0' ? '&category_id=$catId' : '') +
-          '&limit=$limit'
-        /*  +
+              base64.encode(utf8.encode(query)) +
+              (catId != '0' ? '&category_id=$catId' : '') +
+              '&limit=$limit'
+          /*  +
           (countryId != '0' ? '&country_id=$countryId' : '') +
           (stateId != '0' ? '&state_id=$stateId' : '') +
           (cityId != '0' ? '&city_id=$cityId' : '') */
-      );
+          );
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));
@@ -66,7 +66,7 @@ class SearchRepo {
   Future<void> saveSearchAddress(String searchAddress) async {
     try {
       List<String> searchKeywordList =
-      sharedPreferences.getStringList(AppConstants.SEARCH_ADDRESS);
+          sharedPreferences.getStringList(AppConstants.SEARCH_ADDRESS);
       if (!searchKeywordList.contains(searchAddress)) {
         searchKeywordList.add(searchAddress);
       }

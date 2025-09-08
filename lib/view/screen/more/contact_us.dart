@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 
 class ContactUs extends StatefulWidget {
   final String title;
-  ContactUs({@required this.title});
+  ContactUs({required this.title});
 
   @override
   _ContactUsState createState() => _ContactUsState();

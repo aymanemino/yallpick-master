@@ -23,7 +23,7 @@ import 'package:flutter_sixvalley_ecommerce/view/screen/cart/widget/recommended_
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatefulWidget {
-  final bool fromCheckout = false;
+  final bool fromCheckout;
   final int sellerId;
   CartScreen({this.fromCheckout = false, this.sellerId = 1});
 
@@ -45,8 +45,8 @@ class _CartScreenState extends State<CartScreen> {
       Provider.of<CartProvider>(context, listen: false).setCartData();
 
       if (Provider.of<SplashProvider>(context, listen: false)
-          .configModel
-          .shippingMethod !=
+              .configModel
+              .shippingMethod !=
           'sellerwise_shipping') {
         // Get admin shipping methods without loading chosen methods
         Provider.of<CartProvider>(context, listen: false)
@@ -93,8 +93,8 @@ class _CartScreenState extends State<CartScreen> {
       if (cart.getData &&
           Provider.of<AuthProvider>(context, listen: false).isLoggedIn() &&
           Provider.of<SplashProvider>(context, listen: false)
-              .configModel
-              .shippingMethod ==
+                  .configModel
+                  .shippingMethod ==
               'sellerwise_shipping') {
         // Get sellerwise shipping methods without loading chosen methods
         Provider.of<CartProvider>(context, listen: false)
@@ -112,643 +112,657 @@ class _CartScreenState extends State<CartScreen> {
       }
 
       return Scaffold(
-        backgroundColor: Color(0xFFF8F9FA),
-        appBar: CustomAppBar(
-          title: getTranslated('CART', context),
-        ),
-        body: sellerList.length != 0
-            ? RefreshIndicator(
-          onRefresh: () async {
-            if (Provider.of<AuthProvider>(context, listen: false)
-                .isLoggedIn()) {
-              await Provider.of<CartProvider>(context, listen: false)
-                  .getCartDataAPI(context);
+          backgroundColor: Color(0xFFF8F9FA),
+          appBar: CustomAppBar(
+            title: getTranslated('CART', context),
+          ),
+          body: sellerList.length != 0
+              ? RefreshIndicator(
+                  onRefresh: () async {
+                    if (Provider.of<AuthProvider>(context, listen: false)
+                        .isLoggedIn()) {
+                      await Provider.of<CartProvider>(context, listen: false)
+                          .getCartDataAPI(context);
 
-              // Refresh recommended products with new random products
-              if (_recommendedProductsKey.currentState != null) {
-                RecommendedProductsWidget.refreshRecommendations(context);
-              }
-            }
-          },
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                // Cart Items
-                ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: sellerList.length,
-                  padding: EdgeInsets.symmetric(horizontal: 16),
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.only(bottom: 16),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(16),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
-                            blurRadius: 20,
-                            offset: Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // Seller Info
-                          if (sellerGroupList[index].shopInfo.isNotEmpty)
-                            Container(
-                              padding: EdgeInsets.all(16),
+                      // Refresh recommended products with new random products
+                      if (_recommendedProductsKey.currentState != null) {
+                        RecommendedProductsWidget.refreshRecommendations(
+                            context);
+                      }
+                    }
+                  },
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        // Cart Items
+                        ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: sellerList.length,
+                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          itemBuilder: (context, index) {
+                            return Container(
+                              margin: EdgeInsets.only(bottom: 16),
                               decoration: BoxDecoration(
-                                color: Color(0xFFF8F9FA),
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(16),
-                                  topRight: Radius.circular(16),
-                                ),
-                              ),
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.store_outlined,
-                                    color: Color(0xFFFF6B35),
-                                    size: 20,
-                                  ),
-                                  SizedBox(width: 8),
-                                  Expanded(
-                                    child: Text(
-                                      sellerGroupList[index].shopInfo,
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                        color: Color(0xFF1A1A1A),
-                                      ),
-                                    ),
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(16),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.05),
+                                    blurRadius: 20,
+                                    offset: Offset(0, 4),
                                   ),
                                 ],
                               ),
-                            ),
-
-                          // Cart Items
-                          ListView.builder(
-                            physics: NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            padding: EdgeInsets.all(0),
-                            itemCount: cartProductList[index].length,
-                            itemBuilder: (context, i) => CartWidget(
-                              cartModel: cartProductList[index][i],
-                              index: cartProductIndexList[index][i],
-                              fromCheckout: widget.fromCheckout,
-                            ),
-                          ),
-
-                          // Shipping Method
-                          if (Provider.of<SplashProvider>(context,
-                              listen: false)
-                              .configModel
-                              .shippingMethod ==
-                              'sellerwise_shipping')
-                            Container(
-                              margin: EdgeInsets.all(16),
-                              child: InkWell(
-                                onTap: () {
-                                  if (Provider.of<AuthProvider>(context,
-                                      listen: false)
-                                      .isLoggedIn()) {
-                                    showModalBottomSheet(
-                                      context: context,
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      builder: (context) =>
-                                          ShippingMethodBottomSheet(
-                                            groupId: sellerGroupList[index]
-                                                .cartGroupId,
-                                            sellerIndex: index,
-                                            sellerId:
-                                            sellerGroupList[index].id ?? 0,
-                                          ),
-                                    );
-                                  } else {
-                                    showCustomSnackBar(
-                                        'not_logged_in', context);
-                                  }
-                                },
-                                child: Container(
-                                  padding: EdgeInsets.all(16),
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFFF8F9FA),
-                                    borderRadius:
-                                    BorderRadius.circular(12),
-                                    border: Border.all(
-                                      color: Color(0xFFE9ECEF),
-                                      width: 1,
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  // Seller Info
+                                  if (sellerGroupList[index]
+                                      .shopInfo
+                                      .isNotEmpty)
+                                    Container(
+                                      padding: EdgeInsets.all(16),
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFF8F9FA),
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(16),
+                                          topRight: Radius.circular(16),
+                                        ),
+                                      ),
+                                      child: Row(
                                         children: [
                                           Icon(
-                                            Icons.local_shipping_outlined,
+                                            Icons.store_outlined,
                                             color: Color(0xFFFF6B35),
                                             size: 20,
                                           ),
-                                          SizedBox(width: 12),
-                                          Text(
-                                            getTranslated(
-                                                'SHIPPING_PARTNER',
-                                                context),
-                                            style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500,
-                                              color: Color(0xFF1A1A1A),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text(
-                                            (cart.shippingList ==
-                                                null ||
-                                                cart.shippingList
-                                                    .length <=
-                                                    index ||
-                                                cart.shippingList[index] ==
-                                                    null ||
-                                                cart
-                                                    .shippingList[
-                                                index]
-                                                    .shippingMethodList ==
-                                                    null ||
-                                                cart.chosenShippingList
-                                                    .length ==
-                                                    0 ||
-                                                cart
-                                                    .shippingList[
-                                                index]
-                                                    .shippingIndex ==
-                                                    -1 ||
-                                                cart
-                                                    .shippingList[
-                                                index]
-                                                    .shippingIndex >=
-                                                    cart
-                                                        .shippingList[
-                                                    index]
-                                                        .shippingMethodList
-                                                        .length)
-                                                ? 'Select'
-                                                : '${cart.shippingList[index].shippingMethodList[cart.shippingList[index].shippingIndex].title.toString()}',
-                                            style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w600,
-                                              color: Color(0xFFFF6B35),
-                                            ),
-                                            maxLines: 1,
-                                            overflow:
-                                            TextOverflow.ellipsis,
-                                          ),
                                           SizedBox(width: 8),
-                                          Icon(
-                                            Icons.keyboard_arrow_down,
-                                            color: Color(0xFFFF6B35),
+                                          Expanded(
+                                            child: Text(
+                                              sellerGroupList[index].shopInfo,
+                                              style: TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w600,
+                                                color: Color(0xFF1A1A1A),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
+                                    ),
 
-                // Global Shipping Method
-                if (Provider.of<SplashProvider>(context, listen: false)
-                    .configModel
-                    .shippingMethod !=
-                    'sellerwise_shipping')
-                  Container(
-                    margin: EdgeInsets.all(16),
-                    child: InkWell(
-                      onTap: () {
-                        if (Provider.of<AuthProvider>(context,
-                            listen: false)
-                            .isLoggedIn()) {
-                          showModalBottomSheet(
-                            context: context,
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            builder: (context) =>
-                                ShippingMethodBottomSheet(
-                                  groupId: 'all_cart_group',
-                                  sellerIndex: 0,
-                                  sellerId: 1,
-                                ),
-                          );
-                        } else {
-                          showCustomSnackBar('not_logged_in', context);
-                        }
-                      },
-                      child: Container(
-                        padding: EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            color: Color(0xFFE9ECEF),
-                            width: 1,
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.05),
-                              blurRadius: 20,
-                              offset: Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          mainAxisAlignment:
-                          MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.local_shipping_outlined,
-                                  color: Color(0xFFFF6B35),
-                                  size: 20,
-                                ),
-                                SizedBox(width: 8),
-                                Text(
-                                  getTranslated(
-                                      'SHIPPING_PARTNER', context),
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xFF1A1A1A),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  (cart.shippingList == null ||
-                                      cart.shippingList.length == 0 ||
-                                      cart.shippingList[0] == null ||
-                                      cart.chosenShippingList
-                                          .length ==
-                                          0 ||
-                                      cart.shippingList[0]
-                                          .shippingMethodList ==
-                                          null ||
-                                      cart.shippingList[0]
-                                          .shippingIndex ==
-                                          -1 ||
-                                      cart.shippingList[0]
-                                          .shippingIndex >=
-                                          cart
-                                              .shippingList[0]
-                                              .shippingMethodList
-                                              .length)
-                                      ? 'Select'
-                                      : '${cart.shippingList[0].shippingMethodList[cart.shippingList[0].shippingIndex].title.toString()}',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                    color: Color(0xFFFF6B35),
-                                  ),
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                SizedBox(width: 8),
-                                Icon(
-                                  Icons.keyboard_arrow_down,
-                                  color: Color(0xFFFF6B35),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-
-                // Recommended Products Section (show even when cart is empty)
-                RecommendedProductsWidget(key: _recommendedProductsKey),
-
-                // Add some bottom padding to prevent overflow
-                SizedBox(height: 100),
-              ],
-            ),
-          ),
-        )
-            : Container(
-          width: double.infinity,
-          height: MediaQuery.of(context).size.height * 0.6,
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.shopping_cart_outlined,
-                  size: 80,
-                  color: Color(0xFF6C757D),
-                ),
-                SizedBox(height: 16),
-                Text(
-                  'Your cart is empty',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF1A1A1A),
-                  ),
-                ),
-                SizedBox(height: 8),
-                Text(
-                  'Add some products to get started',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Color(0xFF6C757D),
-                  ),
-                ),
-                SizedBox(height: 24),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (_) =>
-                            DashBoardScreen(initialPageIndex: 0),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFFF6B35),
-                    foregroundColor: Colors.white,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 32, vertical: 16),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(Icons.shopping_bag, size: 20),
-                      SizedBox(width: 8),
-                      Text(
-                        'Start Shopping',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        // Checkout Button and Bottom Navigation Bar
-        bottomNavigationBar: (!widget.fromCheckout)
-            ? Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 20,
-                spreadRadius: 0,
-                offset: Offset(0, -2),
-              ),
-            ],
-          ),
-          child: SafeArea(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Checkout Button (only show when cart has items)
-                if (cart.cartList.isNotEmpty)
-                  Container(
-                    height: 80,
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 12),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Total Amount',
-                                style: TextStyle(
-                                  color: Color(0xFF6C757D),
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 2),
-                              _buildTotalPriceWithDecimal(
-                                  context, amount + shippingAmount),
-                            ],
-                          ),
-                        ),
-                        SizedBox(width: 16),
-                        Expanded(
-                          child: Container(
-                            height: 50,
-                            child: ElevatedButton(
-                              onPressed: () async {
-                                if (Provider.of<AuthProvider>(context,
-                                    listen: false)
-                                    .isLoggedIn()) {
-                                  if (cart.cartList.length == 0) {
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(SnackBar(
-                                      content: Text(getTranslated(
-                                          'select_at_least_one_product',
-                                          context)),
-                                      backgroundColor: Colors.red,
-                                    ));
-                                  } else if (cart.chosenShippingList ==
-                                      null ||
-                                      cart.chosenShippingList.length ==
-                                          0) {
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(SnackBar(
-                                      content: Text(getTranslated(
-                                          'select_shipping_method',
-                                          context)),
-                                      backgroundColor: Colors.red,
-                                    ));
-                                  } else if (cart
-                                      .chosenShippingList.length <
-                                      cartProductList.length &&
-                                      Provider.of<SplashProvider>(context,
-                                          listen: false)
-                                          .configModel
-                                          .shippingMethod ==
-                                          'sellerwise_shipping') {
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(SnackBar(
-                                      content: Text(getTranslated(
-                                          'select_all_shipping_method',
-                                          context)),
-                                      backgroundColor: Colors.red,
-                                    ));
-                                  } else {
-                                    // Check minimum order amount for JD products (sellerId = 1)
-                                    bool hasJdProducts = false;
-                                    double jdProductsTotal = 0.0;
-
-                                    // Check if cart has JD products and calculate their total
-                                    for (var cartItem in cartList) {
-                                      if (cartItem.sellerId == 1) {
-                                        hasJdProducts = true;
-                                        double price =
-                                            cartItem.discountedPrice ??
-                                                cartItem.price ??
-                                                0.0;
-                                        int quantity =
-                                            cartItem.quantity ?? 1;
-                                        jdProductsTotal +=
-                                        (price * quantity);
-                                      }
-                                    }
-
-                                    // If cart has JD products, get minimum order amount from API and check requirement
-                                    if (hasJdProducts) {
-                                      double minimumOrderAmount =
-                                      await Provider.of<CartProvider>(
-                                          context,
-                                          listen: false)
-                                          .getJdMinimumOrderAmount();
-
-                                      // Calculate total amount including shipping
-                                      double totalAmount =
-                                          amount + shippingAmount;
-
-                                      if (totalAmount <
-                                          minimumOrderAmount) {
-                                        double remainingAmount =
-                                            minimumOrderAmount -
-                                                totalAmount;
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(SnackBar(
-                                          content: Text(
-                                              "You have international delivery items in your cart. Minimum order amount for international products is ${minimumOrderAmount.toStringAsFixed(0)} AED. You need to add ${remainingAmount.toStringAsFixed(0)} AED more to proceed."),
-                                          backgroundColor: Colors.red,
-                                          duration: Duration(seconds: 5),
-                                        ));
-                                        return;
-                                      }
-                                    }
-
-                                    // If validation passes, proceed to checkout
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (_) => CheckoutScreen(
-                                          cartList: cartList,
-                                          totalOrderAmount:
-                                          amount + shippingAmount,
-                                          shippingFee: shippingAmount,
-                                          discount: discount,
-                                          tax: tax,
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                } else {
-                                  showAnimatedDialog(
-                                      context, GuestDialog(),
-                                      isFlip: true);
-                                }
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFFFF6B35),
-                                foregroundColor: Colors.white,
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.shopping_cart_checkout,
-                                      size: 20),
-                                  SizedBox(width: 8),
-                                  Text(
-                                    getTranslated('checkout', context),
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
+                                  // Cart Items
+                                  ListView.builder(
+                                    physics: NeverScrollableScrollPhysics(),
+                                    shrinkWrap: true,
+                                    padding: EdgeInsets.all(0),
+                                    itemCount: cartProductList[index].length,
+                                    itemBuilder: (context, i) => CartWidget(
+                                      cartModel: cartProductList[index][i],
+                                      index: cartProductIndexList[index][i],
+                                      fromCheckout: widget.fromCheckout,
                                     ),
                                   ),
+
+                                  // Shipping Method
+                                  if (Provider.of<SplashProvider>(context,
+                                              listen: false)
+                                          .configModel
+                                          .shippingMethod ==
+                                      'sellerwise_shipping')
+                                    Container(
+                                      margin: EdgeInsets.all(16),
+                                      child: InkWell(
+                                        onTap: () {
+                                          if (Provider.of<AuthProvider>(context,
+                                                  listen: false)
+                                              .isLoggedIn()) {
+                                            showModalBottomSheet(
+                                              context: context,
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              builder: (context) =>
+                                                  ShippingMethodBottomSheet(
+                                                groupId: sellerGroupList[index]
+                                                    .cartGroupId,
+                                                sellerIndex: index,
+                                                sellerId:
+                                                    sellerGroupList[index].id ??
+                                                        0,
+                                              ),
+                                            );
+                                          } else {
+                                            showCustomSnackBar(
+                                                'not_logged_in', context);
+                                          }
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.all(16),
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFF8F9FA),
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                            border: Border.all(
+                                              color: Color(0xFFE9ECEF),
+                                              width: 1,
+                                            ),
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons
+                                                        .local_shipping_outlined,
+                                                    color: Color(0xFFFF6B35),
+                                                    size: 20,
+                                                  ),
+                                                  SizedBox(width: 12),
+                                                  Text(
+                                                    getTranslated(
+                                                        'SHIPPING_PARTNER',
+                                                        context),
+                                                    style: TextStyle(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Color(0xFF1A1A1A),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    (cart.shippingList == null ||
+                                                            cart.shippingList
+                                                                    .length <=
+                                                                index ||
+                                                            cart.shippingList[
+                                                                    index] ==
+                                                                null ||
+                                                            cart
+                                                                    .shippingList[
+                                                                        index]
+                                                                    .shippingMethodList ==
+                                                                null ||
+                                                            cart.chosenShippingList
+                                                                    .length ==
+                                                                0 ||
+                                                            cart
+                                                                    .shippingList[
+                                                                        index]
+                                                                    .shippingIndex ==
+                                                                -1 ||
+                                                            cart
+                                                                    .shippingList[
+                                                                        index]
+                                                                    .shippingIndex >=
+                                                                cart
+                                                                    .shippingList[
+                                                                        index]
+                                                                    .shippingMethodList
+                                                                    .length)
+                                                        ? 'Select'
+                                                        : '${cart.shippingList[index].shippingMethodList[cart.shippingList[index].shippingIndex].title.toString()}',
+                                                    style: TextStyle(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      color: Color(0xFFFF6B35),
+                                                    ),
+                                                    maxLines: 1,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                  ),
+                                                  SizedBox(width: 8),
+                                                  Icon(
+                                                    Icons.keyboard_arrow_down,
+                                                    color: Color(0xFFFF6B35),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                 ],
                               ),
+                            );
+                          },
+                        ),
+
+                        // Global Shipping Method
+                        if (Provider.of<SplashProvider>(context, listen: false)
+                                .configModel
+                                .shippingMethod !=
+                            'sellerwise_shipping')
+                          Container(
+                            margin: EdgeInsets.all(16),
+                            child: InkWell(
+                              onTap: () {
+                                if (Provider.of<AuthProvider>(context,
+                                        listen: false)
+                                    .isLoggedIn()) {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    builder: (context) =>
+                                        ShippingMethodBottomSheet(
+                                      groupId: 'all_cart_group',
+                                      sellerIndex: 0,
+                                      sellerId: 1,
+                                    ),
+                                  );
+                                } else {
+                                  showCustomSnackBar('not_logged_in', context);
+                                }
+                              },
+                              child: Container(
+                                padding: EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
+                                    color: Color(0xFFE9ECEF),
+                                    width: 1,
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.05),
+                                      blurRadius: 20,
+                                      offset: Offset(0, 4),
+                                    ),
+                                  ],
+                                ),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.local_shipping_outlined,
+                                          color: Color(0xFFFF6B35),
+                                          size: 20,
+                                        ),
+                                        SizedBox(width: 8),
+                                        Text(
+                                          getTranslated(
+                                              'SHIPPING_PARTNER', context),
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500,
+                                            color: Color(0xFF1A1A1A),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          (cart.shippingList == null ||
+                                                  cart.shippingList.length ==
+                                                      0 ||
+                                                  cart.shippingList[0] ==
+                                                      null ||
+                                                  cart.chosenShippingList
+                                                          .length ==
+                                                      0 ||
+                                                  cart.shippingList[0]
+                                                          .shippingMethodList ==
+                                                      null ||
+                                                  cart.shippingList[0]
+                                                          .shippingIndex ==
+                                                      -1 ||
+                                                  cart.shippingList[0]
+                                                          .shippingIndex >=
+                                                      cart
+                                                          .shippingList[0]
+                                                          .shippingMethodList
+                                                          .length)
+                                              ? 'Select'
+                                              : '${cart.shippingList[0].shippingMethodList[cart.shippingList[0].shippingIndex].title.toString()}',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                            color: Color(0xFFFF6B35),
+                                          ),
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                        SizedBox(width: 8),
+                                        Icon(
+                                          Icons.keyboard_arrow_down,
+                                          color: Color(0xFFFF6B35),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
+                          ),
+
+                        // Recommended Products Section (show even when cart is empty)
+                        RecommendedProductsWidget(key: _recommendedProductsKey),
+
+                        // Add some bottom padding to prevent overflow
+                        SizedBox(height: 100),
+                      ],
+                    ),
+                  ),
+                )
+              : Container(
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height * 0.6,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.shopping_cart_outlined,
+                          size: 80,
+                          color: Color(0xFF6C757D),
+                        ),
+                        SizedBox(height: 16),
+                        Text(
+                          'Your cart is empty',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF1A1A1A),
+                          ),
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          'Add some products to get started',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Color(0xFF6C757D),
+                          ),
+                        ),
+                        SizedBox(height: 24),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (_) =>
+                                    DashBoardScreen(initialPageIndex: 0),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFFFF6B35),
+                            foregroundColor: Colors.white,
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 32, vertical: 16),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.shopping_bag, size: 20),
+                              SizedBox(width: 8),
+                              Text(
+                                'Start Shopping',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
                     ),
                   ),
-                // Bottom Navigation Bar
-                Container(
-                  height: 70,
-                  padding:
-                  EdgeInsets.symmetric(horizontal: 4, vertical: 6),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      _buildNavItem(
-                        icon: Icons.home_rounded,
-                        label: getTranslated('home', context) ?? 'Home',
-                        isSelected: false,
-                        onTap: () => _navigateToPage(0),
-                      ),
-                      _buildNavItem(
-                        icon: Icons.apps_rounded,
-                        label: getTranslated('CATEGORY', context) ??
-                            'Category',
-                        isSelected: false,
-                        onTap: () => _navigateToPage(1),
-                      ),
-                      _buildCartItem(),
-                      _buildNavItem(
-                        icon: Icons.receipt_long_rounded,
-                        label:
-                        getTranslated('orders', context) ?? 'Orders',
-                        isSelected: false,
-                        onTap: () => _navigateToPage(3),
-                      ),
-                      _buildNavItem(
-                        icon: Icons.account_circle_rounded,
-                        label: getTranslated('PROFILE', context) ??
-                            'Profile',
-                        isSelected: false,
-                        onTap: () => _navigateToPage(4),
+                ),
+          // Checkout Button and Bottom Navigation Bar
+          bottomNavigationBar: (!widget.fromCheckout)
+              ? Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 20,
+                        spreadRadius: 0,
+                        offset: Offset(0, -2),
                       ),
                     ],
                   ),
-                ),
-              ],
-            ),
-          ),
-        )
-            : ""
-      );
+                  child: SafeArea(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        // Checkout Button (only show when cart has items)
+                        if (cart.cartList.isNotEmpty)
+                          Container(
+                            height: 80,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 12),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Total Amount',
+                                        style: TextStyle(
+                                          color: Color(0xFF6C757D),
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      SizedBox(height: 2),
+                                      _buildTotalPriceWithDecimal(
+                                          context, amount + shippingAmount),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(width: 16),
+                                Expanded(
+                                  child: Container(
+                                    height: 50,
+                                    child: ElevatedButton(
+                                      onPressed: () async {
+                                        if (Provider.of<AuthProvider>(context,
+                                                listen: false)
+                                            .isLoggedIn()) {
+                                          if (cart.cartList.length == 0) {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(SnackBar(
+                                              content: Text(getTranslated(
+                                                  'select_at_least_one_product',
+                                                  context)),
+                                              backgroundColor: Colors.red,
+                                            ));
+                                          } else if (cart.chosenShippingList ==
+                                                  null ||
+                                              cart.chosenShippingList.length ==
+                                                  0) {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(SnackBar(
+                                              content: Text(getTranslated(
+                                                  'select_shipping_method',
+                                                  context)),
+                                              backgroundColor: Colors.red,
+                                            ));
+                                          } else if (cart.chosenShippingList
+                                                      .length <
+                                                  cartProductList.length &&
+                                              Provider.of<SplashProvider>(
+                                                          context,
+                                                          listen: false)
+                                                      .configModel
+                                                      .shippingMethod ==
+                                                  'sellerwise_shipping') {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(SnackBar(
+                                              content: Text(getTranslated(
+                                                  'select_all_shipping_method',
+                                                  context)),
+                                              backgroundColor: Colors.red,
+                                            ));
+                                          } else {
+                                            // Check minimum order amount for JD products (sellerId = 1)
+                                            bool hasJdProducts = false;
+                                            double jdProductsTotal = 0.0;
+
+                                            // Check if cart has JD products and calculate their total
+                                            for (var cartItem in cartList) {
+                                              if (cartItem.sellerId == 1) {
+                                                hasJdProducts = true;
+                                                double price =
+                                                    cartItem.discountedPrice ??
+                                                        cartItem.price ??
+                                                        0.0;
+                                                int quantity =
+                                                    cartItem.quantity ?? 1;
+                                                jdProductsTotal +=
+                                                    (price * quantity);
+                                              }
+                                            }
+
+                                            // If cart has JD products, get minimum order amount from API and check requirement
+                                            if (hasJdProducts) {
+                                              double minimumOrderAmount =
+                                                  await Provider.of<
+                                                              CartProvider>(
+                                                          context,
+                                                          listen: false)
+                                                      .getJdMinimumOrderAmount();
+
+                                              // Calculate total amount including shipping
+                                              double totalAmount =
+                                                  amount + shippingAmount;
+
+                                              if (totalAmount <
+                                                  minimumOrderAmount) {
+                                                double remainingAmount =
+                                                    minimumOrderAmount -
+                                                        totalAmount;
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(SnackBar(
+                                                  content: Text(
+                                                      "You have international delivery items in your cart. Minimum order amount for international products is ${minimumOrderAmount.toStringAsFixed(0)} AED. You need to add ${remainingAmount.toStringAsFixed(0)} AED more to proceed."),
+                                                  backgroundColor: Colors.red,
+                                                  duration:
+                                                      Duration(seconds: 5),
+                                                ));
+                                                return;
+                                              }
+                                            }
+
+                                            // If validation passes, proceed to checkout
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (_) => CheckoutScreen(
+                                                  cartList: cartList,
+                                                  totalOrderAmount:
+                                                      amount + shippingAmount,
+                                                  shippingFee: shippingAmount,
+                                                  discount: discount,
+                                                  tax: tax,
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                        } else {
+                                          showAnimatedDialog(
+                                              context, GuestDialog(),
+                                              isFlip: true);
+                                        }
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Color(0xFFFF6B35),
+                                        foregroundColor: Colors.white,
+                                        elevation: 0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(Icons.shopping_cart_checkout,
+                                              size: 20),
+                                          SizedBox(width: 8),
+                                          Text(
+                                            getTranslated('checkout', context),
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        // Bottom Navigation Bar
+                        Container(
+                          height: 70,
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              _buildNavItem(
+                                icon: Icons.home_rounded,
+                                label: getTranslated('home', context) ?? 'Home',
+                                isSelected: false,
+                                onTap: () => _navigateToPage(0),
+                              ),
+                              _buildNavItem(
+                                icon: Icons.apps_rounded,
+                                label: getTranslated('CATEGORY', context) ??
+                                    'Category',
+                                isSelected: false,
+                                onTap: () => _navigateToPage(1),
+                              ),
+                              _buildCartItem(),
+                              _buildNavItem(
+                                icon: Icons.receipt_long_rounded,
+                                label: getTranslated('orders', context) ??
+                                    'Orders',
+                                isSelected: false,
+                                onTap: () => _navigateToPage(3),
+                              ),
+                              _buildNavItem(
+                                icon: Icons.account_circle_rounded,
+                                label: getTranslated('PROFILE', context) ??
+                                    'Profile',
+                                isSelected: false,
+                                onTap: () => _navigateToPage(4),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              : "");
     });
   }
 
@@ -812,7 +826,7 @@ class _CartScreenState extends State<CartScreen> {
                       if (cart.cartList.isEmpty) return SizedBox.shrink();
                       return Container(
                         padding:
-                        EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                            EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.red,
                           borderRadius: BorderRadius.circular(10),

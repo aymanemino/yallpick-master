@@ -13,7 +13,7 @@ class BannerModel {
   Product? product;
 
   BannerModel(
-      {this.id ?? 0,
+      {this.id,
       this.photo,
       this.bannerType,
       this.published,

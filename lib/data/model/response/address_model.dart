@@ -16,7 +16,7 @@ class AddressModel {
   int? isBilling;
 
   AddressModel(
-      {this.id ?? 0,
+      {this.id,
         this.customerId,
         this.contactPersonName,
         this.addressType,

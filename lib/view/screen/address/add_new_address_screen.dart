@@ -25,7 +25,7 @@ class AddNewAddressScreen extends StatefulWidget {
 
   AddNewAddressScreen(
       {this.isEnableUpdate = false,
-      this.address ?? "",
+      this.address,
       this.fromCheckout = false,
       this.isBilling});
 
@@ -173,16 +173,17 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                     mapType: MapType.normal,
                                                     initialCameraPosition:
                                                         CameraPosition(
-                                                      target: widget
-                                                              .isEnableUpdate
+                                                      target: widget.isEnableUpdate
                                                           ? LatLng(
                                                               double.parse(widget
-                                                                      .address
-                                                                      .latitude ?? "0") ??
+                                                                          .address
+                                                                          .latitude ??
+                                                                      "0") ??
                                                                   0.0,
                                                               double.parse(widget
-                                                                      .address
-                                                                      .longitude ?? "0") ??
+                                                                          .address
+                                                                          .longitude ??
+                                                                      "0") ??
                                                                   0.0)
                                                           : LatLng(
                                                               locationProvider
@@ -394,7 +395,8 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                                         'add_the_location_correctly',
                                                         context),
                                                     style: TextStyle(
-                                                      color: Colors.grey[700]!!!,
+                                                      color:
+                                                          Colors.grey[700]!!!,
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.w500,

@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                         margin: EdgeInsets.only(right: 0),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                         height: 48,
                         alignment: Alignment.centerLeft,
                         decoration: BoxDecoration(
@@ -290,10 +290,10 @@ class _HomePageState extends State<HomePage> {
                                 padding: EdgeInsets.symmetric(
                                     horizontal: Dimensions.PADDING_SIZE_DEFAULT,
                                     vertical: Dimensions.PADDING_SIZE_SMALL
-                                  // 20,
-                                  // Dimensions.PADDING_SIZE_SMALL,
-                                  // Dimensions.PADDING_SIZE_SMALL),
-                                ),
+                                    // 20,
+                                    // Dimensions.PADDING_SIZE_SMALL,
+                                    // Dimensions.PADDING_SIZE_SMALL),
+                                    ),
                                 child: TitleRow(
                                     title: getTranslated('CATEGORY', context),
                                     onTap: () {
@@ -316,83 +316,83 @@ class _HomePageState extends State<HomePage> {
                                 builder: (context, flashDeal, child) {
                                   return flashDeal.flashDeal == null
                                       ? Padding(
-                                    padding: EdgeInsets.fromLTRB(
-                                        Dimensions.PADDING_SIZE_SMALL,
-                                        20,
-                                        Dimensions.PADDING_SIZE_SMALL,
-                                        Dimensions.PADDING_SIZE_SMALL),
-                                    child: TitleRow(
-                                        title: getTranslated(
-                                            'flash_deal', context),
-                                        eventDuration:
-                                        flashDeal.flashDeal != null
-                                            ? flashDeal.duration
-                                            : ""
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (_) =>
-                                                      FlashDealScreen()));
-                                        }),
-                                  )
+                                          padding: EdgeInsets.fromLTRB(
+                                              Dimensions.PADDING_SIZE_SMALL,
+                                              20,
+                                              Dimensions.PADDING_SIZE_SMALL,
+                                              Dimensions.PADDING_SIZE_SMALL),
+                                          child: TitleRow(
+                                              title: getTranslated(
+                                                  'flash_deal', context),
+                                              eventDuration:
+                                                  flashDeal.flashDeal != null
+                                                      ? flashDeal.duration
+                                                      : "",
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (_) =>
+                                                            FlashDealScreen()));
+                                              }),
+                                        )
                                       : (flashDeal.flashDeal.id != null &&
-                                      flashDeal.flashDealList != null &&
-                                      flashDeal.flashDealList.length >
-                                          0)
-                                      ? Padding(
-                                    // padding: EdgeInsets.fromLTRB(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: Dimensions
-                                            .PADDING_SIZE_DEFAULT,
-                                        vertical: Dimensions
-                                            .PADDING_SIZE_DEFAULT),
-                                    // Dimensions.PADDING_SIZE_SMALL,
-                                    // 20,
-                                    // Dimensions.PADDING_SIZE_SMALL,
-                                    // Dimensions.PADDING_SIZE_SMALL),
-                                    child: TitleRow(
-                                        title: getTranslated(
-                                            'flash_deal', context),
-                                        eventDuration:
-                                        flashDeal.flashDeal !=
-                                            null
-                                            ? flashDeal.duration
-                                            : ""
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (_) =>
-                                                      FlashDealScreen()));
-                                        }),
-                                  )
-                                      : SizedBox.shrink();
+                                              flashDeal.flashDealList != null &&
+                                              flashDeal.flashDealList.length >
+                                                  0)
+                                          ? Padding(
+                                              // padding: EdgeInsets.fromLTRB(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: Dimensions
+                                                      .PADDING_SIZE_DEFAULT,
+                                                  vertical: Dimensions
+                                                      .PADDING_SIZE_DEFAULT),
+                                              // Dimensions.PADDING_SIZE_SMALL,
+                                              // 20,
+                                              // Dimensions.PADDING_SIZE_SMALL,
+                                              // Dimensions.PADDING_SIZE_SMALL),
+                                              child: TitleRow(
+                                                  title: getTranslated(
+                                                      'flash_deal', context),
+                                                  eventDuration:
+                                                      flashDeal.flashDeal !=
+                                                              null
+                                                          ? flashDeal.duration
+                                                          : "",
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (_) =>
+                                                                FlashDealScreen()));
+                                                  }),
+                                            )
+                                          : SizedBox.shrink();
                                 },
                               ),
                               Consumer<FlashDealProvider>(
                                 builder: (context, megaDeal, child) {
                                   return megaDeal.flashDeal == null
                                       ? Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: Dimensions
-                                            .PADDING_SIZE_SMALL),
-                                    child: Container(
-                                        height: 150,
-                                        child: FlashDealsView()),
-                                  )
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: Dimensions
+                                                  .PADDING_SIZE_SMALL),
+                                          child: Container(
+                                              height: 150,
+                                              child: FlashDealsView()),
+                                        )
                                       : (megaDeal.flashDeal.id != null &&
-                                      megaDeal.flashDealList != null &&
-                                      megaDeal.flashDealList.length > 0)
-                                      ? Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: Dimensions
-                                            .PADDING_SIZE_SMALL),
-                                    child: Container(
-                                        height: 150,
-                                        child: FlashDealsView()),
-                                  )
-                                      : SizedBox.shrink();
+                                              megaDeal.flashDealList != null &&
+                                              megaDeal.flashDealList.length > 0)
+                                          ? Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: Dimensions
+                                                      .PADDING_SIZE_SMALL),
+                                              child: Container(
+                                                  height: 150,
+                                                  child: FlashDealsView()),
+                                            )
+                                          : SizedBox.shrink();
                                 },
                               ),
 
@@ -446,7 +446,7 @@ class _HomePageState extends State<HomePage> {
                               Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal:
-                                    0), // Remove horizontal padding to eliminate edge spacing
+                                        0), // Remove horizontal padding to eliminate edge spacing
                                 child: FeaturedProductView(
                                   scrollController: _scrollController,
                                   isHome: true,
@@ -459,78 +459,78 @@ class _HomePageState extends State<HomePage> {
                                 builder:
                                     (context, featuredDealProvider, child) {
                                   return featuredDealProvider
-                                      .featuredDealList ==
-                                      null
+                                              .featuredDealList ==
+                                          null
                                       ? Padding(
-                                    padding: EdgeInsets.fromLTRB(
-                                        Dimensions.PADDING_SIZE_SMALL,
-                                        20,
-                                        Dimensions.PADDING_SIZE_SMALL,
-                                        Dimensions.PADDING_SIZE_SMALL),
-                                    child: TitleRow(
-                                        title: getTranslated(
-                                            'featured_deals', context),
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (_) =>
-                                                      FeaturedDealScreen()));
-                                        }),
-                                  )
+                                          padding: EdgeInsets.fromLTRB(
+                                              Dimensions.PADDING_SIZE_SMALL,
+                                              20,
+                                              Dimensions.PADDING_SIZE_SMALL,
+                                              Dimensions.PADDING_SIZE_SMALL),
+                                          child: TitleRow(
+                                              title: getTranslated(
+                                                  'featured_deals', context),
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (_) =>
+                                                            FeaturedDealScreen()));
+                                              }),
+                                        )
                                       : (featuredDealProvider
-                                      .featuredDealList !=
-                                      null &&
-                                      featuredDealProvider
-                                          .featuredDealList.length >
-                                          0)
-                                      ? Padding(
-                                    padding: EdgeInsets.fromLTRB(
-                                        Dimensions.PADDING_SIZE_SMALL,
-                                        20,
-                                        Dimensions.PADDING_SIZE_SMALL,
-                                        Dimensions
-                                            .PADDING_SIZE_SMALL),
-                                    child: TitleRow(
-                                        title: getTranslated(
-                                            'featured_deals',
-                                            context),
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (_) =>
-                                                      FeaturedDealScreen()));
-                                        }),
-                                  )
-                                      : SizedBox.shrink();
+                                                      .featuredDealList !=
+                                                  null &&
+                                              featuredDealProvider
+                                                      .featuredDealList.length >
+                                                  0)
+                                          ? Padding(
+                                              padding: EdgeInsets.fromLTRB(
+                                                  Dimensions.PADDING_SIZE_SMALL,
+                                                  20,
+                                                  Dimensions.PADDING_SIZE_SMALL,
+                                                  Dimensions
+                                                      .PADDING_SIZE_SMALL),
+                                              child: TitleRow(
+                                                  title: getTranslated(
+                                                      'featured_deals',
+                                                      context),
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (_) =>
+                                                                FeaturedDealScreen()));
+                                                  }),
+                                            )
+                                          : SizedBox.shrink();
                                 },
                               ),
                               Consumer<FeaturedDealProvider>(
                                 builder: (context, featuredDeal, child) {
                                   return featuredDeal.featuredDealList == null
                                       ? Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: Dimensions
-                                            .PADDING_SIZE_SMALL),
-                                    child: Container(
-                                        height: 150,
-                                        child: FeaturedDealsView()),
-                                  )
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: Dimensions
+                                                  .PADDING_SIZE_SMALL),
+                                          child: Container(
+                                              height: 150,
+                                              child: FeaturedDealsView()),
+                                        )
                                       : (featuredDeal.featuredDealList !=
-                                      null &&
-                                      featuredDeal
-                                          .featuredDealList.length >
-                                          0)
-                                      ? Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: Dimensions
-                                            .PADDING_SIZE_SMALL),
-                                    child: Container(
-                                        height: 150,
-                                        child: FeaturedDealsView()),
-                                  )
-                                      : SizedBox.shrink();
+                                                  null &&
+                                              featuredDeal
+                                                      .featuredDealList.length >
+                                                  0)
+                                          ? Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: Dimensions
+                                                      .PADDING_SIZE_SMALL),
+                                              child: Container(
+                                                  height: 150,
+                                                  child: FeaturedDealsView()),
+                                            )
+                                          : SizedBox.shrink();
                                 },
                               ),
 
@@ -546,7 +546,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: EdgeInsets.symmetric(
                                     horizontal: Dimensions.PADDING_SIZE_DEFAULT,
                                     vertical:
-                                    Dimensions.PADDING_SIZE_EXTRA_SMALL),
+                                        Dimensions.PADDING_SIZE_EXTRA_SMALL),
                                 //child: TitleRow(
                                 //title: getTranslated(
                                 //'latest_products', context),
@@ -570,9 +570,9 @@ class _HomePageState extends State<HomePage> {
                               Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal:
-                                    0), // Remove horizontal padding to eliminate edge spacing
+                                        0), // Remove horizontal padding to eliminate edge spacing
                                 child:
-                                HomeCategoryProductView(isHomePage: true),
+                                    HomeCategoryProductView(isHomePage: true),
                               ),
 
                               //Category filter
@@ -584,44 +584,44 @@ class _HomePageState extends State<HomePage> {
                                     vertical: Dimensions.PADDING_SIZE_DEFAULT),
                                 child: Consumer<ProductProvider>(
                                     builder: (ctx, prodProvider, child) {
-                                      return Row(children: [
-                                        Expanded(
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  right:
-                                                  Dimensions.PADDING_SIZE_DEFAULT),
-                                              child: Text(
-                                                  prodProvider.title == 'xyz'
-                                                      ? getTranslated(
-                                                      'new_arrival', context)
-                                                      : prodProvider.title,
-                                                  style: robotoBold.copyWith(
-                                                      fontSize: Dimensions
-                                                          .FONT_SIZE_DEFAULT)),
-                                            )),
-                                        prodProvider.latestProductList != null
-                                            ? PopupMenuButton(
+                                  return Row(children: [
+                                    Expanded(
+                                        child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          right:
+                                              Dimensions.PADDING_SIZE_DEFAULT),
+                                      child: Text(
+                                          prodProvider.title == 'xyz'
+                                              ? getTranslated(
+                                                  'new_arrival', context)
+                                              : prodProvider.title,
+                                          style: robotoBold.copyWith(
+                                              fontSize: Dimensions
+                                                  .FONT_SIZE_DEFAULT)),
+                                    )),
+                                    prodProvider.latestProductList != null
+                                        ? PopupMenuButton(
                                             itemBuilder: (context) {
                                               return [
                                                 PopupMenuItem(
                                                     value:
-                                                    ProductType.NEW_ARRIVAL,
+                                                        ProductType.NEW_ARRIVAL,
                                                     child: Text(getTranslated(
                                                         'new_arrival',
                                                         context)),
                                                     textStyle:
-                                                    robotoRegular.copyWith(
+                                                        robotoRegular.copyWith(
                                                       color: Theme.of(context)
                                                           .hintColor,
                                                     )),
                                                 PopupMenuItem(
                                                     value:
-                                                    ProductType.TOP_PRODUCT,
+                                                        ProductType.TOP_PRODUCT,
                                                     child: Text(getTranslated(
                                                         'top_product',
                                                         context)),
                                                     textStyle:
-                                                    robotoRegular.copyWith(
+                                                        robotoRegular.copyWith(
                                                       color: Theme.of(context)
                                                           .hintColor,
                                                     )),
@@ -632,7 +632,7 @@ class _HomePageState extends State<HomePage> {
                                                         'best_selling',
                                                         context)),
                                                     textStyle:
-                                                    robotoRegular.copyWith(
+                                                        robotoRegular.copyWith(
                                                       color: Theme.of(context)
                                                           .hintColor,
                                                     )),
@@ -643,7 +643,7 @@ class _HomePageState extends State<HomePage> {
                                                         'discounted_product',
                                                         context)),
                                                     textStyle:
-                                                    robotoRegular.copyWith(
+                                                        robotoRegular.copyWith(
                                                       color: Theme.of(context)
                                                           .hintColor,
                                                     )),
@@ -652,7 +652,7 @@ class _HomePageState extends State<HomePage> {
                                             shape: RoundedRectangleBorder(
                                                 borderRadius: BorderRadius
                                                     .circular(Dimensions
-                                                    .PADDING_SIZE_SMALL)),
+                                                        .PADDING_SIZE_SMALL)),
                                             child: Padding(
                                               padding: EdgeInsets.symmetric(
                                                   horizontal: Dimensions
@@ -663,60 +663,60 @@ class _HomePageState extends State<HomePage> {
                                               if (value ==
                                                   ProductType.NEW_ARRIVAL) {
                                                 Provider.of<ProductProvider>(
-                                                    context,
-                                                    listen: false)
+                                                        context,
+                                                        listen: false)
                                                     .changeTypeOfProduct(
-                                                    value, types[0]);
+                                                        value, types[0]);
                                               } else if (value ==
                                                   ProductType.TOP_PRODUCT) {
                                                 Provider.of<ProductProvider>(
-                                                    context,
-                                                    listen: false)
+                                                        context,
+                                                        listen: false)
                                                     .changeTypeOfProduct(
-                                                    value, types[1]);
+                                                        value, types[1]);
                                               } else if (value ==
                                                   ProductType.BEST_SELLING) {
                                                 Provider.of<ProductProvider>(
-                                                    context,
-                                                    listen: false)
+                                                        context,
+                                                        listen: false)
                                                     .changeTypeOfProduct(
-                                                    value, types[2]);
+                                                        value, types[2]);
                                               } else if (value ==
                                                   ProductType
                                                       .DISCOUNTED_PRODUCT) {
                                                 Provider.of<ProductProvider>(
-                                                    context,
-                                                    listen: false)
+                                                        context,
+                                                        listen: false)
                                                     .changeTypeOfProduct(
-                                                    value, types[3]);
+                                                        value, types[3]);
                                               }
 
                                               Padding(
                                                 padding: EdgeInsets.symmetric(
                                                     horizontal:
-                                                    0), // Remove horizontal padding to eliminate edge spacing
+                                                        0), // Remove horizontal padding to eliminate edge spacing
                                                 child: ProductView(
                                                     isHomePage: false,
                                                     productType: value,
                                                     scrollController:
-                                                    _scrollController),
+                                                        _scrollController),
                                               );
                                               Provider.of<ProductProvider>(
-                                                  context,
-                                                  listen: false)
+                                                      context,
+                                                      listen: false)
                                                   .getLatestProductList(
-                                                  1, context,
-                                                  reload: true);
+                                                      1, context,
+                                                      reload: true);
                                             })
-                                            : SizedBox(),
-                                      ]);
-                                    }),
+                                        : SizedBox(),
+                                  ]);
+                                }),
                               ),
 
                               Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal:
-                                    0), // Remove horizontal padding to eliminate edge spacing
+                                        0), // Remove horizontal padding to eliminate edge spacing
                                 child: ProductView(
                                     isHomePage: false,
                                     productType: ProductType.NEW_ARRIVAL,
@@ -725,24 +725,24 @@ class _HomePageState extends State<HomePage> {
                             ],
                           ),
                           Provider.of<SplashProvider>(context, listen: false)
-                              .configModel
-                              .announcement
-                              .status ==
-                              '1'
+                                      .configModel
+                                      .announcement
+                                      .status ==
+                                  '1'
                               ? Consumer<SplashProvider>(
-                            builder: (context, announcement, _) {
-                              return announcement.onOff
-                                  ? Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: Dimensions
-                                        .PADDING_SIZE_SMALL),
-                                child: AnnouncementScreen(
-                                    announcement: announcement
-                                        .configModel.announcement),
-                              )
-                                  : SizedBox();
-                            },
-                          )
+                                  builder: (context, announcement, _) {
+                                    return announcement.onOff
+                                        ? Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: Dimensions
+                                                    .PADDING_SIZE_SMALL),
+                                            child: AnnouncementScreen(
+                                                announcement: announcement
+                                                    .configModel.announcement),
+                                          )
+                                        : SizedBox();
+                                  },
+                                )
                               : SizedBox(),
                         ],
                       ),
@@ -761,7 +761,7 @@ class _HomePageState extends State<HomePage> {
 class SliverDelegate extends SliverPersistentHeaderDelegate {
   Widget child;
 
-  SliverDelegate({@required this.child});
+  SliverDelegate({required this.child});
 
   @override
   Widget build(

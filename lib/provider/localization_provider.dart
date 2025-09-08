@@ -27,7 +27,7 @@ class LocalizationProvider extends ChangeNotifier {
     _locale = locale;
     _isLtr = _locale.languageCode != 'ar';
 
-    dioClient.updateHeader("" locale.countryCode);
+    dioClient.updateHeader("", locale.countryCode);
     for (int index = 0; index < AppConstants.languages.length; index++) {
       if (AppConstants.languages[index].languageCode == locale.languageCode) {
         _languageIndex = index;

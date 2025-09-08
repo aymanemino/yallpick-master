@@ -17,8 +17,8 @@ class DioClient {
   DioClient(
     this.baseUrl,
     Dio dioC, {
-    this.loggingInterceptor,
-    this.sharedPreferences,
+    required this.loggingInterceptor,
+    required this.sharedPreferences,
   }) {
     token = sharedPreferences.getString(AppConstants.TOKEN) ?? '';
     countryCode = sharedPreferences.getString(AppConstants.COUNTRY_CODE) ??
@@ -71,10 +71,10 @@ class DioClient {
 
   Future<Response> get(
     String uri, {
-    Map<String, dynamic> queryParameters,
-    Options options,
-    CancelToken cancelToken,
-    ProgressCallback onReceiveProgress,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onReceiveProgress,
   }) async {
     countryCode = sharedPreferences.getString(AppConstants.COUNTRY_CODE) ??
         AppConstants.languages[0].countryCode;
@@ -101,11 +101,11 @@ class DioClient {
   Future<Response> post(
     String uri, {
     data,
-    Map<String, dynamic> queryParameters,
-    Options options,
-    CancelToken cancelToken,
-    ProgressCallback onSendProgress,
-    ProgressCallback onReceiveProgress,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
     try {
       var response = await dio.post(
@@ -128,11 +128,11 @@ class DioClient {
   Future<Response> put(
     String uri, {
     data,
-    Map<String, dynamic> queryParameters,
-    Options options,
-    CancelToken cancelToken,
-    ProgressCallback onSendProgress,
-    ProgressCallback onReceiveProgress,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
     try {
       var response = await dio.put(
@@ -155,9 +155,9 @@ class DioClient {
   Future<Response> delete(
     String uri, {
     data,
-    Map<String, dynamic> queryParameters,
-    Options options,
-    CancelToken cancelToken,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
   }) async {
     try {
       var response = await dio.delete(

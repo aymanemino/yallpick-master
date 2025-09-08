@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 
 class AllProductScreen extends StatefulWidget {
   final ProductType productType;
-  AllProductScreen({@required this.productType});
+  AllProductScreen({required this.productType});
 
   @override
   _AllProductScreenState createState() => _AllProductScreenState();

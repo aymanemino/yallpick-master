@@ -40,12 +40,12 @@ class CheckoutScreen extends StatefulWidget {
   final int sellerId;
 
   CheckoutScreen(
-      {@required this.cartList,
+      {required this.cartList,
       this.fromProductDetails = false,
-      @required this.discount,
-      @required this.tax,
-      @required this.totalOrderAmount,
-      @required this.shippingFee,
+      required this.discount,
+      required this.tax,
+      required this.totalOrderAmount,
+      required this.shippingFee,
       this.sellerId});
 
   @override
@@ -282,12 +282,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                                       .id
                                                       .toString(),
                                                   Provider.of<ProfileProvider>(context, listen: false)
-                                                      .addressList[
-                                                          Provider.of<OrderProvider>(
-                                                                  context,
-                                                                  listen: false)
-                                                              .addressIndex]
-                                                      .address ?? "",
+                                                          .addressList[
+                                                              Provider.of<OrderProvider>(context, listen: false)
+                                                                  .addressIndex]
+                                                          .address ??
+                                                      "",
                                                   Provider.of<ProfileProvider>(context, listen: false)
                                                       .billingAddressList[
                                                           Provider.of<OrderProvider>(
@@ -296,10 +295,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                                               .billingAddressIndex]
                                                       .id
                                                       .toString(),
-                                                  Provider.of<ProfileProvider>(context,
-                                                          listen: false)
-                                                      .billingAddressList[Provider.of<OrderProvider>(context, listen: false).billingAddressIndex]
-                                                      .address ?? "",
+                                                  Provider.of<ProfileProvider>(context, listen: false)
+                                                          .billingAddressList[Provider.of<OrderProvider>(context, listen: false).billingAddressIndex]
+                                                          .address ??
+                                                      "",
                                                   orderNote),
                                               _cartList,
                                               order.paymentMethodIndex == 0
@@ -489,14 +488,15 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           ? getTranslated(
                                               'add_your_address', context)
                                           : Provider.of<ProfileProvider>(
-                                                  context,
-                                                  listen: false)
-                                              .addressList[
-                                                  Provider.of<OrderProvider>(
+                                                      context,
+                                                      listen: false)
+                                                  .addressList[Provider.of<
+                                                              OrderProvider>(
                                                           context,
                                                           listen: false)
                                                       .addressIndex]
-                                              .address ?? "",
+                                                  .address ??
+                                              "",
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.black87,
@@ -640,14 +640,15 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           ? getTranslated(
                                               'add_your_address', context)
                                           : Provider.of<ProfileProvider>(
-                                                  context,
-                                                  listen: false)
-                                              .billingAddressList[
-                                                  Provider.of<OrderProvider>(
-                                                          context,
-                                                          listen: false)
+                                                      context,
+                                                      listen: false)
+                                                  .billingAddressList[Provider
+                                                          .of<OrderProvider>(
+                                                              context,
+                                                              listen: false)
                                                       .billingAddressIndex]
-                                              .address ?? "",
+                                                  .address ??
+                                              "",
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.black87,
@@ -1425,10 +1426,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 }
 
 class PaymentButton extends StatelessWidget {
-  final String image = "";
+  final String image;
   final Function onTap;
 
-  PaymentButton({@required this.image, this.onTap});
+  PaymentButton({required this.image, this.onTap});
 
   @override
   Widget build(BuildContext context) {

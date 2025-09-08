@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 
 class BottomCartView extends StatelessWidget {
   final Product product;
-  BottomCartView({@required this.product});
+  BottomCartView({required this.product});
 
   @override
   Widget build(BuildContext context) {

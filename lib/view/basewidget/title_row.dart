@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/utill/color_resources.dart';
@@ -13,7 +12,12 @@ class TitleRow extends StatelessWidget {
   final Function? onTap;
   final Duration? eventDuration;
   final bool? isDetailsPage;
-  TitleRow({required this.title, this.icon, this.onTap, this.eventDuration, this.isDetailsPage});
+  TitleRow(
+      {required this.title,
+      this.icon,
+      this.onTap,
+      this.eventDuration,
+      this.isDetailsPage});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,10 @@ class TitleRow extends StatelessWidget {
       days = eventDuration.inDays;
       hours = eventDuration.inHours - days * 24;
       minutes = eventDuration.inMinutes - (24 * days * 60) - (hours * 60);
-      seconds = eventDuration.inSeconds - (24 * days * 60 * 60) - (hours * 60 * 60) - (minutes * 60);
+      seconds = eventDuration.inSeconds -
+          (24 * days * 60 * 60) -
+          (hours * 60 * 60) -
+          (minutes * 60);
     }
 
     return Row(children: [
@@ -33,29 +40,29 @@ class TitleRow extends StatelessWidget {
               child: Row(children: [
               SizedBox(width: 5),
               TimerBox(time: days),
-              Text(':', style: TextStyle(color: Theme.of(context).primaryColor)),
+              Text(':',
+                  style: TextStyle(color: Theme.of(context).primaryColor)),
               TimerBox(time: hours),
-              Text(':', style: TextStyle(color: Theme.of(context).primaryColor)),
+              Text(':',
+                  style: TextStyle(color: Theme.of(context).primaryColor)),
               TimerBox(time: minutes),
-              Text(':', style: TextStyle(color: Theme.of(context).primaryColor)),
+              Text(':',
+                  style: TextStyle(color: Theme.of(context).primaryColor)),
               TimerBox(time: seconds, isBorder: true),
             ])),
-
       icon != null
           ? InkWell(
-        onTap: icon,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child:  SvgPicture.asset(
-            Images.filter_image,
-            height: Dimensions.ICON_SIZE_DEFAULT,
-            width: Dimensions.ICON_SIZE_DEFAULT,
-            color: ColorResources.getPrimary(context),
-          ),
-        )
-      )
+              onTap: icon,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: SvgPicture.asset(
+                  Images.filter_image,
+                  height: Dimensions.ICON_SIZE_DEFAULT,
+                  width: Dimensions.ICON_SIZE_DEFAULT,
+                  color: ColorResources.getPrimary(context),
+                ),
+              ))
           : SizedBox.shrink(),
-
       onTap != null
           ? InkWell(
               onTap: onTap as void Function()?,
@@ -68,9 +75,15 @@ class TitleRow extends StatelessWidget {
                         ))
                     : SizedBox.shrink(),
                 Padding(
-                  padding: EdgeInsets.only(left : Dimensions.PADDING_SIZE_SMALL,top:Dimensions.PADDING_SIZE_SMALL,bottom: Dimensions.PADDING_SIZE_SMALL),
-                  child: Icon(Icons.arrow_forward_ios,
-                    color: isDetailsPage == null ? ColorResources.getPrimary(context) : Theme.of(context).hintColor,
+                  padding: EdgeInsets.only(
+                      left: Dimensions.PADDING_SIZE_SMALL,
+                      top: Dimensions.PADDING_SIZE_SMALL,
+                      bottom: Dimensions.PADDING_SIZE_SMALL),
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    color: isDetailsPage == null
+                        ? ColorResources.getPrimary(context)
+                        : Theme.of(context).hintColor,
                     size: Dimensions.FONT_SIZE_SMALL,
                   ),
                 ),
@@ -94,13 +107,18 @@ class TimerBox extends StatelessWidget {
       padding: EdgeInsets.all(isBorder ? 0 : 2),
       decoration: BoxDecoration(
         color: isBorder ? null : ColorResources.getPrimary(context),
-        border: isBorder ? Border.all(width: 2, color: ColorResources.getPrimary(context)) : ""
+        border: isBorder
+            ? Border.all(width: 2, color: ColorResources.getPrimary(context))
+            : null,
         borderRadius: BorderRadius.circular(3),
       ),
       child: Center(
-        child: Text(time < 10 ? '0$time' : time.toString(),
+        child: Text(
+          time < 10 ? '0$time' : time.toString(),
           style: robotoBold.copyWith(
-            color: isBorder ? ColorResources.getPrimary(context) : Theme.of(context).highlightColor,
+            color: isBorder
+                ? ColorResources.getPrimary(context)
+                : Theme.of(context).highlightColor,
             fontSize: Dimensions.FONT_SIZE_SMALL,
           ),
         ),

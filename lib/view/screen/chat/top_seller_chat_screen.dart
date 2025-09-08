@@ -19,7 +19,7 @@ import '../../../localization/language_constrants.dart';
 // ignore: must_be_immutable
 class TopSellerChatScreen extends StatelessWidget {
   final TopSellerModel topSeller;
-  TopSellerChatScreen({@required this.topSeller});
+  TopSellerChatScreen({required this.topSeller});
 
   final ImagePicker picker = ImagePicker();
   final TextEditingController _controller = TextEditingController();

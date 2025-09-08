@@ -11,7 +11,7 @@ class ShippingMethodBottomSheet extends StatefulWidget {
   final String groupId;
   final int sellerId;
   final int sellerIndex;
-  ShippingMethodBottomSheet({@required this.groupId, @required this.sellerId, @required this.sellerIndex});
+  ShippingMethodBottomSheet({required this.groupId, required this.sellerId, required this.sellerIndex});
 
   @override
   _ShippingMethodBottomSheetState createState() => _ShippingMethodBottomSheetState();

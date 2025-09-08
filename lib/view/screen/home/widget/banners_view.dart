@@ -20,13 +20,18 @@ import 'package:shimmer/shimmer.dart';
 
 class BannersView extends StatelessWidget {
   Future<void> _loadData(BuildContext context, bool reload) async {
-    await Provider.of<BannerProvider>(context, listen: false).getBannerList(reload, context);
-    await Provider.of<BannerProvider>(context, listen: false).getFooterBannerList(context);
-    await Provider.of<CategoryProvider>(context, listen: false).getCategoryList(reload, context);
+    await Provider.of<BannerProvider>(context, listen: false)
+        .getBannerList(reload, context);
+    await Provider.of<BannerProvider>(context, listen: false)
+        .getFooterBannerList(context);
+    await Provider.of<CategoryProvider>(context, listen: false)
+        .getCategoryList(reload, context);
     await Provider.of<HomeCategoryProductProvider>(context, listen: false)
         .getHomeCategoryProductList(reload, context);
-    await Provider.of<TopSellerProvider>(context, listen: false).getTopSellerList(reload, context);
-    await Provider.of<BrandProvider>(context, listen: false).getBrandList(reload, context);
+    await Provider.of<TopSellerProvider>(context, listen: false)
+        .getTopSellerList(reload, context);
+    await Provider.of<BrandProvider>(context, listen: false)
+        .getBrandList(reload, context);
     await Provider.of<ProductProvider>(context, listen: false)
         .getLatestProductList(1, context, reload: reload);
     await Provider.of<ProductProvider>(context, listen: false)
@@ -36,7 +41,9 @@ class BannersView extends StatelessWidget {
     await Provider.of<ProductProvider>(context, listen: false)
         .getLProductList('1', context, reload: reload);
     await Provider.of<ProductDetailsProvider>(context, listen: false)
-        .initProduct(Provider.of<BannerProvider>(context, listen: false).product, context);
+        .initProduct(
+            Provider.of<BannerProvider>(context, listen: false).product,
+            context);
   }
 
   _clickBannerRedirect(BuildContext context, int id, String slug, String type) {
@@ -51,7 +58,10 @@ class BannersView extends StatelessWidget {
         .indexWhere((element) => element.id == id);
 
     if (type == 'category') {
-      if (Provider.of<CategoryProvider>(context, listen: false).categoryList[cIndex].name != null) {
+      if (Provider.of<CategoryProvider>(context, listen: false)
+              .categoryList[cIndex]
+              .name !=
+          null) {
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -77,31 +87,39 @@ class BannersView extends StatelessWidget {
                     banner: true,
                   )));
     } else if (type == 'brand') {
-      if (Provider.of<BrandProvider>(context, listen: false).brandList[bIndex].name != null) {
+      if (Provider.of<BrandProvider>(context, listen: false)
+              .brandList[bIndex]
+              .name !=
+          null) {
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (_) => BrandAndCategoryProductScreen(
               isBrand: true,
               id: id.toString(),
-              name: '${Provider.of<BrandProvider>(context, listen: false).brandList[bIndex].name}',
+              name:
+                  '${Provider.of<BrandProvider>(context, listen: false).brandList[bIndex].name}',
             ),
           ),
         );
       }
     } else if (type == 'shop') {
-      if (Provider.of<TopSellerProvider>(context, listen: false).topSellerList[tIndex].name !=
+      if (Provider.of<TopSellerProvider>(context, listen: false)
+              .topSellerList[tIndex]
+              .name !=
           null) {
         Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (_) => TopSellerProductScreen(
                       // topSellerId: id.toString(),
-                      topSellerId: Provider.of<TopSellerProvider>(context, listen: false)
-                          .topSellerList[tIndex]
-                          .sellerId,
-                      topSeller: Provider.of<TopSellerProvider>(context, listen: false)
-                          .topSellerList[tIndex],
+                      topSellerId:
+                          Provider.of<TopSellerProvider>(context, listen: false)
+                              .topSellerList[tIndex]
+                              .sellerId,
+                      topSeller:
+                          Provider.of<TopSellerProvider>(context, listen: false)
+                              .topSellerList[tIndex],
                     )));
       }
     }
@@ -130,13 +148,15 @@ class BannersView extends StatelessWidget {
                                 enlargeCenterPage: true,
                                 disableCenter: true,
                                 onPageChanged: (index, reason) {
-                                  Provider.of<BannerProvider>(context, listen: false)
+                                  Provider.of<BannerProvider>(context,
+                                          listen: false)
                                       .setCurrentIndex(index);
                                 },
                               ),
-                              itemCount: bannerProvider.mainBannerList.length == 0
-                                  ? 1
-                                  : bannerProvider.mainBannerList.length,
+                              itemCount:
+                                  bannerProvider.mainBannerList.length == 0
+                                      ? 1
+                                      : bannerProvider.mainBannerList.length,
                               itemBuilder: (context, index, _) {
                                 return InkWell(
                                   onTap: () {
@@ -148,28 +168,42 @@ class BannersView extends StatelessWidget {
                                                 .resourceId
                                                 .toString());
                                     */
-                                    if (bannerProvider.mainBannerList[index].product == null) {
+                                    if (bannerProvider
+                                            .mainBannerList[index].product ==
+                                        null) {
                                       return;
                                     }
 
                                     _clickBannerRedirect(
                                         context,
-                                        bannerProvider.mainBannerList[index].resourceType ==
+                                        bannerProvider.mainBannerList[index]
+                                                    .resourceType ==
                                                 'product'
-                                            ? bannerProvider.mainBannerList[index].product.id
-                                            : bannerProvider.mainBannerList[index].resourceId,
-                                        bannerProvider.mainBannerList[index].resourceType ==
+                                            ? bannerProvider
+                                                .mainBannerList[index]
+                                                .product
+                                                .id
+                                            : bannerProvider
+                                                .mainBannerList[index]
+                                                .resourceId,
+                                        bannerProvider.mainBannerList[index]
+                                                    .resourceType ==
                                                 'product'
-                                            ? bannerProvider.mainBannerList[index].product.slug
+                                            ? bannerProvider
+                                                .mainBannerList[index]
+                                                .product
+                                                .slug
                                             : '',
-                                        bannerProvider.mainBannerList[index].resourceType);
+                                        bannerProvider.mainBannerList[index]
+                                            .resourceType);
                                   },
                                   child: Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 8.0, horizontal: 0),
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 8.0, horizontal: 0),
                                     child: Container(
-                                      decoration:
-                                          BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(10),
                                         child: FadeInImage.assetNetwork(
@@ -179,7 +213,8 @@ class BannersView extends StatelessWidget {
                                               '${Provider.of<SplashProvider>(context, listen: false).baseUrls.bannerImageUrl}'
                                               '/${bannerProvider.mainBannerList[index].photo}',
                                           imageErrorBuilder: (c, o, s) =>
-                                              Image.asset(Images.placeholder, fit: BoxFit.cover),
+                                              Image.asset(Images.placeholder,
+                                                  fit: BoxFit.cover),
                                         ),
                                       ),
                                     ),
@@ -217,7 +252,7 @@ class BannersView extends StatelessWidget {
                   : Shimmer.fromColors(
                       baseColor: Colors.grey[300]!!!,
                       highlightColor: Colors.grey[100]!!!,
-                      enabled: bannerProvider.mainBannerList == ""
+                      enabled: bannerProvider.mainBannerList == "",
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
@@ -247,37 +282,51 @@ class BannersView extends StatelessWidget {
                       itemBuilder: (BuildContext context, int index) {
                         return InkWell(
                           onTap: () {
-                            print(footerBannerProvider.footerBannerList[index].resourceId);
-                            Provider.of<BannerProvider>(context, listen: false).getProductDetails(
-                                context,
-                                footerBannerProvider.footerBannerList[index].resourceId.toString());
+                            print(footerBannerProvider
+                                .footerBannerList[index].resourceId);
+                            Provider.of<BannerProvider>(context, listen: false)
+                                .getProductDetails(
+                                    context,
+                                    footerBannerProvider
+                                        .footerBannerList[index].resourceId
+                                        .toString());
                             _clickBannerRedirect(
                                 context,
-                                footerBannerProvider.footerBannerList[index].resourceType ==
+                                footerBannerProvider.footerBannerList[index]
+                                            .resourceType ==
                                         'product'
-                                    ? footerBannerProvider.footerBannerList[index].product.id
-                                    : footerBannerProvider.footerBannerList[index].resourceId,
-                                footerBannerProvider.footerBannerList[index].resourceType ==
+                                    ? footerBannerProvider
+                                        .footerBannerList[index].product.id
+                                    : footerBannerProvider
+                                        .footerBannerList[index].resourceId,
+                                footerBannerProvider.footerBannerList[index]
+                                            .resourceType ==
                                         'product'
-                                    ? footerBannerProvider.footerBannerList[index].product.slug
+                                    ? footerBannerProvider
+                                        .footerBannerList[index].product.slug
                                     : '',
-                                footerBannerProvider.footerBannerList[index].resourceType);
+                                footerBannerProvider
+                                    .footerBannerList[index].resourceType);
                           },
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 2.0),
                             child: Container(
-                              decoration:
-                                  BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(5))),
+                              decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5))),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.all(Radius.circular(5)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5)),
                                 child: FadeInImage.assetNetwork(
                                   placeholder: Images.placeholder,
                                   fit: BoxFit.cover,
                                   image:
                                       '${Provider.of<SplashProvider>(context, listen: false).baseUrls.bannerImageUrl}'
                                       '/${footerBannerProvider.footerBannerList[index].photo}',
-                                  imageErrorBuilder: (c, o, s) =>
-                                      Image.asset(Images.placeholder, fit: BoxFit.cover),
+                                  imageErrorBuilder: (c, o, s) => Image.asset(
+                                      Images.placeholder,
+                                      fit: BoxFit.cover),
                                 ),
                               ),
                             ),
@@ -288,7 +337,7 @@ class BannersView extends StatelessWidget {
                   : Shimmer.fromColors(
                       baseColor: Colors.grey[300]!!!,
                       highlightColor: Colors.grey[100]!!!,
-                      enabled: footerBannerProvider.footerBannerList == ""
+                      enabled: footerBannerProvider.footerBannerList == "",
                       child: Container(
                           margin: EdgeInsets.symmetric(horizontal: 10),
                           decoration: BoxDecoration(
